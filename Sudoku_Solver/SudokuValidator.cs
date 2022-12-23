@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sudoku_Solver.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,13 +31,13 @@ namespace Sudoku_Solver
             char[,] sudokuBoard = {
                     {'5','3','0','0','7','0','0','0','0'},
                     {'6','0','0','1','9','5','0','0','0'},
-                    {'0','9','0','0','0','0','0','6','0'},
-                    {'8','0','0','0','6','0','0','0','3'},
-                    {'4','0','0','8','0','3','0','0','1'},
-                    {'7','0','0','0','2','0','0','0','6'},
-                    {'0','6','0','0','0','0','9','8','0'},
-                    {'0','0','0','4','1','9','0','0','5'},
-                    {'0','0','0','0','8','0','0','7','3'}
+                    {'0','8','0','0','0','0','0','6','0'},
+                    {'8','0','0','0','6','0','0','0','0'},
+                    {'4','0','0','8','0','3','0','0','0'},
+                    {'7','0','8','0','2','0','0','0','6'},
+                    {'0','6','0','0','0','0','0','8','0'},
+                    {'0','0','0','4','1','9','0','0','0'},
+                    {'0','0','0','0','8','0','0','7','1'}
                 };
             SudokuValidator validator = new SudokuValidator(sudokuBoard, allowedValues, emptyValue);
             validator.Validate();
@@ -58,7 +59,7 @@ namespace Sudoku_Solver
             {
                 if (!_allowedValues.Contains(cellValue))
                 {
-                    throw new Exception("Invalid character in sudoku board in row " + (cellNumber /_sudokuBoard.GetLength(0)+1) +" column " + (cellNumber%_sudokuBoard.GetLength(1)+1));
+                    throw new AllowedValuesException((cellNumber /_sudokuBoard.GetLength(0)+1),(cellNumber%_sudokuBoard.GetLength(1)+1));
                 }
                 cellNumber++;
             }
@@ -91,7 +92,7 @@ namespace Sudoku_Solver
                 {
                     if (values.Contains(cellValue))
                     {
-                        throw new Exception("Duplicate value in row " + (row+1));
+                        throw new DuplicateValueInRow((row+1), cellValue);
                     }
                     values.Add(cellValue);
                 }
@@ -116,7 +117,7 @@ namespace Sudoku_Solver
                 {
                     if (values.Contains(cellValue))
                     {
-                        throw new Exception("Duplicate value in column " + (column+1));
+                        throw new DuplicateValueInColumn((column+1),cellValue);
                     }
                     values.Add(cellValue);
                 }
@@ -147,7 +148,7 @@ namespace Sudoku_Solver
                     {
                         if (values.Contains(cellValue))
                         {
-                            throw new Exception("Duplicate value in grid " + (grid + 1));
+                            throw new DuplicateValueInGrid((grid + 1),cellValue);
                         }
                         values.Add(cellValue);
                     }

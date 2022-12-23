@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\AllowedValuesException.cs" />
+    <Compile Include="Exceptions\DuplicateValueInColumn.cs" />
+    <Compile Include="Exceptions\DuplicateValueInGrid.cs" />
+    <Compile Include="Exceptions\DuplicateValueInRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SudokuValidator.cs" />
   </ItemGroup>

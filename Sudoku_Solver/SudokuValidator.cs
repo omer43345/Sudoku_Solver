@@ -26,8 +26,8 @@ namespace Sudoku_Solver
         {
             DateTime time = DateTime.Now;
             // checking this class functions
-            SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("0960010:30200@?003000502<0@000>0000;00?00500600007@000000000045000100@702;?00300;000=?00003>00059:0=06034080>0;10008940>10<7200000050004@0003000608010900:03050;00=0>030020;0<007>0900@=?400102::@00<0000001008200;60000000049004<00800;=00@001?00510=2009;0<600");
-            /*SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("900800000000000500000000000020010003010000060000400070708600000000030100400000200");*/
+            /*SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("0960010:30200@?003000502<0@000>0000;00?00500600007@000000000045000100@702;?00300;000=?00003>00059:0=06034080>0;10008940>10<7200000050004@0003000608010900:03050;00=0>030020;0<007>0900@=?400102::@00<0000001008200;60000000049004<00800;=00@001?00510=2009;0<600");*/
+            SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("900800000000000500000000000020010003010000060000400070708600000000030100400000200");
             SudokuValidator validator = new SudokuValidator(sudokuBoardBuilder.GetSudokuBoard());
             Console.WriteLine(validator.Validate());
             Solver solver = new Solver(sudokuBoardBuilder.GetSudokuBoard());

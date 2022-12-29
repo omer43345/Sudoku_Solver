@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitWiseSudokuSolver.cs" />
-    <Compile Include="Constants.cs" />
     <Compile Include="Exceptions\AllowedValuesException.cs" />
     <Compile Include="Exceptions\DuplicateValueInColumnException.cs" />
     <Compile Include="Exceptions\DuplicateValueInGridException.cs" />

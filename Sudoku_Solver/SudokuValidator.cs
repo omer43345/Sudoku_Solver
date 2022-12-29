@@ -14,56 +14,30 @@ namespace Sudoku_Solver
 
     internal class SudokuValidator
     {
-        private char[] _allowedValues;// allowed values for a Sudoku board
-        private char[,] _sudokuBoard;// the Sudoku board to validate
-        private char _emptyValue;// empty value in the board
-        public SudokuValidator(char[,] sudokuBoard, char[] allowedValues,char emptyValue)
+        private int[,] _sudokuBoard;// the Sudoku board to validate
+        private int _boardSize;// size of the board
+        public SudokuValidator(int[,] sudokuBoard)
         {
             _sudokuBoard = sudokuBoard;
-            _allowedValues = allowedValues;
-            _emptyValue = emptyValue;
+            _boardSize = sudokuBoard.GetLength(0);
         }
         static void Main(string[] args)
         {
+            DateTime time = DateTime.Now;
             // checking this class functions
-            char[] allowedValues = { '0','1','2','3', '4', '5', '6', '7', '8', '9' };
-            char emptyValue = '0';
-            char[,] sudokuBoard = {
-                    {'5','3','0','0','7','0','0','0','0'},
-                    {'6','0','0','1','9','5','0','0','0'},
-                    {'0','8','0','0','0','0','0','6','0'},
-                    {'8','0','0','0','6','0','0','0','0'},
-                    {'4','0','0','8','0','3','0','0','0'},
-                    {'7','0','8','0','2','0','0','0','6'},
-                    {'0','6','0','0','0','0','0','8','0'},
-                    {'0','0','0','4','1','9','0','0','0'},
-                    {'0','0','0','0','8','0','0','7','1'}
-                };
-            SudokuValidator validator = new SudokuValidator(sudokuBoard, allowedValues, emptyValue);
-            validator.Validate();
+            /*SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("0960010A30200GF003000502C0G000E0000B00F00500600007G000000000045000100G702BF00300B000DF00003E00059A0D06034080E0B10008940E10C7200000050004G0003000608010900A03050B00D0E030020B0C007E0900GDF400102AAG00C0000001008200B60000000049004C00800BD00G001F00510D2009B0C600");*/
+            SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("000002000009000000000080000000000000004000000000000100000000000500000000000000000");
+            SudokuValidator validator = new SudokuValidator(sudokuBoardBuilder.GetSudokuBoard());
+            Console.WriteLine(validator.Validate());
+            BitWiseSudokuSolver solver = new BitWiseSudokuSolver(sudokuBoardBuilder.GetSudokuBoard());
+            Console.WriteLine("Time taken: " + (DateTime.Now - time).TotalMilliseconds);
         }
         public bool Validate()
         {
-            ValidateAllowedValues();
             ValidateDuplicateValues();
             return true;
-
         }
 
-
-        //This method is used to validate if the board contains only allowed values.
-        private void ValidateAllowedValues()
-        {
-            int cellNumber = 0;
-            foreach (char cellValue in _sudokuBoard)
-            {
-                if (!_allowedValues.Contains(cellValue))
-                {
-                    throw new AllowedValuesException((cellNumber /_sudokuBoard.GetLength(0)+1),(cellNumber%_sudokuBoard.GetLength(1)+1));
-                }
-                cellNumber++;
-            }
-        }
 
         // This method is used to validate if the board contains duplicate values in a row, column or a grid.
         private void ValidateDuplicateValues()
@@ -76,7 +50,7 @@ namespace Sudoku_Solver
         // This method is used to validate if there is duplicate values in one of the rows.
         private void ValidateRows()
         {
-            for (int row = 0; row < _sudokuBoard.GetLength(0); row++)
+            for (int row = 0; row < _boardSize; row++)
             {
                 ValidateRow(row);
             }
@@ -84,24 +58,23 @@ namespace Sudoku_Solver
         // This method is used to validate if there is duplicate values in the row that is passed as a parameter.
         private void ValidateRow(int row)
         {
-            List<char> values = new List<char>();
-            for (int column = 0; column < _sudokuBoard.GetLength(1); column++)
+            //check if there is duplicate values in the row that is passed as a parameter
+            
+            for (int i = 0; i < _boardSize; i++)
             {
-                char cellValue = _sudokuBoard[row, column];
-                if (cellValue != _emptyValue)
+                for (int j = i + 1; j < _boardSize; j++)
                 {
-                    if (values.Contains(cellValue))
+                    if (_sudokuBoard[row, i]!=0 && _sudokuBoard[row, i] == _sudokuBoard[row, j])
                     {
-                        throw new DuplicateValueInRow((row+1), cellValue);
+                        throw new DuplicateValueInRowException(row + 1, Constants.GetValue( _sudokuBoard[row, i]-1,_boardSize));
                     }
-                    values.Add(cellValue);
                 }
             }
         }
         // This method is used to validate if there is duplicate values in one of the columns.
         private void ValidateColumns()
         {
-            for (int column = 0; column < _sudokuBoard.GetLength(1); column++)
+            for (int column = 0; column < _boardSize; column++)
             {
                 ValidateColumn(column);
             }
@@ -109,25 +82,23 @@ namespace Sudoku_Solver
         // This method is used to validate if there is duplicate values in the column that is passed as a parameter.
         private void ValidateColumn(int column)
         {
-            List<char> values = new List<char>();
-            for (int row = 0; row < _sudokuBoard.GetLength(0); row++)
+            //check if there is duplicate values in the column that is passed as a parameter
+            for (int i = 0; i < _boardSize; i++)
             {
-                char cellValue = _sudokuBoard[row, column];
-                if (cellValue != _emptyValue)
+                for (int j = i + 1; j < _boardSize; j++)
                 {
-                    if (values.Contains(cellValue))
+                    if (_sudokuBoard[i, column] !=0 && _sudokuBoard[i, column] == _sudokuBoard[j, column])
                     {
-                        throw new DuplicateValueInColumn((column+1),cellValue);
+                        throw new DuplicateValueInColumnException(column + 1, Constants.GetValue(_sudokuBoard[i, column]-1, _boardSize));
                     }
-                    values.Add(cellValue);
                 }
             }
         }
         // This method is used to validate if there is duplicate values in one of the grids.
         private void ValidateGrid()
         {
-            int gridSize = (int)Math.Sqrt(_sudokuBoard.GetLength(0));
-            for (int grid = 0; grid < _sudokuBoard.GetLength(0); grid++)
+            int gridSize = (int)Math.Sqrt(_boardSize);
+            for (int grid = 0; grid < _boardSize; grid++)
             {
                 ValidateGrid(grid, gridSize);
             }
@@ -136,21 +107,22 @@ namespace Sudoku_Solver
         // This method is used to validate if there is duplicate values in the grid that is passed as a parameter.
         private void ValidateGrid(int grid,int gridSize)
         {
-            List<char> values = new List<char>();
-            int gridRow = (grid / gridSize) * gridSize;
-            int gridColumn = (grid % gridSize) * gridSize;
-            for (int row = gridRow; row < (gridRow + gridSize); row++)
+            
+            int row = (grid / gridSize) * gridSize;
+            int column = (grid % gridSize) * gridSize;
+            for (int i = 0; i < gridSize; i++)
             {
-                for (int column = gridColumn; column < (gridColumn + gridSize); column++)
+                for (int j = 0; j < gridSize; j++)
                 {
-                    char cellValue = _sudokuBoard[row, column];
-                    if (cellValue != _emptyValue)
+                    for (int k = i; k < gridSize; k++)
                     {
-                        if (values.Contains(cellValue))
+                        for (int l = (k == i) ? j + 1 : 0; l < gridSize; l++)
                         {
-                            throw new DuplicateValueInGrid((grid + 1),cellValue);
+                            if (_sudokuBoard[row + i, column + j]!=0 && _sudokuBoard[row + i, column + j] == _sudokuBoard[row + k, column + l])
+                            {
+                                throw new DuplicateValueInGridException(grid + 1, Constants.GetValue(_sudokuBoard[row + i, column + j]-1, _boardSize));
+                            }
                         }
-                        values.Add(cellValue);
                     }
                 }
             }

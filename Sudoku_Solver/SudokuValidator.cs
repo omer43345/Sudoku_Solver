@@ -13,36 +13,20 @@ namespace Sudoku_Solver
       It is used to check if a Sudoku board is valid before solving it.
     */
 
-    internal class SudokuValidator
+    public static class SudokuValidator
     {
-        private int[,] _sudokuBoard;// the Sudoku board to validate
-        private int _boardSize;// size of the board
-        public SudokuValidator(int[,] sudokuBoard)
+        private static int[,] _sudokuBoard;// the Sudoku board to validate
+        private static int _boardSize;// size of the board
+        public static void Validate(int[,] sudokuBoard)
         {
             _sudokuBoard = sudokuBoard;
             _boardSize = sudokuBoard.GetLength(0);
-        }
-        static void Main(string[] args)
-        {
-            DateTime time = DateTime.Now;
-            // checking this class functions
-            /*SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("0960010:30200@?003000502<0@000>0000;00?00500600007@000000000045000100@702;?00300;000=?00003>00059:0=06034080>0;10008940>10<7200000050004@0003000608010900:03050;00=0>030020;0<007>0900@=?400102::@00<0000001008200;60000000049004<00800;=00@001?00510=2009;0<600");*/
-            SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("900800000000000500000000000020010003010000060000400070708600000000030100400000200");
-            SudokuValidator validator = new SudokuValidator(sudokuBoardBuilder.GetSudokuBoard());
-            Console.WriteLine(validator.Validate());
-            Solver solver = new Solver(sudokuBoardBuilder.GetSudokuBoard());
-            solver.Solve();
-            Console.WriteLine("Time taken: " + (DateTime.Now - time).TotalMilliseconds);
-        }
-        public bool Validate()
-        {
             ValidateDuplicateValues();
-            return true;
         }
 
 
         // This method is used to validate if the board contains duplicate values in a row, column or a grid.
-        private void ValidateDuplicateValues()
+        private static void ValidateDuplicateValues()
         {
             ValidateRows();
             ValidateColumns();
@@ -50,7 +34,7 @@ namespace Sudoku_Solver
         }
 
         // This method is used to validate if there is duplicate values in one of the rows.
-        private void ValidateRows()
+        private static void ValidateRows()
         {
             for (int row = 0; row < _boardSize; row++)
             {
@@ -58,7 +42,7 @@ namespace Sudoku_Solver
             }
         }
         // This method is used to validate if there is duplicate values in the row that is passed as a parameter.
-        private void ValidateRow(int row)
+        private static void ValidateRow(int row)
         {
             //check if there is duplicate values in the row that is passed as a parameter
             
@@ -74,7 +58,7 @@ namespace Sudoku_Solver
             }
         }
         // This method is used to validate if there is duplicate values in one of the columns.
-        private void ValidateColumns()
+        private static void ValidateColumns()
         {
             for (int column = 0; column < _boardSize; column++)
             {
@@ -82,7 +66,7 @@ namespace Sudoku_Solver
             }
         }
         // This method is used to validate if there is duplicate values in the column that is passed as a parameter.
-        private void ValidateColumn(int column)
+        private static void ValidateColumn(int column)
         {
             //check if there is duplicate values in the column that is passed as a parameter
             for (int i = 0; i < _boardSize; i++)
@@ -97,7 +81,7 @@ namespace Sudoku_Solver
             }
         }
         // This method is used to validate if there is duplicate values in one of the grids.
-        private void ValidateGrid()
+        private static void ValidateGrid()
         {
             int gridSize = (int)Math.Sqrt(_boardSize);
             for (int grid = 0; grid < _boardSize; grid++)
@@ -107,7 +91,7 @@ namespace Sudoku_Solver
 
         }
         // This method is used to validate if there is duplicate values in the grid that is passed as a parameter.
-        private void ValidateGrid(int grid,int gridSize)
+        private static void ValidateGrid(int grid,int gridSize)
         {
             
             int row = (grid / gridSize) * gridSize;

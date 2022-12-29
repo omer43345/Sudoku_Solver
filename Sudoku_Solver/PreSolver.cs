@@ -2,23 +2,20 @@
 
 namespace Sudoku_Solver
 {
-    public class PreSolver
+    public static class PreSolver
     {
-        private int[,] _sudoku;
-        private int _size;
+        private static int[,] _sudoku;
+        private static int _size;
         
-        public PreSolver(int[,] sudoku)
+
+        public static bool OptimizeBoard(int[,] sudoku)
         {
             _sudoku = sudoku;
             _size = sudoku.GetLength(0);
-        }
-
-        public bool OptimizeBoard()
-        {
             return HiddenSingles();
 
         }
-        private bool HiddenSingles()
+        private static bool HiddenSingles()
         {
             bool changed = false;
             for (int i = 0; i < _size; i++)
@@ -45,7 +42,7 @@ namespace Sudoku_Solver
             }
             return changed;
         }
-        private bool IsPossible(int row, int col, int value)
+        private static bool IsPossible(int row, int col, int value)
         {
             for (int i = 0; i < _size; i++)
             {

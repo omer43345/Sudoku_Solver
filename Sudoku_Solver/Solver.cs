@@ -1,18 +1,12 @@
 ﻿namespace Sudoku_Solver
 {
-    public class Solver
+    public static class Solver
     {
-        private int[,] _sudoku;
-        public Solver(int[,] sudoku)
+        public static void Solve(int[,] sudoku)
         {
-            _sudoku = sudoku;
-        }
 
-        public void Solve()
-        {
-            PreSolver preSolver = new PreSolver(_sudoku);
-            while (preSolver.OptimizeBoard()) { }
-            BitWiseSudokuSolver solver = new BitWiseSudokuSolver(_sudoku);
+            while (PreSolver.OptimizeBoard(sudoku)) { }
+            BitWiseSudokuSolver solver = new BitWiseSudokuSolver(sudoku);
             solver.BitWiseSolver();
         }
         

@@ -70,7 +70,9 @@
     <Compile Include="Exceptions\DuplicateValueInGridException.cs" />
     <Compile Include="Exceptions\DuplicateValueInRowException.cs" />
     <Compile Include="Exceptions\InvalidSudokuBoardSizeException.cs" />
+    <Compile Include="PreSolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Solver.cs" />
     <Compile Include="SudokuBoardBuilder.cs" />
     <Compile Include="SudokuValidator.cs" />
   </ItemGroup>

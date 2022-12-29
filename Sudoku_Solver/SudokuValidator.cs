@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Sudoku_Solver
@@ -25,11 +26,12 @@ namespace Sudoku_Solver
         {
             DateTime time = DateTime.Now;
             // checking this class functions
-            /*SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("0960010A30200GF003000502C0G000E0000B00F00500600007G000000000045000100G702BF00300B000DF00003E00059A0D06034080E0B10008940E10C7200000050004G0003000608010900A03050B00D0E030020B0C007E0900GDF400102AAG00C0000001008200B60000000049004C00800BD00G001F00510D2009B0C600");*/
-            SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("000002000009000000000080000000000000004000000000000100000000000500000000000000000");
+            /*SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("0960010:30200@?003000502<0@000>0000;00?00500600007@000000000045000100@702;?00300;000=?00003>00059:0=06034080>0;10008940>10<7200000050004@0003000608010900:03050;00=0>030020;0<007>0900@=?400102::@00<0000001008200;60000000049004<00800;=00@001?00510=2009;0<600");*/
+            SudokuBoardBuilder sudokuBoardBuilder = new SudokuBoardBuilder("900800000000000500000000000020010003010000060000400070708600000000030100400000200");
             SudokuValidator validator = new SudokuValidator(sudokuBoardBuilder.GetSudokuBoard());
             Console.WriteLine(validator.Validate());
-            BitWiseSudokuSolver solver = new BitWiseSudokuSolver(sudokuBoardBuilder.GetSudokuBoard());
+            Solver solver = new Solver(sudokuBoardBuilder.GetSudokuBoard());
+            solver.Solve();
             Console.WriteLine("Time taken: " + (DateTime.Now - time).TotalMilliseconds);
         }
         public bool Validate()
@@ -66,7 +68,7 @@ namespace Sudoku_Solver
                 {
                     if (_sudokuBoard[row, i]!=0 && _sudokuBoard[row, i] == _sudokuBoard[row, j])
                     {
-                        throw new DuplicateValueInRowException(row + 1, Constants.GetValue( _sudokuBoard[row, i]-1,_boardSize));
+                        throw new DuplicateValueInRowException(row + 1, (char)(_sudokuBoard[row, i]+48));
                     }
                 }
             }
@@ -89,7 +91,7 @@ namespace Sudoku_Solver
                 {
                     if (_sudokuBoard[i, column] !=0 && _sudokuBoard[i, column] == _sudokuBoard[j, column])
                     {
-                        throw new DuplicateValueInColumnException(column + 1, Constants.GetValue(_sudokuBoard[i, column]-1, _boardSize));
+                        throw new DuplicateValueInColumnException(column + 1, (char)(_sudokuBoard[i, column]+48));
                     }
                 }
             }
@@ -120,7 +122,7 @@ namespace Sudoku_Solver
                         {
                             if (_sudokuBoard[row + i, column + j]!=0 && _sudokuBoard[row + i, column + j] == _sudokuBoard[row + k, column + l])
                             {
-                                throw new DuplicateValueInGridException(grid + 1, Constants.GetValue(_sudokuBoard[row + i, column + j]-1, _boardSize));
+                                throw new DuplicateValueInGridException(grid + 1, (char)(_sudokuBoard[row + i, column + j]+48));
                             }
                         }
                     }

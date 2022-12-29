@@ -42,8 +42,8 @@ namespace Sudoku_Solver
             int cellIndex = 0;
             foreach (char cell in _sudokuBoardString)
             {
-                int value=  Constants.GetIndex(cell, _boardSize)+1;
-                if (value==0 && cell!=Constants.EMPTY_VALUE)
+                int value=cell-'0';
+                if (value < 0 || value > rowAndColumnCount)
                 {
                     throw new AllowedValuesException(_sudokuBoardString.IndexOf(cell)/rowAndColumnCount, _sudokuBoardString.IndexOf(cell)%rowAndColumnCount);
                 }

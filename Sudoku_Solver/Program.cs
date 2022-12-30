@@ -37,8 +37,14 @@ namespace Sudoku_Solver
                 startProgram();
             }
             DateTime start = DateTime.Now;
-            Solver.Solve(board);
-            Console.WriteLine("Solved in: " + (DateTime.Now - start).TotalMilliseconds + "ms");
+            bool solved=Solver.Solve(board);
+            DateTime end = DateTime.Now;
+            TimeSpan time = end - start;
+            SudokuBoardPrinter.PrintBoard(board);
+            if (solved)
+                Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
+            else
+                Console.WriteLine("\nCould not solve in " + time.TotalMilliseconds + "ms\n");
             startProgram();
         }
     }

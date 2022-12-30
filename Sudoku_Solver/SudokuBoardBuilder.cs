@@ -21,7 +21,7 @@ namespace Sudoku_Solver
         {
             double rowAndColumnCount = Math.Sqrt(_sudokuBoardString.Length);
             double gridSideLength = Math.Sqrt(rowAndColumnCount);
-            if (gridSideLength % 1 != 0|| rowAndColumnCount%1!=0)
+            if (gridSideLength % 1 != 0|| rowAndColumnCount%1!=0 || _sudokuBoardString.Length == 0)
             {
                 throw new InvalidSudokuBoardSizeException(_sudokuBoardString.Length);
             }

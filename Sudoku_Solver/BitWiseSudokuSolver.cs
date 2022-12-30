@@ -5,9 +5,9 @@ namespace Sudoku_Solver
 {
     public class BitWiseSudokuSolver
     {
-        private int[] _rowsCandidates;
-        private int[] _colsCandidates;
-        private int[] _boxesCandidates;
+        private int[] _rowsCandidates;// rows candidates
+        private int[] _colsCandidates;// columns candidates
+        private int[] _boxesCandidates;// boxes candidates
         private int[,] _sudokuBoard;// sudoku board to solve
         private int _size;// size of the sudoku board
         private int _gridSize;// size of the grid
@@ -22,24 +22,9 @@ namespace Sudoku_Solver
             InitializeCandidates();
             UpdateCandidates();
         }
-        public void BitWiseSolver()
+        public bool BitWiseSolver()
         {
-            if(Solve())
-                printBoard();
-            else
-                Console.WriteLine("No solution");
-        }
-        // temp method to print the board
-        private void printBoard()
-        {
-            for (int i = 0; i < _size; i++)
-            {
-                for (int j = 0; j < _size; j++)
-                {
-                    Console.Write(" "+_sudokuBoard[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
+            return Solve();
         }
         // initialize the candidates for each row, column and box
         private void InitializeCandidates()

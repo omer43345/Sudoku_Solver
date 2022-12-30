@@ -1,14 +1,16 @@
-﻿namespace Sudoku_Solver
+﻿using System;
+
+namespace Sudoku_Solver
 {
     public static class Solver
     {
-        public static void Solve(int[,] sudoku)
+        public static bool Solve(int[,] sudoku)
         {
 
             while (PreSolver.OptimizeBoard(sudoku)) { }
             BitWiseSudokuSolver solver = new BitWiseSudokuSolver(sudoku);
-            solver.BitWiseSolver();
+            return solver.BitWiseSolver();
         }
-        
+
     }
 }

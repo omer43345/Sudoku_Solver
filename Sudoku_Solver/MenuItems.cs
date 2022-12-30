@@ -9,7 +9,9 @@
                                              "3. Exit\n" +
                                              "Your choice: ";
         public static readonly string CONSOLE = "Write the sudoku in the console. Use 0 for empty fields.";
-        public static readonly string FILE = "Write the path to the file: ";
+        public static readonly string FILE = "C:\\Users\\omerh\\Documents\\hermlin\\sudoku_example.txt\n" +
+                                             "C:\\Users\\omerh\\Documents\\hermlin\\Sudoku_Solver\\Sudokus.txt\n" +
+                                             "Write the path to the file: ";
         public static readonly string FILE_ERROR = "The file does not exist.";
         public static readonly string EXIT = "Exiting the program...";
         public static readonly string INVALID_CHOICE = "You have to choose a number from the menu.";

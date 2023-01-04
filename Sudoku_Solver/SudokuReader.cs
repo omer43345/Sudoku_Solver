@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 
 namespace Sudoku_Solver
 {
@@ -11,7 +10,7 @@ namespace Sudoku_Solver
                 return Console.ReadLine();
             if (choice == "2")
             {
-                string path = Console.ReadLine();
+                var path = Console.ReadLine();
                 try
                 {
                     return System.IO.File.ReadAllText(path);

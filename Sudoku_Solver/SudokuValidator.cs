@@ -1,10 +1,5 @@
 ﻿using Sudoku_Solver.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Sudoku_Solver
 {
@@ -15,9 +10,9 @@ namespace Sudoku_Solver
 
     public static class SudokuValidator
     {
-        private static int[,] _sudokuBoard;// the Sudoku board to validate
+        private static byte[,] _sudokuBoard;// the Sudoku board to validate
         private static int _boardSize;// size of the board
-        public static void Validate(int[,] sudokuBoard)
+        public static void Validate(byte[,] sudokuBoard)
         {
             _sudokuBoard = sudokuBoard;
             _boardSize = sudokuBoard.GetLength(0);

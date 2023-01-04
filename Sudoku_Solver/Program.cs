@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml.Schema;
 
 namespace Sudoku_Solver
 {
@@ -23,10 +22,12 @@ namespace Sudoku_Solver
                 Console.WriteLine(MenuItems.EXIT);
                 Environment.Exit(0);
             }
-            string boardString="";
-            int[,] board= null;
+            
+            byte[,] board= null;
+            
             try
             {
+                var boardString="";
                 boardString = SudokuReader.ReadSudoku(choice);
                 board = SudokuBoardBuilder.BoardBuilder(boardString);
                 SudokuValidator.Validate(board);
@@ -37,8 +38,13 @@ namespace Sudoku_Solver
                 startProgram();
             }
             DateTime start = DateTime.Now;
-            Solver.Solve(board);
-            Console.WriteLine("Solved in: " + (DateTime.Now - start).TotalMilliseconds + "ms");
+            byte[,] solution=Solver.Solve(board);
+            DateTime end = DateTime.Now;
+            TimeSpan time = end - start;
+            SudokuBoardPrinter.PrintBoard(solution);
+            Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
+            SudokuValidator.Validate(solution);
+            /*Console.WriteLine("\nCould not solve in " + time.TotalMilliseconds + "ms\n");*/
             startProgram();
         }
     }

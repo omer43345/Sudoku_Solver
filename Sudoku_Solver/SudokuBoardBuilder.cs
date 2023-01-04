@@ -14,26 +14,26 @@ namespace Sudoku_Solver
     public static class SudokuBoardBuilder
     {
         private static string _sudokuBoardString;
-        private static int[,] _sudokuBoard;
+        private static byte[,] _sudokuBoard;
         private static int _boardSize;
         // This method is used to validate the size of the string if it is suitable for a Sudoku board.
-        private static void validateSize()
+        private static void ValidateSize()
         {
             double rowAndColumnCount = Math.Sqrt(_sudokuBoardString.Length);
             double gridSideLength = Math.Sqrt(rowAndColumnCount);
-            if (gridSideLength % 1 != 0|| rowAndColumnCount%1!=0)
+            if (gridSideLength % 1 != 0|| rowAndColumnCount%1!=0 || _sudokuBoardString.Length == 0)
             {
                 throw new InvalidSudokuBoardSizeException(_sudokuBoardString.Length);
             }
 
         }
         // This method is used to build the Sudoku board from the string.
-        public static int[,] BoardBuilder(string sudokuBoardString)
+        public static byte[,] BoardBuilder(string sudokuBoardString)
         {
             _sudokuBoardString = sudokuBoardString;
-            validateSize();
+            ValidateSize();
             _boardSize = (int)Math.Sqrt(_sudokuBoardString.Length);
-            _sudokuBoard = new int[(int)Math.Sqrt(_sudokuBoardString.Length), (int)Math.Sqrt(_sudokuBoardString.Length)];
+            _sudokuBoard = new byte[(int)Math.Sqrt(_sudokuBoardString.Length), (int)Math.Sqrt(_sudokuBoardString.Length)];
             int rowAndColumnCount = (int)Math.Sqrt(_sudokuBoardString.Length);
             int cellIndex = 0;
             foreach (char cell in _sudokuBoardString)
@@ -43,7 +43,7 @@ namespace Sudoku_Solver
                 {
                     throw new AllowedValuesException(_sudokuBoardString.IndexOf(cell)/rowAndColumnCount, _sudokuBoardString.IndexOf(cell)%rowAndColumnCount);
                 }
-                _sudokuBoard[cellIndex / rowAndColumnCount, cellIndex % rowAndColumnCount]=value;
+                _sudokuBoard[cellIndex / rowAndColumnCount, cellIndex % rowAndColumnCount]=(byte)value;
                 cellIndex++;
             }
             return _sudokuBoard;

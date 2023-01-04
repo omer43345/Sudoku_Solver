@@ -1,56 +1,80 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace Sudoku_Solver
 {
-    public static class PreSolver
+    /*
+     * This class contain functions to help the binary search algorithm to find the solution of the sudoku puzzle.
+     */
+    public class SolverHelper
     {
-        private static int[,] _sudoku;
-        private static int _size;
-        private static BitWiseSudokuSolver _solver;
+        private readonly byte[,] _sudoku;
+        private readonly int _size;
+        private readonly BitWiseSudokuSolver _solver;
 
-        public static void OptimizeBoard(int[,] sudoku, BitWiseSudokuSolver solver)
+        public SolverHelper(byte[,] sudoku, BitWiseSudokuSolver solver)
         {
-            _solver = solver;
             _sudoku = sudoku;
             _size = sudoku.GetLength(0);
-            HiddenSingles();
+            _solver = solver;
 
         }
-        private static void HiddenSingles()
+        // This method return the best empty cell to put a number in
+        // Also this method doing simple elimination if it should be done
+        public int FindBestEmptyCell()
         {
-            bool changed = false;
-            for (int i = 0; i < _size; i++)
+            var minCandidates = _size + 1;
+            var cell = -1;
+            for (var row = 0; row < _size; row++)
             {
-                for (int j = 0; j < _size; j++)
+                for (var col = 0; col < _size; col++)
                 {
-                    if (_sudoku[i, j] == 0)
+                    if (_sudoku[row, col] == 0)
                     {
-                        int count = _solver.CountCandidates(i, j);
-                        if (count == 1)
+                        var count = _solver.CountCandidates(row, col);
+                        if (count < minCandidates)
                         {
-                            for (int value = 1; value <= _size; value++)
-                                if (_solver.CanPlace(i, j, value))
-                                {
-                                    _sudoku[i, j] = value;
-                                    _solver.SetCandidate( i, j, value, true);
-                                }
-                            changed = true;
+                            // update the best cell
+                            minCandidates = count;
+                            cell = row * _size + col;
                         }
+                        else if (count == 1)
+                            // Simple elimination if there is only one candidate for a cell
+                            SimpleElimination(row,col);
                     }
                 }
             }
-            if (changed)
-                HiddenSingles();
+
+            return cell;
         }
-        private static bool HiddenPairs()
+        // The method get called when there is only one candidate for a cell and put the number in the cell and update the candidates
+        private void SimpleElimination(int row,int col)
         {
-            bool changed = false;
-            // this algorithm reduce the number of candidates for each cell
-            // by removing the candidates that are not in a pair
-            
-            return changed;
+            for (var value = 1; value <= _size; value++)
+            {
+                if (_solver.CanPlace(_solver.GetCandidates(row, col), value))
+                {
+                    _sudoku[row, col] = (byte)value;
+                    _solver.SetCandidate(row, col, value);
+                }
+
+            }
         }
         
+        // Copy the matrix
+        public byte[,] CopyBoard(byte[,] matrix)
+        {
+            byte[,] copy = new byte[_size, _size];
+            for (var i = 0; i < _size; i++)
+            {
+                for (var j = 0; j < _size; j++)
+                {
+                    copy[i, j] = matrix[i, j];
+                }
+            }
+
+            return copy;
+        }
+        
+
 
 
 

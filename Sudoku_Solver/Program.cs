@@ -1,4 +1,5 @@
 ﻿using System;
+using Sudoku_Solver.DancingLinksAlgorithm;
 
 namespace Sudoku_Solver
 {
@@ -37,14 +38,16 @@ namespace Sudoku_Solver
                 Console.WriteLine("\n"+e.Message+"\n");
                 startProgram();
             }
-            DateTime start = DateTime.Now;
+            DancingLinksUtils dancingLinksUtils = new DancingLinksUtils(board);
+            dancingLinksUtils.ConvertToCoverMatrix();
+            /*DateTime start = DateTime.Now;
             byte[,] solution=Solver.Solve(board);
             DateTime end = DateTime.Now;
             TimeSpan time = end - start;
             SudokuBoardPrinter.PrintBoard(solution);
             Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
             SudokuValidator.Validate(solution);
-            /*Console.WriteLine("\nCould not solve in " + time.TotalMilliseconds + "ms\n");*/
+            /*Console.WriteLine("\nCould not solve in " + time.TotalMilliseconds + "ms\n");#1#*/
             startProgram();
         }
     }

@@ -64,7 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitWiseSudokuSolver.cs" />
+    <Compile Include="DancingLinksAlgorithm\DancingLinksColumnNode.cs" />
+    <Compile Include="DancingLinksAlgorithm\DancingLinksNode.cs" />
     <Compile Include="DancingLinksAlgorithm\DancingLinksUtils.cs" />
+    <Compile Include="DancingLinksAlgorithm\DLX.cs" />
     <Compile Include="Exceptions\AllowedValuesException.cs" />
     <Compile Include="Exceptions\DuplicateValueInColumnException.cs" />
     <Compile Include="Exceptions\DuplicateValueInGridException.cs" />

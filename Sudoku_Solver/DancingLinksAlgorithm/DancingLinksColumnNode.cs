@@ -10,11 +10,11 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
     public class DancingLinksColumnNode : DancingLinksNode
     {
         public int Size; // number of nodes in this column
-        private String _columnName; // name of the column
+        public readonly  String ColumnName; // name of the column
 
         public DancingLinksColumnNode(String columnName):base() {
             Size = 0;
-            _columnName = columnName;
+            ColumnName = columnName;
             Column = this;
         }
         

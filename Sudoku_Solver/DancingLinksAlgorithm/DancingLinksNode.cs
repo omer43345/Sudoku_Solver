@@ -20,13 +20,12 @@
             Column = column;
         }
         // links this node to the bottom of the given node
-        public DancingLinksNode LinkDown(DancingLinksNode node)
+        public void LinkDown(DancingLinksNode node)
         {
             node.Down = Down;
             node.Down.Up = node;
             node.Up = this;
             Down = node;
-            return node;
         }
         // links this node to the right of the given node
         public DancingLinksNode LinkRight(DancingLinksNode node)

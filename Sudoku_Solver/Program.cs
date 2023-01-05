@@ -12,6 +12,7 @@ namespace Sudoku_Solver
 
         private static void startProgram()
         {
+            
             Console.Write(MenuItems.MENU);
             string choice = Console.ReadLine();
             if (choice == "1")
@@ -38,16 +39,16 @@ namespace Sudoku_Solver
                 Console.WriteLine("\n"+e.Message+"\n");
                 startProgram();
             }
-            DancingLinksUtils dancingLinksUtils = new DancingLinksUtils(board);
-            dancingLinksUtils.ConvertToCoverMatrix();
             /*DateTime start = DateTime.Now;
-            byte[,] solution=Solver.Solve(board);
+            DancingLinksUtils dancingLinksUtils = new DancingLinksUtils(board);
+            byte[,] coverMatrix = dancingLinksUtils.BuildCoverMatrix();
+            DLX dlx = new DLX(coverMatrix);
             DateTime end = DateTime.Now;
             TimeSpan time = end - start;
-            SudokuBoardPrinter.PrintBoard(solution);
-            Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
-            SudokuValidator.Validate(solution);
-            /*Console.WriteLine("\nCould not solve in " + time.TotalMilliseconds + "ms\n");#1#*/
+            SudokuBoardPrinter.PrintBoard(board);
+            Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");*/
+            SudokuValidator.Validate(board);
+            /*Console.WriteLine("\nCould not solve in " + time.TotalMilliseconds + "ms\n");*/
             startProgram();
         }
     }

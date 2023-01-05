@@ -45,7 +45,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             return _sizeSquared * 3 +
                    (row / _sudokuBoxSize * _sudokuBoxSize + column / _sudokuBoxSize) * _sudokuBoardSize + value;
         }
-        // Intialize the cover matrix columns length 
+        // Initialize the cover matrix columns length 
         private void InitializeCoverMatrixSize(byte[][] coverMatrix)
         {
             for (int i = 0; i < coverMatrix.Length; i++)
@@ -54,80 +54,35 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             }
         }
         // build the cover matrix for the sudoku board
-        private byte[][] BuildCoverMatrix()
+        public byte[,] BuildCoverMatrix()
         {
-            //_sizeSquared * _constraintCount
-            byte[][] coverMatrix = new byte[_sudokuBoardSize * _sizeSquared][];
-            InitializeCoverMatrixSize(coverMatrix);
+            byte[,] coverMatrix = new byte[_sudokuBoardSize * _sizeSquared, _constraintCount * _sizeSquared];
             // for each row, column, value
+
             for (int row = 0; row < _sudokuBoardSize; row++) {
                 for (int column = 0; column < _sudokuBoardSize; column++) {
-                    for (int value = 0; value < _sudokuBoardSize; value++) {
-                        // for cell constraint
-                        coverMatrix[GetCoverMatrixRowIndex(row, column, value)][GetCellColumnIndex(row, column)] = 1;
-                        // for row constraint
-                        coverMatrix[GetCoverMatrixRowIndex(row, column, value)][GetRowColumnIndex(row, value)] = 1;
-                        // for column constraint
-                        coverMatrix[GetCoverMatrixRowIndex(row, column, value)][GetColumnColumnIndex(column, value)] = 1;
-                        // for box constraint
-                        coverMatrix[GetCoverMatrixRowIndex(row, column, value)][GetBoxColumnIndex(row, column, value)] = 1;
-
-                    }
-                }
-            }
-            return coverMatrix;
-        }
-        // insert the values from the sudoku board into the cover matrix
-        public byte[][] ConvertToCoverMatrix()
-        {
-            byte[][] coverMatrix = BuildCoverMatrix();
-            for (int row = 0; row < _sudokuBoardSize; row++){
-                for (int column = 0; column < _sudokuBoardSize; column++){
-                    int boardValue = _sudokuBoard[row, column];
-                    if (boardValue!= 0)
-                    {
-                        for (int value = 1; value <= _sudokuBoardSize; value++){
-                            if (value != boardValue)
-                            {
-                                FillRow(coverMatrix[GetCoverMatrixRowIndex(row, column, value-1)], 0);
-                            }
+                    for (int value = 0; value < _sudokuBoardSize; value++)
+                    { 
+                        if(_sudokuBoard[row,column]==0 || _sudokuBoard[row,column]==value+1)
+                        {
+                            // set the cell constraint
+                            coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetCellColumnIndex(row, column)] = 1;
+                            // set the row constraint
+                            coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetRowColumnIndex(row, value)] = 1;
+                            // set the column constraint
+                            coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetColumnColumnIndex(column, value)] = 1;
+                            // set the box constraint
+                            coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetBoxColumnIndex(row, column, value)] = 1;
                         }
                     }
+                    
                 }
-            }
-            /*PrintCoverMatrix(coverMatrix);*/
-            return coverMatrix;
 
-        }
-        // fill a row with a given value
-        private void FillRow(byte[] row, byte value)
-        {
-            for (int column = 0; column < row.Length; column++)
-            {
-                row[column] = value;
             }
+            return coverMatrix;
         }
-        
-        // temp method to print the cover matrix
-        private void PrintCoverMatrix(byte[][] coverMatrix)
-        {
-            
-            for (int row = 0; row < coverMatrix.Length; row++)
-            {
-                for (int column = 0; column < coverMatrix[row].Length; column++)
-                {
-                    // paint the cell red if it is a 1
-                    if (coverMatrix[row][column] == 1)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    Console.Write(coverMatrix[row][column]+" ");
-                    Console.ResetColor();
-                }
-                Console.WriteLine();
-            }
-        
-        }
+
+
     }
 
 }

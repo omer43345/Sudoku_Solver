@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Sudoku_Solver.DancingLinksAlgorithm
 {
@@ -81,6 +82,31 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             }
             return coverMatrix;
         }
+        public byte[,] ConvertDLXResultToSudoku(Stack<DancingLinksNode> answer) {
+            byte[,] solvedSudoku = new byte[_sudokuBoardSize,_sudokuBoardSize];
+            while(answer.Count>0)
+            {
+                DancingLinksNode rcNode = answer.Pop();
+                int min = Int32.Parse(rcNode.Column.ColumnName);
+
+                for (DancingLinksNode tempNode = rcNode.Right; tempNode != rcNode; tempNode = tempNode.Right)
+                {
+                    int val = int.Parse(tempNode.Column.ColumnName);
+                    if (val < min)
+                    {
+                        min = val;
+                        rcNode = tempNode;
+                    }
+                }
+                int cellIndex = int.Parse(rcNode.Column.ColumnName);
+                int row = cellIndex / _sudokuBoardSize;
+                int col = cellIndex % _sudokuBoardSize;
+                int value=int.Parse(rcNode.Right.Column.ColumnName)%_sudokuBoardSize+1;
+                solvedSudoku[row, col] = (byte)value;
+            }
+            return solvedSudoku;
+        }
+
 
 
     }

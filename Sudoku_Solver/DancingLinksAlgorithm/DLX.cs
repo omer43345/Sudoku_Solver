@@ -5,7 +5,6 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
 {
     public class DLX
     {
-        private readonly byte _sudokuSize;
         private readonly DancingLinksColumnNode _root;
         private readonly Stack<DancingLinksNode> _solution;
         private readonly int _coverMatrixColCount;
@@ -13,7 +12,6 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         public DLX(byte[,] coverMatrix) {
             _coverMatrixColCount = coverMatrix.GetLength(1);
             _coverMatrixRowCount = coverMatrix.GetLength(0);
-            _sudokuSize = 9;
             _solution = new Stack<DancingLinksNode>();
             _root = BuildDLXList(coverMatrix);
         }
@@ -51,7 +49,6 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             List<DancingLinksColumnNode> columnNodes = new List<DancingLinksColumnNode>();
             
             CreateColumnNode(rootNode, columnNodes);
-            
             // Create the row nodes and add them to the column nodes
             CreateRowNodes( columnNodes, coverMatrix);
             rootNode.Size=_coverMatrixColCount;
@@ -60,24 +57,24 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         private bool Search() {
             if(_root.Right==_root) 
                 return true;
-            DancingLinksColumnNode c = SelectBestColumn();
-            c.Cover();
-            for(DancingLinksNode r=c.Down;r!=c;r=r.Down) {
-                _solution.Push(r);
-                for(DancingLinksNode j=r.Right;j!=r;j=j.Right) {
-                    j.Column.Cover();
+            DancingLinksColumnNode bestColumn = SelectBestColumn();
+            bestColumn.Cover();
+            for(DancingLinksNode row=bestColumn.Down;row!=bestColumn;row=row.Down) {
+                _solution.Push(row);
+                for(DancingLinksNode column=row.Right;column!=row;column=column.Right) {
+                    column.Column.Cover();
                 }
                 if(Search()) {
                     return true;
                 }
-                // If we the search not found a solution, then backtrack and try the next row
-                r=_solution.Pop();
-                c=r.Column;
-                for(DancingLinksNode j=r.Left;j!=r;j=j.Left) {
-                    j.Column.Uncover();
+                // If we not found a solution, then backtrack and try the next row
+                row=_solution.Pop();
+                bestColumn=row.Column;
+                for(DancingLinksNode column=row.Left;column!=row;column=column.Left) {
+                    column.Column.Uncover();
                 }
             }
-            c.Uncover();
+            bestColumn.Uncover();
             return false;
         }
         // Select the column node with the smallest size
@@ -91,6 +88,11 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                 }
             }
             return bestColumn;
+        }
+        public Stack<DancingLinksNode> GetSolution() {
+            if(!Search())
+                _solution.Clear();
+            return _solution;
         }
 
     }

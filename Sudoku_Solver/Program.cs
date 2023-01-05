@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sudoku_Solver.DancingLinksAlgorithm;
 
 namespace Sudoku_Solver
@@ -39,16 +40,24 @@ namespace Sudoku_Solver
                 Console.WriteLine("\n"+e.Message+"\n");
                 startProgram();
             }
-            /*DateTime start = DateTime.Now;
+            DateTime start = DateTime.Now;
             DancingLinksUtils dancingLinksUtils = new DancingLinksUtils(board);
             byte[,] coverMatrix = dancingLinksUtils.BuildCoverMatrix();
             DLX dlx = new DLX(coverMatrix);
+            Stack<DancingLinksNode> solution = dlx.GetSolution();
+            if (solution.Count==0)
+            {
+                TimeSpan time2 = DateTime.Now - start;
+                SudokuBoardPrinter.PrintBoard(board);
+                Console.WriteLine("No solution found in "+ time2.TotalMilliseconds + "ms");
+                startProgram();
+            }
+            byte[,] solvedBoard = dancingLinksUtils.ConvertDLXResultToSudoku(solution);
             DateTime end = DateTime.Now;
             TimeSpan time = end - start;
-            SudokuBoardPrinter.PrintBoard(board);
-            Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");*/
-            SudokuValidator.Validate(board);
-            /*Console.WriteLine("\nCould not solve in " + time.TotalMilliseconds + "ms\n");*/
+            SudokuBoardPrinter.PrintBoard(solvedBoard);
+            Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
+            SudokuValidator.Validate(solvedBoard);
             startProgram();
         }
     }

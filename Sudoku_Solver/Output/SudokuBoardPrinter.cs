@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sudoku_Solver
+namespace Sudoku_Solver.Output
 {
     public static class SudokuBoardPrinter
     {
@@ -26,7 +26,6 @@ namespace Sudoku_Solver
                 }
                 Console.WriteLine("|");
             }
-            
         }
     }
 }

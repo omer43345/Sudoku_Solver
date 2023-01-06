@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using Sudoku_Solver.DancingLinksAlgorithm;
+using Sudoku_Solver.Input;
 
 namespace Sudoku_Solver
 {
@@ -8,57 +7,40 @@ namespace Sudoku_Solver
     {
         static void Main(string[] args)
         {
-            startProgram();
+            StartProgram();
         }
 
-        private static void startProgram()
+        public static void StartProgram()
         {
-            
-            Console.Write(MenuItems.MENU);
-            string choice = Console.ReadLine();
-            if (choice == "1")
-                Console.WriteLine(MenuItems.CONSOLE);
-            else if (choice == "2")
-                Console.WriteLine(MenuItems.FILE);
-            else if (choice == "3")
-            {
-                Console.WriteLine(MenuItems.EXIT);
-                Environment.Exit(0);
-            }
-            
+
+            MenuHandler.StartMenu();
+            SudokuReader sudokuReader = SudokuReader.GetInstance();
             byte[,] board= null;
             
             try
             {
-                var boardString="";
-                boardString = SudokuReader.ReadSudoku(choice);
+                string boardString = sudokuReader.GetInput();
                 board = SudokuBoardBuilder.BoardBuilder(boardString);
                 SudokuValidator.Validate(board);
             }
             catch (Exception e)
             {
                 Console.WriteLine("\n"+e.Message+"\n");
-                startProgram();
+                StartProgram();
             }
+            MenuHandler.PrintSudokuBoard(board);
             DateTime start = DateTime.Now;
-            DancingLinksUtils dancingLinksUtils = new DancingLinksUtils(board);
-            byte[,] coverMatrix = dancingLinksUtils.BuildCoverMatrix();
-            DLX dlx = new DLX(coverMatrix);
-            Stack<DancingLinksNode> solution = dlx.GetSolution();
-            if (solution.Count==0)
+            byte[,] solvedBoard=Solver.Solve(board);
+            TimeSpan time = DateTime.Now - start;
+            if(solvedBoard==null)
+                Console.WriteLine("No solution found in " + time.TotalMilliseconds + " ms");
+            else
             {
-                TimeSpan time2 = DateTime.Now - start;
-                SudokuBoardPrinter.PrintBoard(board);
-                Console.WriteLine("No solution found in "+ time2.TotalMilliseconds + "ms");
-                startProgram();
+                Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
+                MenuHandler.PrintSudokuBoard(solvedBoard);
+                SudokuValidator.Validate(solvedBoard);
             }
-            byte[,] solvedBoard = dancingLinksUtils.ConvertDLXResultToSudoku(solution);
-            DateTime end = DateTime.Now;
-            TimeSpan time = end - start;
-            SudokuBoardPrinter.PrintBoard(solvedBoard);
-            Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
-            SudokuValidator.Validate(solvedBoard);
-            startProgram();
+            StartProgram();
         }
     }
     

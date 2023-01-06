@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using Sudoku_Solver.Solvers;
 
 namespace Sudoku_Solver
 {
@@ -6,9 +7,9 @@ namespace Sudoku_Solver
     {
         public static byte[,] Solve(byte[,] sudoku)
         {
-            var solver = new BitWiseSudokuSolver(sudoku);
-            solver.BitWiseSolver();
-            return solver.GetSolvedSudokuBoard();
+            /*var solver = new BitWiseSudokuSolver(sudoku);
+            solver.BitWiseSolver();*/
+            return DancingLinksSolver.Solve(sudoku);
         }
 
     }

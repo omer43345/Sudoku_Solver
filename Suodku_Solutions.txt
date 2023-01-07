@@ -96,3 +96,421 @@
 | 5  7  9 | 2  6  8 | 3  1  4 |
 | 3  6  8 | 4  1  5 | 2  9  7 |
 | 1  2  4 | 3  9  7 | 5  8  6 |
+
+
+
+| 1  2  3  4  5  6  7 | 8  9  :  ;  <  =  > | ?  @  A  B  C  D  E | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | [  \  ]  ^  _  `  a |
+| ?  @  A  B  C  D  E | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | _  ]  ^  `  \  a  [ | 8  9  :  ;  <  =  > |
+| 8  9  :  ;  <  =  > | M  N  O  P  Q  R  S | 1  2  3  4  5  6  7 | ^  ]  [  `  \  a  _ | F  G  H  I  J  K  L | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z |
+| T  U  V  W  X  Y  Z | F  G  H  I  J  K  L | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | ^  [  `  \  _  ]  a | M  N  O  P  Q  R  S | ?  @  A  B  C  D  E |
+| ^  \  ]  _  [  `  a | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S |
+| M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | \  ^  [  a  ]  `  _ | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L |
+| F  G  H  I  J  K  L | [  _  `  \  a  ^  ] | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 3  1  5  2  6  7  F | D  Z  K  V  ?  9  8 | Y  M  U  `  N  G  T | ]  [  \  R  _  S  W | I  O  P  X  ^  a  @ | B  C  E  J  L  Q  H | 4  :  ;  <  =  >  A |
+| 4  ;  8  =  S  @  J | 3  1  Q  U  2  [  F | a  R  \  _  Z  W  K | A  I  X  V  ^  H  D | :  <  >  C  `  G  M | 6  7  P  O  ]  T  9 | 5  B  E  Y  L  N  ? |
+| <  >  9  C  E  H  Q | 4  5  7  ]  \  @  W | 3  1  S  A  V  2  F | L  Y  a  U  `  ?  N | ;  B  R  _  Z  [  D | :  =  I  X  ^  G  K | 6  J  P  O  T  8  M |
+| :  B  I  \  P  G  ? | 6  a  R  Y  H  _  ` | 4  5  C  X  ^  8  9 | 3  1  E  J  O  @  2 | =  A  L  Q  T  S  K | ;  <  >  M  F  N  W | 7  ]  U  V  Z  [  D |
+| L  Z  D  K  T  O  M | :  ;  =  S  G  X  N | 6  7  P  [  H  ?  ] | 4  5  <  >  8  B  C | 3  1  E  J  F  V  2 | R  A  Y  U  `  @  a | I  Q  ^  _  W  \  9 |
+| Y  A  a  `  U  [  R | <  >  L  O  ^  M  T | :  ;  B  E  D  I  J | 6  7  =  Q  P  9  F | 4  5  W  ]  N  8  ? | 3  1  Z  V  _  \  2 | C  X  G  K  @  S  H |
+| X  ]  ^  V  W  _  N | B  A  C  E  I  J  P | <  =  >  L  O  @  Q | :  ;  G  Z  T  M  K | 6  7  Y  U  \  9  H | 4  5  D  S  [  8  ? | 3  1  `  a  R  F  2 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 2  a  1  9  3  5  6 | ;  D  >  @  8  F  ? | =  W  Q  C  4  U  \ | X  V  Z  M  I  ]  R | S  Y  ^  A  E  `  _ | K  B  T  H  P  :  < | G  [  J  L  O  7  N |
+| B  V  T  :  4  C  8 | 2  K  1  3  E  G  H | N  ]  ^  O  [  F  6 | P  S  L  A  U  5  Y | 7  D  @  =  ;  I  J | X  Z  a  _  >  `  Q | 9  W  \  R  ?  M  < |
+| `  ^  _  Q  M  E  < | 7  O  9  A  6  P  5 | 2  K  1  V  3  H  Y | N  D  T  ?  ;  W  [ | G  R  Z  L  >  \  ] | @  J  =  8  I  S  U | B  a  X  :  4  C  F |
+| 7  O  N  Z  I  ]  A | R  X  ^  C  4  V  B | J  S  <  >  L  T  5 | 2  K  1  a  =  3  ` | U  Q  ?  :  W  F  [ | 9  D  G  E  6  M  \ | @  Y  _  8  P  H  ; |
+| J  [  F  U  R  X  H | Z  T  Y  :  M  a  I | 9  B  @  8  ?  E  G | _  Q  ^  \  4  <  6 | 2  C  1  O  P  3  5 | 7  W  N  L  ;  ]  V | >  D  K  S  `  A  = |
+| @  K  =  D  ;  ?  G | L  S  N  J  [  W  \ | 7  P  _  :  `  X  a | E  O  C  8  >  F  H | 9  T  B  <  4  M  V | 2  R  1  Y  A  3  5 | U  I  Z  Q  6  ^  ] |
+| >  L  S  Y  \  P  W | Q  `  <  =  U  ]  _ | D  I  ;  M  R  Z  A | 7  B  9  :  @  G  J | K  a  N  6  8  H  X | O  [  ?  C  4  ^  F | 2  E  1  T  V  3  5 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| a  8  E  1  2  3  5 | ^  B  Z  K  V  :  C | U  ?  6  =  _  [  4 | G  P  D  9  A  N  I | <  `  ;  M  O  >  F | Y  T  S  ]  W  J  X | L  R  @  7  H  Q  \ |
+| Z  <  ?  6  7  4  : | W  E  2  1  F  ;  3 | K  `  ]  R  T  P  C | B  ^  >  L  V  U  O | Q  \  _  a  S  A  = | G  H  @  9  8  I  D | N  5  M  J  [  X  Y |
+| 9  H  G  @  A  B  C | 5  I  S  M  P  4  D | Z  <  2  1  E  \  3 | K  W  J  ]  a  T  ; | Y  X  [  ^  V  7  U | N  Q  R  >  O  L  = | _  ?  6  F  8  :  ` |
+| I  S  U  X  =  F  O | N  \  8  _  ]  7  R | 5  Q  Y  @  B  >  H | <  `  2  1  6  [  3 | L  J  C  D  K  :  T | P  ?  ;  A  M  Z  ^ | E  V  9  G  a  4  W |
+| N  W  `  ^  _  T  ] | G  J  6  H  @  >  Q | I  A  M  9  8  L  : | 5  X  S  Y  F  \  4 | E  ?  2  1  R  P  3 | <  V  U  [  a  7  C | K  Z  =  D  ;  B  O |
+| D  Q  K  R  Y  ;  V | `  L  [  9  T  A  a | G  X  N  J  7  ^  O | @  ?  M  E  H  Z  = | 5  ]  6  8  B  4  W | \  _  2  1  :  F  3 | <  S  I  C  >  U  P |
+| \  J  P  L  >  M  [ | U  <  ?  X  =  O  Y | W  a  D  S  F  ;  V | Q  _  R  C  7  8  : | N  H  G  9  @  Z  I | 5  E  6  K  B  4  ` | A  T  2  1  ^  ]  3 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 6  5  R  8  1  2  3 | A  ?  U  F  >  B  9 | [  _  E  T  =  4  M | Z  a  `  S  Y  C  Q | ]  ^  \  V  G  @  ; | D  :  W  <  H  O  I | J  7  L  X  N  P  K |
+| S  M  W  <  @  Q  4 | V  3  a  `  1  2  ; | O  J  G  ]  K  7  X | R  E  _  5  L  I  B | D  :  =  Z  [  C  N | A  8  F  T  9  >  P | H  6  Y  \  U  ?  ^ |
+| =  C  7  O  ]  a  9 | _  6  \  5  D  E  4 | H  3  R  2  1  B  ` | J  <  U  N  ?  ;  M | P  >  S  K  L  T  Y | [  ^  Q  Z  G  X  @ | :  8  W  A  F  I  V |
+| H  :  Y  G  V  \  T | O  8  P  7  S  C  J | Q  Z  I  ^  a  N  @ | >  3  ]  2  1  4  A | W  E  X  F  U  ?  ` | =  6  L  R  K  B  ; | D  M  [  5  9  <  _ |
+| P  _  Z  [  L  ^  X | H  :  I  Q  W  T  M | A  6  8  5  9  <  ? | D  =  F  G  K  7  @ | O  3  a  2  1  J  4 | V  Y  `  \  E  U  N | R  >  B  ]  S  ;  C |
+| A  D  B  F  ?  N  ; | K  R  X  [  Y  Z  G | P  :  L  \  >  S  U | W  6  8  T  9  V  ^ | H  I  M  5  7  _  < | ]  3  J  2  1  C  4 | =  O  Q  `  E  a  @ |
+| E  I  >  J  K  U  ` | =  ]  @  L  N  <  ^ | C  D  F  Y  W  V  ; | H  :  P  O  [  X  \ | A  6  8  R  9  B  Q | a  S  _  5  7  ?  M | Z  3  T  2  1  G  4 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| U  3  6  5  B  1  2 | a  V  D  >  ;  8  : | _  [  =  Z  G  9  N | I  \  Q  ^  S  `  P | C  M  T  E  A  X  O | H  F  <  @  R  W  ] | Y  4  7  ?  K  L  J |
+| V  4  <  E  F  8  @ | Y  H  M  ?  K  1  2 | ]  T  W  6  P  J  ^ | U  L  B  D  G  A  5 | `  =  7  >  :  ;  9 | Z  a  \  Q  S  [  _ | X  C  N  3  I  O  R |
+| ]  T  C  N  O  9  Y | X  4  5  R  B  3  6 | `  V  a  Q  S  1  2 | ;  F  @  <  Z  E  8 | \  _  K  [  I  L  P | J  >  7  =  ?  A  G | ^  H  D  M  :  W  U |
+| _  7  M  ?  H  :  K | P  W  E  ^  O  `  A | >  4  X  3  \  C  8 | a  J  N  =  2  1  9 | Z  V  U  S  Y  Q  R | I  L  5  6  D  ;  B | ]  F  <  @  G  T  [ |
+| Q  R  X  S  Z  J  ^ | @  C  F  G  _  I  < | L  H  7  ?  ;  A  D | [  4  6  3  M  >  T | a  W  ]  N  2  1  8 | U  `  K  :  Y  V  O | P  =  5  E  \  9  B |
+| W  =  [  a  `  L  \ | J  7  T  N  9  S  U | B  E  5  F  I  M  R | Y  H  ?  K  :  O  ] | @  4  D  3  6  <  G | C  P  X  ^  2  1  8 | V  ;  >  Z  A  _  Q |
+| G  P  ;  >  D  A  I | \  =  ]  Z  L  Q  [ | @  Y  K  U  :  O  < | C  R  7  X  W  _  V | J  F  5  ?  H  ^  B | E  4  M  3  N  9  T | a  `  S  6  2  1  8 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 5  6  2  3  8  <  1 | >  [  ;  D  A  ?  K | E  O  J  N  U  a  = | S  Z  I  _  B  ^  X | V  P  Q  Y  ]  W  : | `  M  C  F  T  H  R | \  L  4  9  7  @  G |
+| C  E  4  7  9  W  B | I  Y  _  2  3  H  1 | R  \  Z  K  6  ]  P | V  T  5  [  D  L  U | >  S  F  G  =  O  A | Q  ;  8  a  @  <  : | `  ^  ?  N  M  J  X |
+| O  Y  \  M  :  S  P | 9  Q  4  8  R  5  @ | V  F  ?  D  2  3  1 | =  A  W  7  N  J  < | [  L  I  `  a  E  ^ | >  X  ]  G  U  _  6 | ;  K  C  H  B  Z  T |
+| R  `  J  ]  ^  Z  _ | E  F  B  T  :  U  V | ;  C  4  G  M  Q  W | O  8  Y  @  3  2  1 | X  K  9  H  ?  N  6 | L  \  [  7  =  P  A | S  <  a  >  D  5  I |
+| [  X  Q  T  a  I  U | C  M  G  6  7  N  O | S  L  `  H  Y  5  B | \  >  4  F  R  P  ? | _  ;  <  @  3  2  1 | ^  K  9  D  Z  E  J | W  A  8  =  ]  V  : |
+| ;  ?  L  A  G  V  = | S  P  J  <  Z  \  X | ^  >  9  7  @  :  [ | `  M  K  H  ]  Q  a | R  8  4  T  D  5  C | W  I  B  N  3  2  1 | O  _  F  U  Y  E  6 |
+| K  F  @  H  N  >  D | ]  ^  W  a  `  L  = | X  8  T  <  A  _  I | 9  C  ;  6  E  :  G | B  Z  J  7  M  U  \ | S  O  4  ?  V  5  Y | Q  P  R  [  3  2  1 |
+
+
+
+| 1  2  3  4  5  6  7 | 8  9  :  ;  <  =  > | ?  @  A  B  C  D  E | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | [  \  ]  ^  _  `  a |
+| ?  @  A  B  C  D  E | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | _  ]  ^  `  \  a  [ | 8  9  :  ;  <  =  > |
+| 8  9  :  ;  <  =  > | M  N  O  P  Q  R  S | 1  2  3  4  5  6  7 | ^  ]  [  `  \  a  _ | F  G  H  I  J  K  L | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z |
+| T  U  V  W  X  Y  Z | F  G  H  I  J  K  L | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | ^  [  `  \  _  ]  a | M  N  O  P  Q  R  S | ?  @  A  B  C  D  E |
+| ^  \  ]  _  [  `  a | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S |
+| M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | \  ^  [  a  ]  `  _ | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L |
+| F  G  H  I  J  K  L | [  _  `  \  a  ^  ] | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 3  1  5  2  6  7  F | D  Z  K  V  ?  9  8 | Y  M  U  `  N  G  T | ]  [  \  R  _  S  W | I  O  P  X  ^  a  @ | B  C  E  J  L  Q  H | 4  :  ;  <  =  >  A |
+| 4  ;  8  =  S  @  J | 3  1  Q  U  2  [  F | a  R  \  _  Z  W  K | A  I  X  V  ^  H  D | :  <  >  C  `  G  M | 6  7  P  O  ]  T  9 | 5  B  E  Y  L  N  ? |
+| <  >  9  C  E  H  Q | 4  5  7  ]  \  @  W | 3  1  S  A  V  2  F | L  Y  a  U  `  ?  N | ;  B  R  _  Z  [  D | :  =  I  X  ^  G  K | 6  J  P  O  T  8  M |
+| :  B  I  \  P  G  ? | 6  a  R  Y  H  _  ` | 4  5  C  X  ^  8  9 | 3  1  E  J  O  @  2 | =  A  L  Q  T  S  K | ;  <  >  M  F  N  W | 7  ]  U  V  Z  [  D |
+| L  Z  D  K  T  O  M | :  ;  =  S  G  X  N | 6  7  P  [  H  ?  ] | 4  5  <  >  8  B  C | 3  1  E  J  F  V  2 | R  A  Y  U  `  @  a | I  Q  ^  _  W  \  9 |
+| Y  A  a  `  U  [  R | <  >  L  O  ^  M  T | :  ;  B  E  D  I  J | 6  7  =  Q  P  9  F | 4  5  W  ]  N  8  ? | 3  1  Z  V  _  \  2 | C  X  G  K  @  S  H |
+| X  ]  ^  V  W  _  N | B  A  C  E  I  J  P | <  =  >  L  O  @  Q | :  ;  G  Z  T  M  K | 6  7  Y  U  \  9  H | 4  5  D  S  [  8  ? | 3  1  `  a  R  F  2 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 2  a  1  9  3  5  6 | ;  D  >  @  8  F  ? | =  W  Q  C  4  U  \ | X  V  Z  M  I  ]  R | S  Y  ^  A  E  `  _ | K  B  T  H  P  :  < | G  [  J  L  O  7  N |
+| B  V  T  :  4  C  8 | 2  K  1  3  E  G  H | N  ]  ^  O  [  F  6 | P  S  L  A  U  5  Y | 7  D  @  =  ;  I  J | X  Z  a  _  >  `  Q | 9  W  \  R  ?  M  < |
+| `  ^  _  Q  M  E  < | 7  O  9  A  6  P  5 | 2  K  1  V  3  H  Y | N  D  T  ?  ;  W  [ | G  R  Z  L  >  \  ] | @  J  =  8  I  S  U | B  a  X  :  4  C  F |
+| 7  O  N  Z  I  ]  A | R  X  ^  C  4  V  B | J  S  <  >  L  T  5 | 2  K  1  a  =  3  ` | U  Q  ?  :  W  F  [ | 9  D  G  E  6  M  \ | @  Y  _  8  P  H  ; |
+| J  [  F  U  R  X  H | Z  T  Y  :  M  a  I | 9  B  @  8  ?  E  G | _  Q  ^  \  4  <  6 | 2  C  1  O  P  3  5 | 7  W  N  L  ;  ]  V | >  D  K  S  `  A  = |
+| @  K  =  D  ;  ?  G | L  S  N  J  [  W  \ | 7  P  _  :  `  X  a | E  O  C  8  >  F  H | 9  T  B  <  4  M  V | 2  R  1  Y  A  3  5 | U  I  Z  Q  6  ^  ] |
+| >  L  S  Y  \  P  W | Q  `  <  =  U  ]  _ | D  I  ;  M  R  Z  A | 7  B  9  :  @  G  J | K  a  N  6  8  H  X | O  [  ?  C  4  ^  F | 2  E  1  T  V  3  5 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| a  8  E  1  2  3  5 | ^  B  Z  K  V  :  C | U  ?  6  =  _  [  4 | G  P  D  9  A  N  I | <  `  ;  M  O  >  F | Y  T  S  ]  W  J  X | L  R  @  7  H  Q  \ |
+| Z  <  ?  6  7  4  : | W  E  2  1  F  ;  3 | K  `  ]  R  T  P  C | B  ^  >  L  V  U  O | Q  \  _  a  S  A  = | G  H  @  9  8  I  D | N  5  M  J  [  X  Y |
+| 9  H  G  @  A  B  C | 5  I  S  M  P  4  D | Z  <  2  1  E  \  3 | K  W  J  ]  a  T  ; | Y  X  [  ^  V  7  U | N  Q  R  >  O  L  = | _  ?  6  F  8  :  ` |
+| I  S  U  X  =  F  O | N  \  8  _  ]  7  R | 5  Q  Y  @  B  >  H | <  `  2  1  6  [  3 | L  J  C  D  K  :  T | P  ?  ;  A  M  Z  ^ | E  V  9  G  a  4  W |
+| N  W  `  ^  _  T  ] | G  J  6  H  @  >  Q | I  A  M  9  8  L  : | 5  X  S  Y  F  \  4 | E  ?  2  1  R  P  3 | <  V  U  [  a  7  C | K  Z  =  D  ;  B  O |
+| D  Q  K  R  Y  ;  V | `  L  [  9  T  A  a | G  X  N  J  7  ^  O | @  ?  M  E  H  Z  = | 5  ]  6  8  B  4  W | \  _  2  1  :  F  3 | <  S  I  C  >  U  P |
+| \  J  P  L  >  M  [ | U  <  ?  X  =  O  Y | W  a  D  S  F  ;  V | Q  _  R  C  7  8  : | N  H  G  9  @  Z  I | 5  E  6  K  B  4  ` | A  T  2  1  ^  ]  3 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 6  5  R  8  1  2  3 | A  ?  U  F  >  B  9 | [  _  E  T  =  4  M | Z  a  `  S  Y  C  Q | ]  ^  \  V  G  @  ; | D  :  W  <  H  O  I | J  7  L  X  N  P  K |
+| S  M  W  <  @  Q  4 | V  3  a  `  1  2  ; | O  J  G  ]  K  7  X | R  E  _  5  L  I  B | D  :  =  Z  [  C  N | A  8  F  T  9  >  P | H  6  Y  \  U  ?  ^ |
+| =  C  7  O  ]  a  9 | _  6  \  5  D  E  4 | H  3  R  2  1  B  ` | J  <  U  N  ?  ;  M | P  >  S  K  L  T  Y | [  ^  Q  Z  G  X  @ | :  8  W  A  F  I  V |
+| H  :  Y  G  V  \  T | O  8  P  7  S  C  J | Q  Z  I  ^  a  N  @ | >  3  ]  2  1  4  A | W  E  X  F  U  ?  ` | =  6  L  R  K  B  ; | D  M  [  5  9  <  _ |
+| P  _  Z  [  L  ^  X | H  :  I  Q  W  T  M | A  6  8  5  9  <  ? | D  =  F  G  K  7  @ | O  3  a  2  1  J  4 | V  Y  `  \  E  U  N | R  >  B  ]  S  ;  C |
+| A  D  B  F  ?  N  ; | K  R  X  [  Y  Z  G | P  :  L  \  >  S  U | W  6  8  T  9  V  ^ | H  I  M  5  7  _  < | ]  3  J  2  1  C  4 | =  O  Q  `  E  a  @ |
+| E  I  >  J  K  U  ` | =  ]  @  L  N  <  ^ | C  D  F  Y  W  V  ; | H  :  P  O  [  X  \ | A  6  8  R  9  B  Q | a  S  _  5  7  ?  M | Z  3  T  2  1  G  4 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| U  3  6  5  B  1  2 | a  V  D  >  ;  8  : | _  [  =  Z  G  9  N | I  \  Q  ^  S  `  P | C  M  T  E  A  X  O | H  F  <  @  R  W  ] | Y  4  7  ?  K  L  J |
+| V  4  <  E  F  8  @ | Y  H  M  ?  K  1  2 | ]  T  W  6  P  J  ^ | U  L  B  D  G  A  5 | `  =  7  >  :  ;  9 | Z  a  \  Q  S  [  _ | X  C  N  3  I  O  R |
+| ]  T  C  N  O  9  Y | X  4  5  R  B  3  6 | `  V  a  Q  S  1  2 | ;  F  @  <  Z  E  8 | \  _  K  [  I  L  P | J  >  7  =  ?  A  G | ^  H  D  M  :  W  U |
+| _  7  M  ?  H  :  K | P  W  E  ^  O  `  A | >  4  X  3  \  C  8 | a  J  N  =  2  1  9 | Z  V  U  S  Y  Q  R | I  L  5  6  D  ;  B | ]  F  <  @  G  T  [ |
+| Q  R  X  S  Z  J  ^ | @  C  F  G  _  I  < | L  H  7  ?  ;  A  D | [  4  6  3  M  >  T | a  W  ]  N  2  1  8 | U  `  K  :  Y  V  O | P  =  5  E  \  9  B |
+| W  =  [  a  `  L  \ | J  7  T  N  9  S  U | B  E  5  F  I  M  R | Y  H  ?  K  :  O  ] | @  4  D  3  6  <  G | C  P  X  ^  2  1  8 | V  ;  >  Z  A  _  Q |
+| G  P  ;  >  D  A  I | \  =  ]  Z  L  Q  [ | @  Y  K  U  :  O  < | C  R  7  X  W  _  V | J  F  5  ?  H  ^  B | E  4  M  3  N  9  T | a  `  S  6  2  1  8 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 5  6  2  3  8  <  1 | >  [  ;  D  A  ?  K | E  O  J  N  U  a  = | S  Z  I  _  B  ^  X | V  P  Q  Y  ]  W  : | `  M  C  F  T  H  R | \  L  4  9  7  @  G |
+| C  E  4  7  9  W  B | I  Y  _  2  3  H  1 | R  \  Z  K  6  ]  P | V  T  5  [  D  L  U | >  S  F  G  =  O  A | Q  ;  8  a  @  <  : | `  ^  ?  N  M  J  X |
+| O  Y  \  M  :  S  P | 9  Q  4  8  R  5  @ | V  F  ?  D  2  3  1 | =  A  W  7  N  J  < | [  L  I  `  a  E  ^ | >  X  ]  G  U  _  6 | ;  K  C  H  B  Z  T |
+| R  `  J  ]  ^  Z  _ | E  F  B  T  :  U  V | ;  C  4  G  M  Q  W | O  8  Y  @  3  2  1 | X  K  9  H  ?  N  6 | L  \  [  7  =  P  A | S  <  a  >  D  5  I |
+| [  X  Q  T  a  I  U | C  M  G  6  7  N  O | S  L  `  H  Y  5  B | \  >  4  F  R  P  ? | _  ;  <  @  3  2  1 | ^  K  9  D  Z  E  J | W  A  8  =  ]  V  : |
+| ;  ?  L  A  G  V  = | S  P  J  <  Z  \  X | ^  >  9  7  @  :  [ | `  M  K  H  ]  Q  a | R  8  4  T  D  5  C | W  I  B  N  3  2  1 | O  _  F  U  Y  E  6 |
+| K  F  @  H  N  >  D | ]  ^  W  a  `  L  = | X  8  T  <  A  _  I | 9  C  ;  6  E  :  G | B  Z  J  7  M  U  \ | S  O  4  ?  V  5  Y | Q  P  R  [  3  2  1 |
+
+
+
+| 1  2  3  4  5  6  7 | 8  9  :  ;  <  =  > | ?  @  A  B  C  D  E | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | [  \  ]  ^  _  `  a |
+| ?  @  A  B  C  D  E | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | _  ]  ^  `  \  a  [ | 8  9  :  ;  <  =  > |
+| 8  9  :  ;  <  =  > | M  N  O  P  Q  R  S | 1  2  3  4  5  6  7 | ^  ]  [  `  \  a  _ | F  G  H  I  J  K  L | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z |
+| T  U  V  W  X  Y  Z | F  G  H  I  J  K  L | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | ^  [  `  \  _  ]  a | M  N  O  P  Q  R  S | ?  @  A  B  C  D  E |
+| ^  \  ]  _  [  `  a | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S |
+| M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | \  ^  [  a  ]  `  _ | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L |
+| F  G  H  I  J  K  L | [  _  `  \  a  ^  ] | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 3  1  5  2  6  7  F | D  Z  K  V  ?  9  8 | Y  M  U  `  N  G  T | ]  [  \  R  _  S  W | I  O  P  X  ^  a  @ | B  C  E  J  L  Q  H | 4  :  ;  <  =  >  A |
+| 4  ;  8  =  S  @  J | 3  1  Q  U  2  [  F | a  R  \  _  Z  W  K | A  I  X  V  ^  H  D | :  <  >  C  `  G  M | 6  7  P  O  ]  T  9 | 5  B  E  Y  L  N  ? |
+| <  >  9  C  E  H  Q | 4  5  7  ]  \  @  W | 3  1  S  A  V  2  F | L  Y  a  U  `  ?  N | ;  B  R  _  Z  [  D | :  =  I  X  ^  G  K | 6  J  P  O  T  8  M |
+| :  B  I  \  P  G  ? | 6  a  R  Y  H  _  ` | 4  5  C  X  ^  8  9 | 3  1  E  J  O  @  2 | =  A  L  Q  T  S  K | ;  <  >  M  F  N  W | 7  ]  U  V  Z  [  D |
+| L  Z  D  K  T  O  M | :  ;  =  S  G  X  N | 6  7  P  [  H  ?  ] | 4  5  <  >  8  B  C | 3  1  E  J  F  V  2 | R  A  Y  U  `  @  a | I  Q  ^  _  W  \  9 |
+| Y  A  a  `  U  [  R | <  >  L  O  ^  M  T | :  ;  B  E  D  I  J | 6  7  =  Q  P  9  F | 4  5  W  ]  N  8  ? | 3  1  Z  V  _  \  2 | C  X  G  K  @  S  H |
+| X  ]  ^  V  W  _  N | B  A  C  E  I  J  P | <  =  >  L  O  @  Q | :  ;  G  Z  T  M  K | 6  7  Y  U  \  9  H | 4  5  D  S  [  8  ? | 3  1  `  a  R  F  2 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 2  a  1  9  3  5  6 | ;  D  >  @  8  F  ? | =  W  Q  C  4  U  \ | X  V  Z  M  I  ]  R | S  Y  ^  A  E  `  _ | K  B  T  H  P  :  < | G  [  J  L  O  7  N |
+| B  V  T  :  4  C  8 | 2  K  1  3  E  G  H | N  ]  ^  O  [  F  6 | P  S  L  A  U  5  Y | 7  D  @  =  ;  I  J | X  Z  a  _  >  `  Q | 9  W  \  R  ?  M  < |
+| `  ^  _  Q  M  E  < | 7  O  9  A  6  P  5 | 2  K  1  V  3  H  Y | N  D  T  ?  ;  W  [ | G  R  Z  L  >  \  ] | @  J  =  8  I  S  U | B  a  X  :  4  C  F |
+| 7  O  N  Z  I  ]  A | R  X  ^  C  4  V  B | J  S  <  >  L  T  5 | 2  K  1  a  =  3  ` | U  Q  ?  :  W  F  [ | 9  D  G  E  6  M  \ | @  Y  _  8  P  H  ; |
+| J  [  F  U  R  X  H | Z  T  Y  :  M  a  I | 9  B  @  8  ?  E  G | _  Q  ^  \  4  <  6 | 2  C  1  O  P  3  5 | 7  W  N  L  ;  ]  V | >  D  K  S  `  A  = |
+| @  K  =  D  ;  ?  G | L  S  N  J  [  W  \ | 7  P  _  :  `  X  a | E  O  C  8  >  F  H | 9  T  B  <  4  M  V | 2  R  1  Y  A  3  5 | U  I  Z  Q  6  ^  ] |
+| >  L  S  Y  \  P  W | Q  `  <  =  U  ]  _ | D  I  ;  M  R  Z  A | 7  B  9  :  @  G  J | K  a  N  6  8  H  X | O  [  ?  C  4  ^  F | 2  E  1  T  V  3  5 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| a  8  E  1  2  3  5 | ^  B  Z  K  V  :  C | U  ?  6  =  _  [  4 | G  P  D  9  A  N  I | <  `  ;  M  O  >  F | Y  T  S  ]  W  J  X | L  R  @  7  H  Q  \ |
+| Z  <  ?  6  7  4  : | W  E  2  1  F  ;  3 | K  `  ]  R  T  P  C | B  ^  >  L  V  U  O | Q  \  _  a  S  A  = | G  H  @  9  8  I  D | N  5  M  J  [  X  Y |
+| 9  H  G  @  A  B  C | 5  I  S  M  P  4  D | Z  <  2  1  E  \  3 | K  W  J  ]  a  T  ; | Y  X  [  ^  V  7  U | N  Q  R  >  O  L  = | _  ?  6  F  8  :  ` |
+| I  S  U  X  =  F  O | N  \  8  _  ]  7  R | 5  Q  Y  @  B  >  H | <  `  2  1  6  [  3 | L  J  C  D  K  :  T | P  ?  ;  A  M  Z  ^ | E  V  9  G  a  4  W |
+| N  W  `  ^  _  T  ] | G  J  6  H  @  >  Q | I  A  M  9  8  L  : | 5  X  S  Y  F  \  4 | E  ?  2  1  R  P  3 | <  V  U  [  a  7  C | K  Z  =  D  ;  B  O |
+| D  Q  K  R  Y  ;  V | `  L  [  9  T  A  a | G  X  N  J  7  ^  O | @  ?  M  E  H  Z  = | 5  ]  6  8  B  4  W | \  _  2  1  :  F  3 | <  S  I  C  >  U  P |
+| \  J  P  L  >  M  [ | U  <  ?  X  =  O  Y | W  a  D  S  F  ;  V | Q  _  R  C  7  8  : | N  H  G  9  @  Z  I | 5  E  6  K  B  4  ` | A  T  2  1  ^  ]  3 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 6  5  R  8  1  2  3 | A  ?  U  F  >  B  9 | [  _  E  T  =  4  M | Z  a  `  S  Y  C  Q | ]  ^  \  V  G  @  ; | D  :  W  <  H  O  I | J  7  L  X  N  P  K |
+| S  M  W  <  @  Q  4 | V  3  a  `  1  2  ; | O  J  G  ]  K  7  X | R  E  _  5  L  I  B | D  :  =  Z  [  C  N | A  8  F  T  9  >  P | H  6  Y  \  U  ?  ^ |
+| =  C  7  O  ]  a  9 | _  6  \  5  D  E  4 | H  3  R  2  1  B  ` | J  <  U  N  ?  ;  M | P  >  S  K  L  T  Y | [  ^  Q  Z  G  X  @ | :  8  W  A  F  I  V |
+| H  :  Y  G  V  \  T | O  8  P  7  S  C  J | Q  Z  I  ^  a  N  @ | >  3  ]  2  1  4  A | W  E  X  F  U  ?  ` | =  6  L  R  K  B  ; | D  M  [  5  9  <  _ |
+| P  _  Z  [  L  ^  X | H  :  I  Q  W  T  M | A  6  8  5  9  <  ? | D  =  F  G  K  7  @ | O  3  a  2  1  J  4 | V  Y  `  \  E  U  N | R  >  B  ]  S  ;  C |
+| A  D  B  F  ?  N  ; | K  R  X  [  Y  Z  G | P  :  L  \  >  S  U | W  6  8  T  9  V  ^ | H  I  M  5  7  _  < | ]  3  J  2  1  C  4 | =  O  Q  `  E  a  @ |
+| E  I  >  J  K  U  ` | =  ]  @  L  N  <  ^ | C  D  F  Y  W  V  ; | H  :  P  O  [  X  \ | A  6  8  R  9  B  Q | a  S  _  5  7  ?  M | Z  3  T  2  1  G  4 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| U  3  6  5  B  1  2 | a  V  D  >  ;  8  : | _  [  =  Z  G  9  N | I  \  Q  ^  S  `  P | C  M  T  E  A  X  O | H  F  <  @  R  W  ] | Y  4  7  ?  K  L  J |
+| V  4  <  E  F  8  @ | Y  H  M  ?  K  1  2 | ]  T  W  6  P  J  ^ | U  L  B  D  G  A  5 | `  =  7  >  :  ;  9 | Z  a  \  Q  S  [  _ | X  C  N  3  I  O  R |
+| ]  T  C  N  O  9  Y | X  4  5  R  B  3  6 | `  V  a  Q  S  1  2 | ;  F  @  <  Z  E  8 | \  _  K  [  I  L  P | J  >  7  =  ?  A  G | ^  H  D  M  :  W  U |
+| _  7  M  ?  H  :  K | P  W  E  ^  O  `  A | >  4  X  3  \  C  8 | a  J  N  =  2  1  9 | Z  V  U  S  Y  Q  R | I  L  5  6  D  ;  B | ]  F  <  @  G  T  [ |
+| Q  R  X  S  Z  J  ^ | @  C  F  G  _  I  < | L  H  7  ?  ;  A  D | [  4  6  3  M  >  T | a  W  ]  N  2  1  8 | U  `  K  :  Y  V  O | P  =  5  E  \  9  B |
+| W  =  [  a  `  L  \ | J  7  T  N  9  S  U | B  E  5  F  I  M  R | Y  H  ?  K  :  O  ] | @  4  D  3  6  <  G | C  P  X  ^  2  1  8 | V  ;  >  Z  A  _  Q |
+| G  P  ;  >  D  A  I | \  =  ]  Z  L  Q  [ | @  Y  K  U  :  O  < | C  R  7  X  W  _  V | J  F  5  ?  H  ^  B | E  4  M  3  N  9  T | a  `  S  6  2  1  8 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 5  6  2  3  8  <  1 | >  [  ;  D  A  ?  K | E  O  J  N  U  a  = | S  Z  I  _  B  ^  X | V  P  Q  Y  ]  W  : | `  M  C  F  T  H  R | \  L  4  9  7  @  G |
+| C  E  4  7  9  W  B | I  Y  _  2  3  H  1 | R  \  Z  K  6  ]  P | V  T  5  [  D  L  U | >  S  F  G  =  O  A | Q  ;  8  a  @  <  : | `  ^  ?  N  M  J  X |
+| O  Y  \  M  :  S  P | 9  Q  4  8  R  5  @ | V  F  ?  D  2  3  1 | =  A  W  7  N  J  < | [  L  I  `  a  E  ^ | >  X  ]  G  U  _  6 | ;  K  C  H  B  Z  T |
+| R  `  J  ]  ^  Z  _ | E  F  B  T  :  U  V | ;  C  4  G  M  Q  W | O  8  Y  @  3  2  1 | X  K  9  H  ?  N  6 | L  \  [  7  =  P  A | S  <  a  >  D  5  I |
+| [  X  Q  T  a  I  U | C  M  G  6  7  N  O | S  L  `  H  Y  5  B | \  >  4  F  R  P  ? | _  ;  <  @  3  2  1 | ^  K  9  D  Z  E  J | W  A  8  =  ]  V  : |
+| ;  ?  L  A  G  V  = | S  P  J  <  Z  \  X | ^  >  9  7  @  :  [ | `  M  K  H  ]  Q  a | R  8  4  T  D  5  C | W  I  B  N  3  2  1 | O  _  F  U  Y  E  6 |
+| K  F  @  H  N  >  D | ]  ^  W  a  `  L  = | X  8  T  <  A  _  I | 9  C  ;  6  E  :  G | B  Z  J  7  M  U  \ | S  O  4  ?  V  5  Y | Q  P  R  [  3  2  1 |
+
+
+
+| 1  2  3  4  5  6  7 | 8  9  :  ;  <  =  > | ?  @  A  B  C  D  E | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | [  \  ]  ^  _  `  a |
+| ?  @  A  B  C  D  E | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | _  ]  ^  `  \  a  [ | 8  9  :  ;  <  =  > |
+| 8  9  :  ;  <  =  > | M  N  O  P  Q  R  S | 1  2  3  4  5  6  7 | ^  ]  [  `  \  a  _ | F  G  H  I  J  K  L | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z |
+| T  U  V  W  X  Y  Z | F  G  H  I  J  K  L | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | ^  [  `  \  _  ]  a | M  N  O  P  Q  R  S | ?  @  A  B  C  D  E |
+| ^  \  ]  _  [  `  a | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S |
+| M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | \  ^  [  a  ]  `  _ | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L |
+| F  G  H  I  J  K  L | [  _  `  \  a  ^  ] | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 3  1  5  2  6  7  F | D  Z  K  V  ?  9  8 | Y  M  U  `  N  G  T | ]  [  \  R  _  S  W | I  O  P  X  ^  a  @ | B  C  E  J  L  Q  H | 4  :  ;  <  =  >  A |
+| 4  ;  8  =  S  @  J | 3  1  Q  U  2  [  F | a  R  \  _  Z  W  K | A  I  X  V  ^  H  D | :  <  >  C  `  G  M | 6  7  P  O  ]  T  9 | 5  B  E  Y  L  N  ? |
+| <  >  9  C  E  H  Q | 4  5  7  ]  \  @  W | 3  1  S  A  V  2  F | L  Y  a  U  `  ?  N | ;  B  R  _  Z  [  D | :  =  I  X  ^  G  K | 6  J  P  O  T  8  M |
+| :  B  I  \  P  G  ? | 6  a  R  Y  H  _  ` | 4  5  C  X  ^  8  9 | 3  1  E  J  O  @  2 | =  A  L  Q  T  S  K | ;  <  >  M  F  N  W | 7  ]  U  V  Z  [  D |
+| L  Z  D  K  T  O  M | :  ;  =  S  G  X  N | 6  7  P  [  H  ?  ] | 4  5  <  >  8  B  C | 3  1  E  J  F  V  2 | R  A  Y  U  `  @  a | I  Q  ^  _  W  \  9 |
+| Y  A  a  `  U  [  R | <  >  L  O  ^  M  T | :  ;  B  E  D  I  J | 6  7  =  Q  P  9  F | 4  5  W  ]  N  8  ? | 3  1  Z  V  _  \  2 | C  X  G  K  @  S  H |
+| X  ]  ^  V  W  _  N | B  A  C  E  I  J  P | <  =  >  L  O  @  Q | :  ;  G  Z  T  M  K | 6  7  Y  U  \  9  H | 4  5  D  S  [  8  ? | 3  1  `  a  R  F  2 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 2  a  1  9  3  5  6 | ;  D  >  @  8  F  ? | =  W  Q  C  4  U  \ | X  V  Z  M  I  ]  R | S  Y  ^  A  E  `  _ | K  B  T  H  P  :  < | G  [  J  L  O  7  N |
+| B  V  T  :  4  C  8 | 2  K  1  3  E  G  H | N  ]  ^  O  [  F  6 | P  S  L  A  U  5  Y | 7  D  @  =  ;  I  J | X  Z  a  _  >  `  Q | 9  W  \  R  ?  M  < |
+| `  ^  _  Q  M  E  < | 7  O  9  A  6  P  5 | 2  K  1  V  3  H  Y | N  D  T  ?  ;  W  [ | G  R  Z  L  >  \  ] | @  J  =  8  I  S  U | B  a  X  :  4  C  F |
+| 7  O  N  Z  I  ]  A | R  X  ^  C  4  V  B | J  S  <  >  L  T  5 | 2  K  1  a  =  3  ` | U  Q  ?  :  W  F  [ | 9  D  G  E  6  M  \ | @  Y  _  8  P  H  ; |
+| J  [  F  U  R  X  H | Z  T  Y  :  M  a  I | 9  B  @  8  ?  E  G | _  Q  ^  \  4  <  6 | 2  C  1  O  P  3  5 | 7  W  N  L  ;  ]  V | >  D  K  S  `  A  = |
+| @  K  =  D  ;  ?  G | L  S  N  J  [  W  \ | 7  P  _  :  `  X  a | E  O  C  8  >  F  H | 9  T  B  <  4  M  V | 2  R  1  Y  A  3  5 | U  I  Z  Q  6  ^  ] |
+| >  L  S  Y  \  P  W | Q  `  <  =  U  ]  _ | D  I  ;  M  R  Z  A | 7  B  9  :  @  G  J | K  a  N  6  8  H  X | O  [  ?  C  4  ^  F | 2  E  1  T  V  3  5 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| a  8  E  1  2  3  5 | ^  B  Z  K  V  :  C | U  ?  6  =  _  [  4 | G  P  D  9  A  N  I | <  `  ;  M  O  >  F | Y  T  S  ]  W  J  X | L  R  @  7  H  Q  \ |
+| Z  <  ?  6  7  4  : | W  E  2  1  F  ;  3 | K  `  ]  R  T  P  C | B  ^  >  L  V  U  O | Q  \  _  a  S  A  = | G  H  @  9  8  I  D | N  5  M  J  [  X  Y |
+| 9  H  G  @  A  B  C | 5  I  S  M  P  4  D | Z  <  2  1  E  \  3 | K  W  J  ]  a  T  ; | Y  X  [  ^  V  7  U | N  Q  R  >  O  L  = | _  ?  6  F  8  :  ` |
+| I  S  U  X  =  F  O | N  \  8  _  ]  7  R | 5  Q  Y  @  B  >  H | <  `  2  1  6  [  3 | L  J  C  D  K  :  T | P  ?  ;  A  M  Z  ^ | E  V  9  G  a  4  W |
+| N  W  `  ^  _  T  ] | G  J  6  H  @  >  Q | I  A  M  9  8  L  : | 5  X  S  Y  F  \  4 | E  ?  2  1  R  P  3 | <  V  U  [  a  7  C | K  Z  =  D  ;  B  O |
+| D  Q  K  R  Y  ;  V | `  L  [  9  T  A  a | G  X  N  J  7  ^  O | @  ?  M  E  H  Z  = | 5  ]  6  8  B  4  W | \  _  2  1  :  F  3 | <  S  I  C  >  U  P |
+| \  J  P  L  >  M  [ | U  <  ?  X  =  O  Y | W  a  D  S  F  ;  V | Q  _  R  C  7  8  : | N  H  G  9  @  Z  I | 5  E  6  K  B  4  ` | A  T  2  1  ^  ]  3 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 6  5  R  8  1  2  3 | A  ?  U  F  >  B  9 | [  _  E  T  =  4  M | Z  a  `  S  Y  C  Q | ]  ^  \  V  G  @  ; | D  :  W  <  H  O  I | J  7  L  X  N  P  K |
+| S  M  W  <  @  Q  4 | V  3  a  `  1  2  ; | O  J  G  ]  K  7  X | R  E  _  5  L  I  B | D  :  =  Z  [  C  N | A  8  F  T  9  >  P | H  6  Y  \  U  ?  ^ |
+| =  C  7  O  ]  a  9 | _  6  \  5  D  E  4 | H  3  R  2  1  B  ` | J  <  U  N  ?  ;  M | P  >  S  K  L  T  Y | [  ^  Q  Z  G  X  @ | :  8  W  A  F  I  V |
+| H  :  Y  G  V  \  T | O  8  P  7  S  C  J | Q  Z  I  ^  a  N  @ | >  3  ]  2  1  4  A | W  E  X  F  U  ?  ` | =  6  L  R  K  B  ; | D  M  [  5  9  <  _ |
+| P  _  Z  [  L  ^  X | H  :  I  Q  W  T  M | A  6  8  5  9  <  ? | D  =  F  G  K  7  @ | O  3  a  2  1  J  4 | V  Y  `  \  E  U  N | R  >  B  ]  S  ;  C |
+| A  D  B  F  ?  N  ; | K  R  X  [  Y  Z  G | P  :  L  \  >  S  U | W  6  8  T  9  V  ^ | H  I  M  5  7  _  < | ]  3  J  2  1  C  4 | =  O  Q  `  E  a  @ |
+| E  I  >  J  K  U  ` | =  ]  @  L  N  <  ^ | C  D  F  Y  W  V  ; | H  :  P  O  [  X  \ | A  6  8  R  9  B  Q | a  S  _  5  7  ?  M | Z  3  T  2  1  G  4 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| U  3  6  5  B  1  2 | a  V  D  >  ;  8  : | _  [  =  Z  G  9  N | I  \  Q  ^  S  `  P | C  M  T  E  A  X  O | H  F  <  @  R  W  ] | Y  4  7  ?  K  L  J |
+| V  4  <  E  F  8  @ | Y  H  M  ?  K  1  2 | ]  T  W  6  P  J  ^ | U  L  B  D  G  A  5 | `  =  7  >  :  ;  9 | Z  a  \  Q  S  [  _ | X  C  N  3  I  O  R |
+| ]  T  C  N  O  9  Y | X  4  5  R  B  3  6 | `  V  a  Q  S  1  2 | ;  F  @  <  Z  E  8 | \  _  K  [  I  L  P | J  >  7  =  ?  A  G | ^  H  D  M  :  W  U |
+| _  7  M  ?  H  :  K | P  W  E  ^  O  `  A | >  4  X  3  \  C  8 | a  J  N  =  2  1  9 | Z  V  U  S  Y  Q  R | I  L  5  6  D  ;  B | ]  F  <  @  G  T  [ |
+| Q  R  X  S  Z  J  ^ | @  C  F  G  _  I  < | L  H  7  ?  ;  A  D | [  4  6  3  M  >  T | a  W  ]  N  2  1  8 | U  `  K  :  Y  V  O | P  =  5  E  \  9  B |
+| W  =  [  a  `  L  \ | J  7  T  N  9  S  U | B  E  5  F  I  M  R | Y  H  ?  K  :  O  ] | @  4  D  3  6  <  G | C  P  X  ^  2  1  8 | V  ;  >  Z  A  _  Q |
+| G  P  ;  >  D  A  I | \  =  ]  Z  L  Q  [ | @  Y  K  U  :  O  < | C  R  7  X  W  _  V | J  F  5  ?  H  ^  B | E  4  M  3  N  9  T | a  `  S  6  2  1  8 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 5  6  2  3  8  <  1 | >  [  ;  D  A  ?  K | E  O  J  N  U  a  = | S  Z  I  _  B  ^  X | V  P  Q  Y  ]  W  : | `  M  C  F  T  H  R | \  L  4  9  7  @  G |
+| C  E  4  7  9  W  B | I  Y  _  2  3  H  1 | R  \  Z  K  6  ]  P | V  T  5  [  D  L  U | >  S  F  G  =  O  A | Q  ;  8  a  @  <  : | `  ^  ?  N  M  J  X |
+| O  Y  \  M  :  S  P | 9  Q  4  8  R  5  @ | V  F  ?  D  2  3  1 | =  A  W  7  N  J  < | [  L  I  `  a  E  ^ | >  X  ]  G  U  _  6 | ;  K  C  H  B  Z  T |
+| R  `  J  ]  ^  Z  _ | E  F  B  T  :  U  V | ;  C  4  G  M  Q  W | O  8  Y  @  3  2  1 | X  K  9  H  ?  N  6 | L  \  [  7  =  P  A | S  <  a  >  D  5  I |
+| [  X  Q  T  a  I  U | C  M  G  6  7  N  O | S  L  `  H  Y  5  B | \  >  4  F  R  P  ? | _  ;  <  @  3  2  1 | ^  K  9  D  Z  E  J | W  A  8  =  ]  V  : |
+| ;  ?  L  A  G  V  = | S  P  J  <  Z  \  X | ^  >  9  7  @  :  [ | `  M  K  H  ]  Q  a | R  8  4  T  D  5  C | W  I  B  N  3  2  1 | O  _  F  U  Y  E  6 |
+| K  F  @  H  N  >  D | ]  ^  W  a  `  L  = | X  8  T  <  A  _  I | 9  C  ;  6  E  :  G | B  Z  J  7  M  U  \ | S  O  4  ?  V  5  Y | Q  P  R  [  3  2  1 |
+
+
+
+| 1  2  3  4  5  6  7 | 8  9  :  ;  <  =  > | ?  @  A  B  C  D  E | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | [  \  ]  ^  _  `  a |
+| ?  @  A  B  C  D  E | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | _  ]  ^  `  \  a  [ | 8  9  :  ;  <  =  > |
+| 8  9  :  ;  <  =  > | M  N  O  P  Q  R  S | 1  2  3  4  5  6  7 | ^  ]  [  `  \  a  _ | F  G  H  I  J  K  L | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z |
+| T  U  V  W  X  Y  Z | F  G  H  I  J  K  L | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | ^  [  `  \  _  ]  a | M  N  O  P  Q  R  S | ?  @  A  B  C  D  E |
+| ^  \  ]  _  [  `  a | ?  @  A  B  C  D  E | T  U  V  W  X  Y  Z | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L | M  N  O  P  Q  R  S |
+| M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | \  ^  [  a  ]  `  _ | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 | F  G  H  I  J  K  L |
+| F  G  H  I  J  K  L | [  _  `  \  a  ^  ] | M  N  O  P  Q  R  S | T  U  V  W  X  Y  Z | ?  @  A  B  C  D  E | 8  9  :  ;  <  =  > | 1  2  3  4  5  6  7 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 3  1  5  2  6  7  F | D  Z  K  V  ?  9  8 | Y  M  U  `  N  G  T | ]  [  \  R  _  S  W | I  O  P  X  ^  a  @ | B  C  E  J  L  Q  H | 4  :  ;  <  =  >  A |
+| 4  ;  8  =  S  @  J | 3  1  Q  U  2  [  F | a  R  \  _  Z  W  K | A  I  X  V  ^  H  D | :  <  >  C  `  G  M | 6  7  P  O  ]  T  9 | 5  B  E  Y  L  N  ? |
+| <  >  9  C  E  H  Q | 4  5  7  ]  \  @  W | 3  1  S  A  V  2  F | L  Y  a  U  `  ?  N | ;  B  R  _  Z  [  D | :  =  I  X  ^  G  K | 6  J  P  O  T  8  M |
+| :  B  I  \  P  G  ? | 6  a  R  Y  H  _  ` | 4  5  C  X  ^  8  9 | 3  1  E  J  O  @  2 | =  A  L  Q  T  S  K | ;  <  >  M  F  N  W | 7  ]  U  V  Z  [  D |
+| L  Z  D  K  T  O  M | :  ;  =  S  G  X  N | 6  7  P  [  H  ?  ] | 4  5  <  >  8  B  C | 3  1  E  J  F  V  2 | R  A  Y  U  `  @  a | I  Q  ^  _  W  \  9 |
+| Y  A  a  `  U  [  R | <  >  L  O  ^  M  T | :  ;  B  E  D  I  J | 6  7  =  Q  P  9  F | 4  5  W  ]  N  8  ? | 3  1  Z  V  _  \  2 | C  X  G  K  @  S  H |
+| X  ]  ^  V  W  _  N | B  A  C  E  I  J  P | <  =  >  L  O  @  Q | :  ;  G  Z  T  M  K | 6  7  Y  U  \  9  H | 4  5  D  S  [  8  ? | 3  1  `  a  R  F  2 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 2  a  1  9  3  5  6 | ;  D  >  @  8  F  ? | =  W  Q  C  4  U  \ | X  V  Z  M  I  ]  R | S  Y  ^  A  E  `  _ | K  B  T  H  P  :  < | G  [  J  L  O  7  N |
+| B  V  T  :  4  C  8 | 2  K  1  3  E  G  H | N  ]  ^  O  [  F  6 | P  S  L  A  U  5  Y | 7  D  @  =  ;  I  J | X  Z  a  _  >  `  Q | 9  W  \  R  ?  M  < |
+| `  ^  _  Q  M  E  < | 7  O  9  A  6  P  5 | 2  K  1  V  3  H  Y | N  D  T  ?  ;  W  [ | G  R  Z  L  >  \  ] | @  J  =  8  I  S  U | B  a  X  :  4  C  F |
+| 7  O  N  Z  I  ]  A | R  X  ^  C  4  V  B | J  S  <  >  L  T  5 | 2  K  1  a  =  3  ` | U  Q  ?  :  W  F  [ | 9  D  G  E  6  M  \ | @  Y  _  8  P  H  ; |
+| J  [  F  U  R  X  H | Z  T  Y  :  M  a  I | 9  B  @  8  ?  E  G | _  Q  ^  \  4  <  6 | 2  C  1  O  P  3  5 | 7  W  N  L  ;  ]  V | >  D  K  S  `  A  = |
+| @  K  =  D  ;  ?  G | L  S  N  J  [  W  \ | 7  P  _  :  `  X  a | E  O  C  8  >  F  H | 9  T  B  <  4  M  V | 2  R  1  Y  A  3  5 | U  I  Z  Q  6  ^  ] |
+| >  L  S  Y  \  P  W | Q  `  <  =  U  ]  _ | D  I  ;  M  R  Z  A | 7  B  9  :  @  G  J | K  a  N  6  8  H  X | O  [  ?  C  4  ^  F | 2  E  1  T  V  3  5 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| a  8  E  1  2  3  5 | ^  B  Z  K  V  :  C | U  ?  6  =  _  [  4 | G  P  D  9  A  N  I | <  `  ;  M  O  >  F | Y  T  S  ]  W  J  X | L  R  @  7  H  Q  \ |
+| Z  <  ?  6  7  4  : | W  E  2  1  F  ;  3 | K  `  ]  R  T  P  C | B  ^  >  L  V  U  O | Q  \  _  a  S  A  = | G  H  @  9  8  I  D | N  5  M  J  [  X  Y |
+| 9  H  G  @  A  B  C | 5  I  S  M  P  4  D | Z  <  2  1  E  \  3 | K  W  J  ]  a  T  ; | Y  X  [  ^  V  7  U | N  Q  R  >  O  L  = | _  ?  6  F  8  :  ` |
+| I  S  U  X  =  F  O | N  \  8  _  ]  7  R | 5  Q  Y  @  B  >  H | <  `  2  1  6  [  3 | L  J  C  D  K  :  T | P  ?  ;  A  M  Z  ^ | E  V  9  G  a  4  W |
+| N  W  `  ^  _  T  ] | G  J  6  H  @  >  Q | I  A  M  9  8  L  : | 5  X  S  Y  F  \  4 | E  ?  2  1  R  P  3 | <  V  U  [  a  7  C | K  Z  =  D  ;  B  O |
+| D  Q  K  R  Y  ;  V | `  L  [  9  T  A  a | G  X  N  J  7  ^  O | @  ?  M  E  H  Z  = | 5  ]  6  8  B  4  W | \  _  2  1  :  F  3 | <  S  I  C  >  U  P |
+| \  J  P  L  >  M  [ | U  <  ?  X  =  O  Y | W  a  D  S  F  ;  V | Q  _  R  C  7  8  : | N  H  G  9  @  Z  I | 5  E  6  K  B  4  ` | A  T  2  1  ^  ]  3 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 6  5  R  8  1  2  3 | A  ?  U  F  >  B  9 | [  _  E  T  =  4  M | Z  a  `  S  Y  C  Q | ]  ^  \  V  G  @  ; | D  :  W  <  H  O  I | J  7  L  X  N  P  K |
+| S  M  W  <  @  Q  4 | V  3  a  `  1  2  ; | O  J  G  ]  K  7  X | R  E  _  5  L  I  B | D  :  =  Z  [  C  N | A  8  F  T  9  >  P | H  6  Y  \  U  ?  ^ |
+| =  C  7  O  ]  a  9 | _  6  \  5  D  E  4 | H  3  R  2  1  B  ` | J  <  U  N  ?  ;  M | P  >  S  K  L  T  Y | [  ^  Q  Z  G  X  @ | :  8  W  A  F  I  V |
+| H  :  Y  G  V  \  T | O  8  P  7  S  C  J | Q  Z  I  ^  a  N  @ | >  3  ]  2  1  4  A | W  E  X  F  U  ?  ` | =  6  L  R  K  B  ; | D  M  [  5  9  <  _ |
+| P  _  Z  [  L  ^  X | H  :  I  Q  W  T  M | A  6  8  5  9  <  ? | D  =  F  G  K  7  @ | O  3  a  2  1  J  4 | V  Y  `  \  E  U  N | R  >  B  ]  S  ;  C |
+| A  D  B  F  ?  N  ; | K  R  X  [  Y  Z  G | P  :  L  \  >  S  U | W  6  8  T  9  V  ^ | H  I  M  5  7  _  < | ]  3  J  2  1  C  4 | =  O  Q  `  E  a  @ |
+| E  I  >  J  K  U  ` | =  ]  @  L  N  <  ^ | C  D  F  Y  W  V  ; | H  :  P  O  [  X  \ | A  6  8  R  9  B  Q | a  S  _  5  7  ?  M | Z  3  T  2  1  G  4 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| U  3  6  5  B  1  2 | a  V  D  >  ;  8  : | _  [  =  Z  G  9  N | I  \  Q  ^  S  `  P | C  M  T  E  A  X  O | H  F  <  @  R  W  ] | Y  4  7  ?  K  L  J |
+| V  4  <  E  F  8  @ | Y  H  M  ?  K  1  2 | ]  T  W  6  P  J  ^ | U  L  B  D  G  A  5 | `  =  7  >  :  ;  9 | Z  a  \  Q  S  [  _ | X  C  N  3  I  O  R |
+| ]  T  C  N  O  9  Y | X  4  5  R  B  3  6 | `  V  a  Q  S  1  2 | ;  F  @  <  Z  E  8 | \  _  K  [  I  L  P | J  >  7  =  ?  A  G | ^  H  D  M  :  W  U |
+| _  7  M  ?  H  :  K | P  W  E  ^  O  `  A | >  4  X  3  \  C  8 | a  J  N  =  2  1  9 | Z  V  U  S  Y  Q  R | I  L  5  6  D  ;  B | ]  F  <  @  G  T  [ |
+| Q  R  X  S  Z  J  ^ | @  C  F  G  _  I  < | L  H  7  ?  ;  A  D | [  4  6  3  M  >  T | a  W  ]  N  2  1  8 | U  `  K  :  Y  V  O | P  =  5  E  \  9  B |
+| W  =  [  a  `  L  \ | J  7  T  N  9  S  U | B  E  5  F  I  M  R | Y  H  ?  K  :  O  ] | @  4  D  3  6  <  G | C  P  X  ^  2  1  8 | V  ;  >  Z  A  _  Q |
+| G  P  ;  >  D  A  I | \  =  ]  Z  L  Q  [ | @  Y  K  U  :  O  < | C  R  7  X  W  _  V | J  F  5  ?  H  ^  B | E  4  M  3  N  9  T | a  `  S  6  2  1  8 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| 5  6  2  3  8  <  1 | >  [  ;  D  A  ?  K | E  O  J  N  U  a  = | S  Z  I  _  B  ^  X | V  P  Q  Y  ]  W  : | `  M  C  F  T  H  R | \  L  4  9  7  @  G |
+| C  E  4  7  9  W  B | I  Y  _  2  3  H  1 | R  \  Z  K  6  ]  P | V  T  5  [  D  L  U | >  S  F  G  =  O  A | Q  ;  8  a  @  <  : | `  ^  ?  N  M  J  X |
+| O  Y  \  M  :  S  P | 9  Q  4  8  R  5  @ | V  F  ?  D  2  3  1 | =  A  W  7  N  J  < | [  L  I  `  a  E  ^ | >  X  ]  G  U  _  6 | ;  K  C  H  B  Z  T |
+| R  `  J  ]  ^  Z  _ | E  F  B  T  :  U  V | ;  C  4  G  M  Q  W | O  8  Y  @  3  2  1 | X  K  9  H  ?  N  6 | L  \  [  7  =  P  A | S  <  a  >  D  5  I |
+| [  X  Q  T  a  I  U | C  M  G  6  7  N  O | S  L  `  H  Y  5  B | \  >  4  F  R  P  ? | _  ;  <  @  3  2  1 | ^  K  9  D  Z  E  J | W  A  8  =  ]  V  : |
+| ;  ?  L  A  G  V  = | S  P  J  <  Z  \  X | ^  >  9  7  @  :  [ | `  M  K  H  ]  Q  a | R  8  4  T  D  5  C | W  I  B  N  3  2  1 | O  _  F  U  Y  E  6 |
+| K  F  @  H  N  >  D | ]  ^  W  a  `  L  = | X  8  T  <  A  _  I | 9  C  ;  6  E  :  G | B  Z  J  7  M  U  \ | S  O  4  ?  V  5  Y | Q  P  R  [  3  2  1 |
+
+
+
+| 1  2  3  4  5 | 6  7  8  9  : | ;  <  =  >  ? | @  A  B  C  D | E  F  G  H  I |
+| ;  <  =  >  ? | 1  2  3  4  5 | @  A  B  C  D | F  G  E  H  I | 6  7  8  9  : |
+| 6  7  8  9  : | H  I  F  E  G | 1  2  3  4  5 | ;  <  =  >  ? | @  A  B  C  D |
+| G  F  E  I  H | @  A  B  C  D | 6  7  8  9  : | 1  2  3  4  5 | ;  <  =  >  ? |
+| @  A  B  C  D | ;  <  =  >  ? | H  E  G  F  I | 6  7  8  9  : | 1  2  3  4  5 |
+---------------------------------------------------------------------------------
+| 3  1  5  2  > | C  @  D  7  ; | B  ?  E  H  G | 8  :  I  F  < | 4  9  A  =  6 |
+| 4  8  :  6  B | 3  1  G  H  2 | =  F  I  <  > | 9  @  C  ;  A | 5  ?  D  E  7 |
+| H  ?  I  7  < | 4  5  9  =  6 | 3  1  @  A  2 | B  D  >  E  G | 8  :  F  ;  C |
+| 9  C  ;  D  E | 8  F  I  A  > | 4  5  :  7  6 | 3  1  ?  =  2 | B  H  @  <  G |
+| =  G  A  F  @ | :  ?  E  B  < | 8  9  D  ;  C | 4  5  H  7  6 | 3  1  >  I  2 |
+---------------------------------------------------------------------------------
+| 2  5  1  ?  3 | >  =  A  I  8 | G  @  C  :  B | <  H  ;  D  9 | 7  4  E  6  F |
+| 7  @  6  ;  4 | 2  B  1  5  3 | <  H  A  8  F | >  E  G  :  = | D  I  C  ?  9 |
+| <  I  G  E  8 | 7  4  6  ;  9 | 2  D  1  5  3 | A  ?  F  B  C | >  =  H  :  @ |
+| >  D  C  H  9 | F  G  :  @  E | 7  4  6  ?  = | 2  I  1  5  3 | <  8  ;  A  B |
+| A  :  F  B  = | <  H  ?  D  C | >  I  ;  E  9 | 7  4  6  8  @ | 2  G  1  5  3 |
+---------------------------------------------------------------------------------
+| C  6  4  1  2 | I  E  ;  <  H | D  B  9  G  8 | ?  >  @  A  F | :  5  7  3  = |
+| 5  =  9  3  7 | A  8  2  1  4 | F  C  H  I  ; | :  B  D  G  E | ?  6  <  @  > |
+| ?  B  D  G  A | 5  6  7  3  @ | :  >  2  1  4 | C  =  9  <  H | F  E  I  8  ; |
+| F  >  <  @  ; | B  :  C  ?  = | 5  6  7  3  E | I  8  2  1  4 | A  D  9  G  H |
+| :  E  H  8  I | D  9  >  G  F | ?  =  <  @  A | 5  6  7  3  ; | C  B  2  1  4 |
+---------------------------------------------------------------------------------
+| B  3  2  5  1 | ?  D  4  8  I | A  :  F  =  H | G  ;  <  @  > | 9  C  6  7  E |
+| I  4  7  =  6 | 9  3  @  2  1 | C  G  >  D  < | E  F  :  ?  8 | H  ;  5  B  A |
+| D  ;  ?  <  C | G  >  5  6  7 | E  3  4  2  1 | H  9  A  I  B | =  @  :  F  8 |
+| 8  9  @  A  F | E  C  H  :  B | I  ;  5  6  7 | =  3  4  2  1 | G  >  ?  D  < |
+| E  H  >  :  G | =  ;  <  F  A | 9  8  ?  B  @ | D  C  5  6  7 | I  3  4  2  1 |
+
+
+
+| 1  2  3  4  5 | 6  7  8  9  : | ;  <  =  >  ? | @  A  B  C  D | E  F  G  H  I |
+| ;  <  =  >  ? | 1  2  3  4  5 | @  A  B  C  D | F  G  E  H  I | 6  7  8  9  : |
+| 6  7  8  9  : | H  I  F  E  G | 1  2  3  4  5 | ;  <  =  >  ? | @  A  B  C  D |
+| G  F  E  I  H | @  A  B  C  D | 6  7  8  9  : | 1  2  3  4  5 | ;  <  =  >  ? |
+| @  A  B  C  D | ;  <  =  >  ? | H  E  G  F  I | 6  7  8  9  : | 1  2  3  4  5 |
+---------------------------------------------------------------------------------
+| 3  1  5  2  > | C  @  D  7  ; | B  ?  E  H  G | 8  :  I  F  < | 4  9  A  =  6 |
+| 4  8  :  6  B | 3  1  G  H  2 | =  F  I  <  > | 9  @  C  ;  A | 5  ?  D  E  7 |
+| H  ?  I  7  < | 4  5  9  =  6 | 3  1  @  A  2 | B  D  >  E  G | 8  :  F  ;  C |
+| 9  C  ;  D  E | 8  F  I  A  > | 4  5  :  7  6 | 3  1  ?  =  2 | B  H  @  <  G |
+| =  G  A  F  @ | :  ?  E  B  < | 8  9  D  ;  C | 4  5  H  7  6 | 3  1  >  I  2 |
+---------------------------------------------------------------------------------
+| 2  5  1  ?  3 | >  =  A  I  8 | G  @  C  :  B | <  H  ;  D  9 | 7  4  E  6  F |
+| 7  @  6  ;  4 | 2  B  1  5  3 | <  H  A  8  F | >  E  G  :  = | D  I  C  ?  9 |
+| <  I  G  E  8 | 7  4  6  ;  9 | 2  D  1  5  3 | A  ?  F  B  C | >  =  H  :  @ |
+| >  D  C  H  9 | F  G  :  @  E | 7  4  6  ?  = | 2  I  1  5  3 | <  8  ;  A  B |
+| A  :  F  B  = | <  H  ?  D  C | >  I  ;  E  9 | 7  4  6  8  @ | 2  G  1  5  3 |
+---------------------------------------------------------------------------------
+| C  6  4  1  2 | I  E  ;  <  H | D  B  9  G  8 | ?  >  @  A  F | :  5  7  3  = |
+| 5  =  9  3  7 | A  8  2  1  4 | F  C  H  I  ; | :  B  D  G  E | ?  6  <  @  > |
+| ?  B  D  G  A | 5  6  7  3  @ | :  >  2  1  4 | C  =  9  <  H | F  E  I  8  ; |
+| F  >  <  @  ; | B  :  C  ?  = | 5  6  7  3  E | I  8  2  1  4 | A  D  9  G  H |
+| :  E  H  8  I | D  9  >  G  F | ?  =  <  @  A | 5  6  7  3  ; | C  B  2  1  4 |
+---------------------------------------------------------------------------------
+| B  3  2  5  1 | ?  D  4  8  I | A  :  F  =  H | G  ;  <  @  > | 9  C  6  7  E |
+| I  4  7  =  6 | 9  3  @  2  1 | C  G  >  D  < | E  F  :  ?  8 | H  ;  5  B  A |
+| D  ;  ?  <  C | G  >  5  6  7 | E  3  4  2  1 | H  9  A  I  B | =  @  :  F  8 |
+| 8  9  @  A  F | E  C  H  :  B | I  ;  5  6  7 | =  3  4  2  1 | G  >  ?  D  < |
+| E  H  >  :  G | =  ;  <  F  A | 9  8  ?  B  @ | D  C  5  6  7 | I  3  4  2  1 |
+
+
+
+| 1  2  3  4  5 | 6  7  8  9  : | ;  <  =  >  ? | @  A  B  C  D | E  F  G  H  I |
+| ;  <  =  >  ? | 1  2  3  4  5 | @  A  B  C  D | F  G  E  H  I | 6  7  8  9  : |
+| 6  7  8  9  : | H  I  F  E  G | 1  2  3  4  5 | ;  <  =  >  ? | @  A  B  C  D |
+| G  F  E  I  H | @  A  B  C  D | 6  7  8  9  : | 1  2  3  4  5 | ;  <  =  >  ? |
+| @  A  B  C  D | ;  <  =  >  ? | H  E  G  F  I | 6  7  8  9  : | 1  2  3  4  5 |
+---------------------------------------------------------------------------------
+| 3  1  5  2  > | C  @  D  7  ; | B  ?  E  H  G | 8  :  I  F  < | 4  9  A  =  6 |
+| 4  8  :  6  B | 3  1  G  H  2 | =  F  I  <  > | 9  @  C  ;  A | 5  ?  D  E  7 |
+| H  ?  I  7  < | 4  5  9  =  6 | 3  1  @  A  2 | B  D  >  E  G | 8  :  F  ;  C |
+| 9  C  ;  D  E | 8  F  I  A  > | 4  5  :  7  6 | 3  1  ?  =  2 | B  H  @  <  G |
+| =  G  A  F  @ | :  ?  E  B  < | 8  9  D  ;  C | 4  5  H  7  6 | 3  1  >  I  2 |
+---------------------------------------------------------------------------------
+| 2  5  1  ?  3 | >  =  A  I  8 | G  @  C  :  B | <  H  ;  D  9 | 7  4  E  6  F |
+| 7  @  6  ;  4 | 2  B  1  5  3 | <  H  A  8  F | >  E  G  :  = | D  I  C  ?  9 |
+| <  I  G  E  8 | 7  4  6  ;  9 | 2  D  1  5  3 | A  ?  F  B  C | >  =  H  :  @ |
+| >  D  C  H  9 | F  G  :  @  E | 7  4  6  ?  = | 2  I  1  5  3 | <  8  ;  A  B |
+| A  :  F  B  = | <  H  ?  D  C | >  I  ;  E  9 | 7  4  6  8  @ | 2  G  1  5  3 |
+---------------------------------------------------------------------------------
+| C  6  4  1  2 | I  E  ;  <  H | D  B  9  G  8 | ?  >  @  A  F | :  5  7  3  = |
+| 5  =  9  3  7 | A  8  2  1  4 | F  C  H  I  ; | :  B  D  G  E | ?  6  <  @  > |
+| ?  B  D  G  A | 5  6  7  3  @ | :  >  2  1  4 | C  =  9  <  H | F  E  I  8  ; |
+| F  >  <  @  ; | B  :  C  ?  = | 5  6  7  3  E | I  8  2  1  4 | A  D  9  G  H |
+| :  E  H  8  I | D  9  >  G  F | ?  =  <  @  A | 5  6  7  3  ; | C  B  2  1  4 |
+---------------------------------------------------------------------------------
+| B  3  2  5  1 | ?  D  4  8  I | A  :  F  =  H | G  ;  <  @  > | 9  C  6  7  E |
+| I  4  7  =  6 | 9  3  @  2  1 | C  G  >  D  < | E  F  :  ?  8 | H  ;  5  B  A |
+| D  ;  ?  <  C | G  >  5  6  7 | E  3  4  2  1 | H  9  A  I  B | =  @  :  F  8 |
+| 8  9  @  A  F | E  C  H  :  B | I  ;  5  6  7 | =  3  4  2  1 | G  >  ?  D  < |
+| E  H  >  :  G | =  ;  <  F  A | 9  8  ?  B  @ | D  C  5  6  7 | I  3  4  2  1 |
+
+
+
+| 1  2  3  4  5 | 6  7  8  9  : | ;  <  =  >  ? | @  A  B  C  D | E  F  G  H  I |
+| ;  <  =  >  ? | 1  2  3  4  5 | @  A  B  C  D | F  G  E  H  I | 6  7  8  9  : |
+| 6  7  8  9  : | H  I  F  E  G | 1  2  3  4  5 | ;  <  =  >  ? | @  A  B  C  D |
+| G  F  E  I  H | @  A  B  C  D | 6  7  8  9  : | 1  2  3  4  5 | ;  <  =  >  ? |
+| @  A  B  C  D | ;  <  =  >  ? | H  E  G  F  I | 6  7  8  9  : | 1  2  3  4  5 |
+---------------------------------------------------------------------------------
+| 3  1  5  2  > | C  @  D  7  ; | B  ?  E  H  G | 8  :  I  F  < | 4  9  A  =  6 |
+| 4  8  :  6  B | 3  1  G  H  2 | =  F  I  <  > | 9  @  C  ;  A | 5  ?  D  E  7 |
+| H  ?  I  7  < | 4  5  9  =  6 | 3  1  @  A  2 | B  D  >  E  G | 8  :  F  ;  C |
+| 9  C  ;  D  E | 8  F  I  A  > | 4  5  :  7  6 | 3  1  ?  =  2 | B  H  @  <  G |
+| =  G  A  F  @ | :  ?  E  B  < | 8  9  D  ;  C | 4  5  H  7  6 | 3  1  >  I  2 |
+---------------------------------------------------------------------------------
+| 2  5  1  ?  3 | >  =  A  I  8 | G  @  C  :  B | <  H  ;  D  9 | 7  4  E  6  F |
+| 7  @  6  ;  4 | 2  B  1  5  3 | <  H  A  8  F | >  E  G  :  = | D  I  C  ?  9 |
+| <  I  G  E  8 | 7  4  6  ;  9 | 2  D  1  5  3 | A  ?  F  B  C | >  =  H  :  @ |
+| >  D  C  H  9 | F  G  :  @  E | 7  4  6  ?  = | 2  I  1  5  3 | <  8  ;  A  B |
+| A  :  F  B  = | <  H  ?  D  C | >  I  ;  E  9 | 7  4  6  8  @ | 2  G  1  5  3 |
+---------------------------------------------------------------------------------
+| C  6  4  1  2 | I  E  ;  <  H | D  B  9  G  8 | ?  >  @  A  F | :  5  7  3  = |
+| 5  =  9  3  7 | A  8  2  1  4 | F  C  H  I  ; | :  B  D  G  E | ?  6  <  @  > |
+| ?  B  D  G  A | 5  6  7  3  @ | :  >  2  1  4 | C  =  9  <  H | F  E  I  8  ; |
+| F  >  <  @  ; | B  :  C  ?  = | 5  6  7  3  E | I  8  2  1  4 | A  D  9  G  H |
+| :  E  H  8  I | D  9  >  G  F | ?  =  <  @  A | 5  6  7  3  ; | C  B  2  1  4 |
+---------------------------------------------------------------------------------
+| B  3  2  5  1 | ?  D  4  8  I | A  :  F  =  H | G  ;  <  @  > | 9  C  6  7  E |
+| I  4  7  =  6 | 9  3  @  2  1 | C  G  >  D  < | E  F  :  ?  8 | H  ;  5  B  A |
+| D  ;  ?  <  C | G  >  5  6  7 | E  3  4  2  1 | H  9  A  I  B | =  @  :  F  8 |
+| 8  9  @  A  F | E  C  H  :  B | I  ;  5  6  7 | =  3  4  2  1 | G  >  ?  D  < |
+| E  H  >  :  G | =  ;  <  F  A | 9  8  ?  B  @ | D  C  5  6  7 | I  3  4  2  1 |

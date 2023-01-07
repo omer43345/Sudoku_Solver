@@ -12,11 +12,10 @@ namespace Sudoku_Solver
 
         public static void StartProgram()
         {
-
             MenuHandler.StartMenu();
             SudokuReader sudokuReader = SudokuReader.GetInstance();
-            byte[,] board= null;
-            
+            byte[,] board = null;
+
             try
             {
                 string boardString = sudokuReader.GetInput();
@@ -25,23 +24,26 @@ namespace Sudoku_Solver
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n"+e.Message+"\n");
+                Console.WriteLine("\n" + e.Message + "\n");
                 StartProgram();
             }
-            MenuHandler.PrintSudokuBoard(board);
+
             DateTime start = DateTime.Now;
-            byte[,] solvedBoard=Solver.Solve(board);
+            byte[,] solvedBoard = Solver.Solve(board);
             TimeSpan time = DateTime.Now - start;
-            if(solvedBoard==null)
+            if (solvedBoard == null)
+            {
+                MenuHandler.PrintSudokuBoard(board);
                 Console.WriteLine("No solution found in " + time.TotalMilliseconds + " ms");
+            }
             else
             {
-                Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
                 MenuHandler.PrintSudokuBoard(solvedBoard);
+                Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
                 SudokuValidator.Validate(solvedBoard);
             }
+
             StartProgram();
         }
     }
-    
 }

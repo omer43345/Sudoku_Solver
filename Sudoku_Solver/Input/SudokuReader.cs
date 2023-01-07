@@ -11,37 +11,43 @@ namespace Sudoku_Solver.Input
     {
         private static SudokuReader _instance = null;
         private string _boardString;
+
         public SudokuReader()
         {
             _boardString = "";
         }
+
         public static SudokuReader GetInstance()
         {
             if (_instance == null)
             {
                 _instance = new SudokuReader();
             }
+
             return _instance;
         }
+
         // Read the sudoku string from the console and update the _boardString
         public void ReadFromConsole()
         {
             Console.SetIn(new StreamReader(Console.OpenStandardInput(4096)));
-            _boardString= Console.ReadLine();
+            _boardString = Console.ReadLine();
         }
+
         // Read sudoku string  from file and update the _boardString
         public void ReadFromFile()
         {
             string path = Console.ReadLine();
             try
             {
-                _boardString= File.ReadAllText(path);
+                _boardString = File.ReadAllText(path);
             }
             catch (SystemException e)
             {
-                throw new SystemException(MenuItems.FILE_ERROR); 
+                throw new SystemException(MenuItems.FILE_ERROR);
             }
         }
+
         // Return the _boardString
         public string GetInput()
         {

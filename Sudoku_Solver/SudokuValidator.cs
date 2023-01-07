@@ -10,8 +10,9 @@ namespace Sudoku_Solver
 
     public static class SudokuValidator
     {
-        private static byte[,] _sudokuBoard;// the Sudoku board to validate
-        private static int _boardSize;// size of the board
+        private static byte[,] _sudokuBoard; // the Sudoku board to validate
+        private static int _boardSize; // size of the board
+
         public static void Validate(byte[,] sudokuBoard)
         {
             _sudokuBoard = sudokuBoard;
@@ -36,22 +37,24 @@ namespace Sudoku_Solver
                 ValidateRow(row);
             }
         }
+
         // This method is used to validate if there is duplicate values in the row that is passed as a parameter.
         private static void ValidateRow(int row)
         {
             //check if there is duplicate values in the row that is passed as a parameter
-            
+
             for (int i = 0; i < _boardSize; i++)
             {
                 for (int j = i + 1; j < _boardSize; j++)
                 {
-                    if (_sudokuBoard[row, i]!=0 && _sudokuBoard[row, i] == _sudokuBoard[row, j])
+                    if (_sudokuBoard[row, i] != 0 && _sudokuBoard[row, i] == _sudokuBoard[row, j])
                     {
-                        throw new DuplicateValueInRowException(row + 1, (char)(_sudokuBoard[row, i]+48));
+                        throw new DuplicateValueInRowException(row + 1, (char)(_sudokuBoard[row, i] + 48));
                     }
                 }
             }
         }
+
         // This method is used to validate if there is duplicate values in one of the columns.
         private static void ValidateColumns()
         {
@@ -60,6 +63,7 @@ namespace Sudoku_Solver
                 ValidateColumn(column);
             }
         }
+
         // This method is used to validate if there is duplicate values in the column that is passed as a parameter.
         private static void ValidateColumn(int column)
         {
@@ -68,13 +72,14 @@ namespace Sudoku_Solver
             {
                 for (int j = i + 1; j < _boardSize; j++)
                 {
-                    if (_sudokuBoard[i, column] !=0 && _sudokuBoard[i, column] == _sudokuBoard[j, column])
+                    if (_sudokuBoard[i, column] != 0 && _sudokuBoard[i, column] == _sudokuBoard[j, column])
                     {
-                        throw new DuplicateValueInColumnException(column + 1, (char)(_sudokuBoard[i, column]+48));
+                        throw new DuplicateValueInColumnException(column + 1, (char)(_sudokuBoard[i, column] + 48));
                     }
                 }
             }
         }
+
         // This method is used to validate if there is duplicate values in one of the grids.
         private static void ValidateGrid()
         {
@@ -83,12 +88,11 @@ namespace Sudoku_Solver
             {
                 ValidateGrid(grid, gridSize);
             }
-
         }
+
         // This method is used to validate if there is duplicate values in the grid that is passed as a parameter.
-        private static void ValidateGrid(int grid,int gridSize)
+        private static void ValidateGrid(int grid, int gridSize)
         {
-            
             int row = (grid / gridSize) * gridSize;
             int column = (grid % gridSize) * gridSize;
             for (int i = 0; i < gridSize; i++)
@@ -99,16 +103,16 @@ namespace Sudoku_Solver
                     {
                         for (int l = (k == i) ? j + 1 : 0; l < gridSize; l++)
                         {
-                            if (_sudokuBoard[row + i, column + j]!=0 && _sudokuBoard[row + i, column + j] == _sudokuBoard[row + k, column + l])
+                            if (_sudokuBoard[row + i, column + j] != 0 && _sudokuBoard[row + i, column + j] ==
+                                _sudokuBoard[row + k, column + l])
                             {
-                                throw new DuplicateValueInGridException(grid + 1, (char)(_sudokuBoard[row + i, column + j]+48));
+                                throw new DuplicateValueInGridException(grid + 1,
+                                    (char)(_sudokuBoard[row + i, column + j] + 48));
                             }
                         }
                     }
                 }
             }
         }
-
-
     }
 }

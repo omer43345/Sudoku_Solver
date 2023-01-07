@@ -11,9 +11,9 @@ namespace Sudoku_Solver.Solvers
             byte[,] coverMatrix = dancingLinksUtils.BuildCoverMatrix();
             DLX dlx = new DLX(coverMatrix);
             Stack<DancingLinksNode> solution = dlx.GetSolution();
-            if (solution.Count==0)
+            if (solution.Count == 0)
                 return null;
-            return dancingLinksUtils.ConvertDLXResultToSudoku(solution);
+            return dancingLinksUtils.ConvertDlxResultToSudoku(solution);
         }
     }
 }

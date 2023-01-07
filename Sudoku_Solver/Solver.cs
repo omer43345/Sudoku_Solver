@@ -1,5 +1,4 @@
-﻿
-using Sudoku_Solver.Solvers;
+﻿using Sudoku_Solver.Solvers;
 
 namespace Sudoku_Solver
 {
@@ -11,6 +10,5 @@ namespace Sudoku_Solver
             solver.BitWiseSolver();*/
             return DancingLinksSolver.Solve(sudoku);
         }
-
     }
 }

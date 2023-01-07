@@ -8,12 +8,12 @@ namespace Sudoku_Solver.Output
         public BoardWriter()
         {
         }
-        
+
         public void WriteToConsole(Object board)
         {
             SudokuBoardPrinter.PrintBoard((byte[,])board);
         }
-        
+
         public void WriteToFile(Object board, string path)
         {
             FileInfo file = new FileInfo(path);
@@ -28,7 +28,7 @@ namespace Sudoku_Solver.Output
             SudokuBoardPrinter.PrintBoard((byte[,])board);
             sw.Close();
             // reset console output to console window
-            Console.SetOut(new StreamWriter(Console.OpenStandardOutput()){AutoFlush = true});
+            Console.SetOut(new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = true });
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-namespace Sudoku_Solver
+﻿namespace Sudoku_Solver
 {
     /*
      * This class contain functions to help the binary search algorithm to find the solution of the sudoku puzzle.
@@ -15,8 +14,8 @@ namespace Sudoku_Solver
             _sudoku = sudoku;
             _size = sudoku.GetLength(0);
             _solver = solver;
-
         }
+
         // This method return the best empty cell to put a number in
         // Also this method doing simple elimination if it should be done
         public int FindBestEmptyCell()
@@ -38,15 +37,16 @@ namespace Sudoku_Solver
                         }
                         else if (count == 1)
                             // Simple elimination if there is only one candidate for a cell
-                            SimpleElimination(row,col);
+                            SimpleElimination(row, col);
                     }
                 }
             }
 
             return cell;
         }
+
         // The method get called when there is only one candidate for a cell and put the number in the cell and update the candidates
-        private void SimpleElimination(int row,int col)
+        private void SimpleElimination(int row, int col)
         {
             for (var value = 1; value <= _size; value++)
             {
@@ -55,10 +55,9 @@ namespace Sudoku_Solver
                     _sudoku[row, col] = (byte)value;
                     _solver.SetCandidate(row, col, value);
                 }
-
             }
         }
-        
+
         // Copy the matrix
         public byte[,] CopyBoard(byte[,] matrix)
         {
@@ -73,11 +72,5 @@ namespace Sudoku_Solver
 
             return copy;
         }
-        
-
-
-
-
-
     }
 }

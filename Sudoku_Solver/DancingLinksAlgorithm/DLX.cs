@@ -15,7 +15,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             _coverMatrixColCount = coverMatrix.GetLength(1);
             _coverMatrixRowCount = coverMatrix.GetLength(0);
             _solution = new Stack<DancingLinksNode>();
-            _root = BuildDLXList(coverMatrix);
+            _root = BuildDlxList(coverMatrix);
         }
 
         // Create the column nodes and add them to the root node
@@ -55,7 +55,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         }
 
         // Build the DLX list from the cover matrix
-        private DancingLinksColumnNode BuildDLXList(byte[,] coverMatrix)
+        private DancingLinksColumnNode BuildDlxList(byte[,] coverMatrix)
         {
             DancingLinksColumnNode rootNode = new DancingLinksColumnNode("root");
             List<DancingLinksColumnNode> columnNodes = new List<DancingLinksColumnNode>();

@@ -16,14 +16,12 @@ namespace Sudoku_Solver
         private static string _sudokuBoardString;
         private static byte[,] _sudokuBoard;
 
-        private static int _boardSize;
-
         // This method is used to validate the size of the string if it is suitable for a Sudoku board.
         private static void ValidateSize()
         {
-            double rowAndColumnCount = Math.Sqrt(_sudokuBoardString.Length);
-            double gridSideLength = Math.Sqrt(rowAndColumnCount);
-            if (gridSideLength % 1 != 0 || rowAndColumnCount % 1 != 0 || _sudokuBoardString.Length == 0)
+            int rowAndColumnCount = (int)Math.Sqrt(_sudokuBoardString.Length);
+            int boxSize = (int)Math.Sqrt(rowAndColumnCount);
+            if (boxSize % 1 != 0 || rowAndColumnCount % 1 != 0 || _sudokuBoardString.Length == 0)
             {
                 throw new InvalidSudokuBoardSizeException(_sudokuBoardString.Length);
             }
@@ -34,7 +32,6 @@ namespace Sudoku_Solver
         {
             _sudokuBoardString = sudokuBoardString;
             ValidateSize();
-            _boardSize = (int)Math.Sqrt(_sudokuBoardString.Length);
             _sudokuBoard = new byte[(int)Math.Sqrt(_sudokuBoardString.Length),
                 (int)Math.Sqrt(_sudokuBoardString.Length)];
             int rowAndColumnCount = (int)Math.Sqrt(_sudokuBoardString.Length);

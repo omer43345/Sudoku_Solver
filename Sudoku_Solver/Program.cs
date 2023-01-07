@@ -12,12 +12,13 @@ namespace Sudoku_Solver
 
         public static void StartProgram()
         {
-            MenuHandler.StartMenu();
-            SudokuReader sudokuReader = SudokuReader.GetInstance();
+            
             byte[,] board = null;
 
             try
             {
+                MenuHandler.StartMenu();
+                SudokuReader sudokuReader = SudokuReader.GetInstance();
                 string boardString = sudokuReader.GetInput();
                 board = SudokuBoardBuilder.BoardBuilder(boardString);
                 SudokuValidator.Validate(board);

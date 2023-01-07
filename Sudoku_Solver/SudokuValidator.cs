@@ -1,5 +1,4 @@
 ﻿using Sudoku_Solver.Exceptions;
-using System;
 
 namespace Sudoku_Solver
 {
@@ -8,107 +7,68 @@ namespace Sudoku_Solver
       It is used to check if a Sudoku board is valid before solving it.
     */
 
-    public static class SudokuValidator
+    public static class SudokuValidator 
     {
-        private static byte[,] _sudokuBoard;// the Sudoku board to validate
-        private static int _boardSize;// size of the board
+        private static byte[,] _sudokuBoard; // the Sudoku board to validate
+        private static int _boardSize; // size of the board
+        private static SudokuBitWiseFunctions _bitWiseFunctions; // bit-wise functions used to validate the board
         public static void Validate(byte[,] sudokuBoard)
         {
             _sudokuBoard = sudokuBoard;
             _boardSize = sudokuBoard.GetLength(0);
+            _bitWiseFunctions = new SudokuBitWiseFunctions(sudokuBoard);
             ValidateDuplicateValues();
         }
 
 
-        // This method is used to validate if the board contains duplicate values in a row, column or a grid.
+        /// <summary>
+        /// this method is used to validate if there are duplicate values in the Sudoku board
+        /// </summary>
         private static void ValidateDuplicateValues()
         {
-            ValidateRows();
-            ValidateColumns();
-            ValidateGrid();
-        }
-
-        // This method is used to validate if there is duplicate values in one of the rows.
-        private static void ValidateRows()
-        {
-            for (int row = 0; row < _boardSize; row++)
+            for (int i = 0; i <_boardSize; i++)
             {
-                ValidateRow(row);
-            }
-        }
-        // This method is used to validate if there is duplicate values in the row that is passed as a parameter.
-        private static void ValidateRow(int row)
-        {
-            //check if there is duplicate values in the row that is passed as a parameter
-            
-            for (int i = 0; i < _boardSize; i++)
-            {
-                for (int j = i + 1; j < _boardSize; j++)
+                for (int j = 0; j < _boardSize; j++)
                 {
-                    if (_sudokuBoard[row, i]!=0 && _sudokuBoard[row, i] == _sudokuBoard[row, j])
+                    byte value = _sudokuBoard[i, j];
+                    if (value != 0)
                     {
-                        throw new DuplicateValueInRowException(row + 1, (char)(_sudokuBoard[row, i]+48));
+                        int candidate = _bitWiseFunctions.GetCandidates(i, j);
+                        if (!_bitWiseFunctions.CanPlace(candidate, value))
+                            CheckWhereDuplicateValueIsFound(i, j, value);
+                        _bitWiseFunctions.SetCandidate(i, j, value);
                     }
                 }
             }
         }
-        // This method is used to validate if there is duplicate values in one of the columns.
-        private static void ValidateColumns()
+        /// <summary>
+        /// This method is used to check where the duplicate value is found.
+        /// This method is called when a duplicate value is found.
+        /// </summary>
+        /// <param name="row">row of the duplicate value</param>
+        /// <param name="col">col of the duplicate value</param>
+        /// <param name="value">the duplicate value</param>
+        /// <exception cref="DuplicateValueInRowException"></exception>
+        /// <exception cref="DuplicateValueInColumnException"></exception>
+        /// <exception cref="DuplicateValueInGridException"></exception>
+        private static void CheckWhereDuplicateValueIsFound(int row, int col, byte value)
         {
-            for (int column = 0; column < _boardSize; column++)
+            int rowCandidate = _bitWiseFunctions.GetRowCandidates(row);
+            int colCandidate = _bitWiseFunctions.GetColumnCandidates(col);
+            int boxCandidate = _bitWiseFunctions.GetBoxCandidates(row,col);
+            if (!_bitWiseFunctions.CanPlace(rowCandidate,value))
             {
-                ValidateColumn(column);
+                throw new DuplicateValueInRowException(row+1, (char)(value+'0'));
+            }
+            if (!_bitWiseFunctions.CanPlace(colCandidate, value))
+            {
+                throw new DuplicateValueInColumnException(col+1, (char)(value + '0'));
+            }
+            if (!_bitWiseFunctions.CanPlace(boxCandidate, value))
+            {
+                throw new DuplicateValueInGridException(_bitWiseFunctions.GetBox(row,col)+1, (char)(value + '0'));
             }
         }
-        // This method is used to validate if there is duplicate values in the column that is passed as a parameter.
-        private static void ValidateColumn(int column)
-        {
-            //check if there is duplicate values in the column that is passed as a parameter
-            for (int i = 0; i < _boardSize; i++)
-            {
-                for (int j = i + 1; j < _boardSize; j++)
-                {
-                    if (_sudokuBoard[i, column] !=0 && _sudokuBoard[i, column] == _sudokuBoard[j, column])
-                    {
-                        throw new DuplicateValueInColumnException(column + 1, (char)(_sudokuBoard[i, column]+48));
-                    }
-                }
-            }
-        }
-        // This method is used to validate if there is duplicate values in one of the grids.
-        private static void ValidateGrid()
-        {
-            int gridSize = (int)Math.Sqrt(_boardSize);
-            for (int grid = 0; grid < _boardSize; grid++)
-            {
-                ValidateGrid(grid, gridSize);
-            }
-
-        }
-        // This method is used to validate if there is duplicate values in the grid that is passed as a parameter.
-        private static void ValidateGrid(int grid,int gridSize)
-        {
-            
-            int row = (grid / gridSize) * gridSize;
-            int column = (grid % gridSize) * gridSize;
-            for (int i = 0; i < gridSize; i++)
-            {
-                for (int j = 0; j < gridSize; j++)
-                {
-                    for (int k = i; k < gridSize; k++)
-                    {
-                        for (int l = (k == i) ? j + 1 : 0; l < gridSize; l++)
-                        {
-                            if (_sudokuBoard[row + i, column + j]!=0 && _sudokuBoard[row + i, column + j] == _sudokuBoard[row + k, column + l])
-                            {
-                                throw new DuplicateValueInGridException(grid + 1, (char)(_sudokuBoard[row + i, column + j]+48));
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 
     }
 }

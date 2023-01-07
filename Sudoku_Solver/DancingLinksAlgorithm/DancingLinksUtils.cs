@@ -25,90 +25,92 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         {
             return row * _sizeSquared + column * _sudokuBoardSize + value;
         }
+
         // get the index of a column for a Cell constraint in the cover matrix for a given row, column, value
         private int GetCellColumnIndex(int row, int column)
         {
             return row * _sudokuBoardSize + column;
         }
+
         // get the index of a column for a Row constraint in the cover matrix for a given row, value
         private int GetRowColumnIndex(int row, int value)
         {
             return _sizeSquared + row * _sudokuBoardSize + value;
         }
+
         // get the index of a column for a Column constraint in the cover matrix for a given column, value
         private int GetColumnColumnIndex(int column, int value)
         {
             return _sizeSquared * 2 + column * _sudokuBoardSize + value;
         }
+
         // get the index of a column for a Box constraint in the cover matrix for a given box, value    
         private int GetBoxColumnIndex(int row, int column, int value)
         {
             return _sizeSquared * 3 +
                    (row / _sudokuBoxSize * _sudokuBoxSize + column / _sudokuBoxSize) * _sudokuBoardSize + value;
         }
-        // Initialize the cover matrix columns length 
-        private void InitializeCoverMatrixSize(byte[][] coverMatrix)
-        {
-            for (int i = 0; i < coverMatrix.Length; i++)
-            {
-                coverMatrix[i] = new byte[_constraintCount * _sizeSquared];
-            }
-        }
+
+
         // build the cover matrix for the sudoku board
         public byte[,] BuildCoverMatrix()
         {
             byte[,] coverMatrix = new byte[_sudokuBoardSize * _sizeSquared, _constraintCount * _sizeSquared];
             // for each row, column, value
 
-            for (int row = 0; row < _sudokuBoardSize; row++) {
-                for (int column = 0; column < _sudokuBoardSize; column++) {
+            for (int row = 0; row < _sudokuBoardSize; row++)
+            {
+                for (int column = 0; column < _sudokuBoardSize; column++)
+                {
                     for (int value = 0; value < _sudokuBoardSize; value++)
-                    { 
-                        if(_sudokuBoard[row,column]==0 || _sudokuBoard[row,column]==value+1)
+                    {
+                        if (_sudokuBoard[row, column] == 0 || _sudokuBoard[row, column] == value + 1)
                         {
                             // set the cell constraint
-                            coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetCellColumnIndex(row, column)] = 1;
+                            coverMatrix[GetCoverMatrixRowIndex(row, column, value),
+                                GetCellColumnIndex(row, column)] = 1;
                             // set the row constraint
                             coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetRowColumnIndex(row, value)] = 1;
                             // set the column constraint
-                            coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetColumnColumnIndex(column, value)] = 1;
+                            coverMatrix[GetCoverMatrixRowIndex(row, column, value),
+                                GetColumnColumnIndex(column, value)] = 1;
                             // set the box constraint
-                            coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetBoxColumnIndex(row, column, value)] = 1;
+                            coverMatrix[GetCoverMatrixRowIndex(row, column, value),
+                                GetBoxColumnIndex(row, column, value)] = 1;
                         }
                     }
-                    
                 }
-
             }
+
             return coverMatrix;
         }
-        public byte[,] ConvertDLXResultToSudoku(Stack<DancingLinksNode> answer) {
-            byte[,] solvedSudoku = new byte[_sudokuBoardSize,_sudokuBoardSize];
-            while(answer.Count>0)
+        
+        public byte[,] ConvertDlxResultToSudoku(Stack<DancingLinksNode> answer)
+        {
+            byte[,] solvedSudoku = new byte[_sudokuBoardSize, _sudokuBoardSize];
+            while (answer.Count > 0)
             {
-                DancingLinksNode rcNode = answer.Pop();
-                int min = Int32.Parse(rcNode.Column.ColumnName);
+                DancingLinksNode cellIndexNode = answer.Pop();
+                int min = int.Parse(cellIndexNode.Column.ColumnName);
 
-                for (DancingLinksNode tempNode = rcNode.Right; tempNode != rcNode; tempNode = tempNode.Right)
+                for (DancingLinksNode tempNode = cellIndexNode.Right; tempNode != cellIndexNode; tempNode = tempNode.Right)
                 {
                     int val = int.Parse(tempNode.Column.ColumnName);
                     if (val < min)
                     {
                         min = val;
-                        rcNode = tempNode;
+                        cellIndexNode = tempNode;
                     }
                 }
-                int cellIndex = int.Parse(rcNode.Column.ColumnName);
+
+                int cellIndex = int.Parse(cellIndexNode.Column.ColumnName);
                 int row = cellIndex / _sudokuBoardSize;
                 int col = cellIndex % _sudokuBoardSize;
-                int value=int.Parse(rcNode.Right.Column.ColumnName)%_sudokuBoardSize+1;
+                int value = int.Parse(cellIndexNode.Right.Column.ColumnName) % _sudokuBoardSize + 1;
                 solvedSudoku[row, col] = (byte)value;
             }
+
             return solvedSudoku;
         }
-
-
-
     }
-
 }

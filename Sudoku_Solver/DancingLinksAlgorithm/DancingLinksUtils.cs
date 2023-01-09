@@ -20,11 +20,6 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             _constraintCount = 4;
         }
 
-        // get the index of a row in the cover matrix for a given row, column, value
-        private int GetCoverMatrixRowIndex(int row, int column, int value)
-        {
-            return row * _sizeSquared + column * _sudokuBoardSize + value;
-        }
 
         // get the index of a column for a Cell constraint in the cover matrix for a given row, column, value
         private int GetCellColumnIndex(int row, int column)
@@ -52,39 +47,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         }
 
 
-        // build the cover matrix for the sudoku board
-        public byte[,] BuildCoverMatrix()
-        {
-            byte[,] coverMatrix = new byte[_sudokuBoardSize * _sizeSquared, _constraintCount * _sizeSquared];
-            // for each row, column, value
-
-            for (int row = 0; row < _sudokuBoardSize; row++)
-            {
-                for (int column = 0; column < _sudokuBoardSize; column++)
-                {
-                    for (int value = 0; value < _sudokuBoardSize; value++)
-                    {
-                        if (_sudokuBoard[row, column] == 0 || _sudokuBoard[row, column] == value + 1)
-                        {
-                            // set the cell constraint
-                            coverMatrix[GetCoverMatrixRowIndex(row, column, value),
-                                GetCellColumnIndex(row, column)] = 1;
-                            // set the row constraint
-                            coverMatrix[GetCoverMatrixRowIndex(row, column, value), GetRowColumnIndex(row, value)] = 1;
-                            // set the column constraint
-                            coverMatrix[GetCoverMatrixRowIndex(row, column, value),
-                                GetColumnColumnIndex(column, value)] = 1;
-                            // set the box constraint
-                            coverMatrix[GetCoverMatrixRowIndex(row, column, value),
-                                GetBoxColumnIndex(row, column, value)] = 1;
-                        }
-                    }
-                }
-            }
-
-            return coverMatrix;
-        }
-
+        // build the cover array that contains the columns index in the chained list for every allowed value in the sudoku board
         public int[] BuildCoverArray()
         {
             int[] coverArray = new int[_sizeSquared * _sudokuBoardSize * _constraintCount];
@@ -111,15 +74,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             }
             return coverArray;
         }
-
-        private void PrintCoverArray(int[] coverArray)
-        {
-            foreach (int col in coverArray)
-            {
-                Console.WriteLine(col);
-            }
-        }
-        
+        // Convert the the exact cover solution to the solved sudoku
         public byte[,] ConvertDlxResultToSudoku(Stack<DancingLinksNode> answer)
         {
             byte[,] solvedSudoku = new byte[_sudokuBoardSize, _sudokuBoardSize];

@@ -9,12 +9,13 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         private readonly Stack<DancingLinksNode> _solution;
         private readonly int _coverMatrixColCount;
         private readonly int[] _coverArray;
+        private readonly int _constraintCount = 4;
 
         public DLX( int[] coverArray,int sudokuBoardSize)
         {
             _solution = new Stack<DancingLinksNode>();
             _coverArray = coverArray;
-            _coverMatrixColCount = sudokuBoardSize * sudokuBoardSize * 4;
+            _coverMatrixColCount = sudokuBoardSize * sudokuBoardSize * _constraintCount;
             _root = BuildDlxList();
         }
 
@@ -28,10 +29,10 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                 rootNode = (DancingLinksColumnNode)rootNode.LinkRight(columnNode);
             }
         }
-
-        private void CreateRowNodes2(List<DancingLinksColumnNode> columnNodes)
+        // Create the nodes in the rows according to the columns index in the cover array
+        private void CreateRowNodes(List<DancingLinksColumnNode> columnNodes)
         {
-            int numOfRows = _coverArray.Length/4;
+            int numOfRows = _coverArray.Length/ _constraintCount;
             for (int row = 0; row < numOfRows; row++)
             {
                 DancingLinksNode previousNode = null;
@@ -60,7 +61,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
 
             CreateColumnNode(rootNode, columnNodes);
             // Create the row nodes and add them to the column nodes
-            CreateRowNodes2(columnNodes);
+            CreateRowNodes(columnNodes);
             rootNode.Size = _coverMatrixColCount;
             return rootNode;
         }

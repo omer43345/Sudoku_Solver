@@ -9,7 +9,6 @@ namespace Sudoku_Solver.Solvers
         {
             DancingLinksUtils dancingLinksUtils = new DancingLinksUtils(sudoku);
             int[] coverArray = dancingLinksUtils.BuildCoverArray();
-            /*byte[,] coverMatrix = dancingLinksUtils.BuildCoverMatrix();*/
             DLX dlx = new DLX(coverArray, sudoku.GetLength(0));
             Stack<DancingLinksNode> solution = dlx.GetSolution();
             if (solution.Count == 0)

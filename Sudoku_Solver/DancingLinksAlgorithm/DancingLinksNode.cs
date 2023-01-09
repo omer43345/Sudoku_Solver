@@ -40,7 +40,7 @@
             return node;
         }
 
-        // unlinks this node from the matrix by removing the links to its left and right
+        // unlink this node from the matrix by removing the links to its left and right
         protected void UnlinkLeftRight()
         {
             Left.Right = Right;
@@ -54,7 +54,7 @@
             Right.Left = this;
         }
 
-        // unlinks this node from the matrix by removing the links to its up and down
+        // unlink this node from the matrix by removing the links to its up and down
         public void UnlinkUpDown()
         {
             Up.Down = Down;

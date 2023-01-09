@@ -5,81 +5,109 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
 {
     public class DLX
     {
-        private readonly DancingLinksColumnNode _root;
-        private readonly Stack<DancingLinksNode> _solution;
-        private readonly int _coverMatrixColCount;
-        private readonly int[] _coverArray;
-        private readonly int _constraintCount = 4;
+        private readonly DancingLinksColumnNode _root; // root of the chained list
 
-        public DLX( int[] coverArray,int sudokuBoardSize)
+        private readonly Stack<DancingLinksNode>
+            _solution; // stack that contains the nodes that represent the solution for the cover problem
+
+        private readonly int _chainedListColCount; // number of columns in the chained list
+        private readonly int[] _coverArray; // cover array that contains all the nodes in the chained list
+        private const int ConstraintCount = 4; // number of constraints, 4 for sudoku (row, column, box, value)
+
+        public DLX(int[] coverArray, int sudokuBoardSize)
         {
             _solution = new Stack<DancingLinksNode>();
             _coverArray = coverArray;
-            _coverMatrixColCount = sudokuBoardSize * sudokuBoardSize * _constraintCount;
+            _chainedListColCount = sudokuBoardSize * sudokuBoardSize * ConstraintCount;
             _root = BuildDlxList();
         }
 
-        // Create the column nodes and add them to the root node
+        /// <summary>
+        /// Initialize the header nodes for each column in the chained list
+        /// </summary>
+        /// <param name="rootNode">the root node in the chained list</param>
+        /// <param name="columnNodes">the list that we will add the columns headers</param>
         private void CreateColumnNode(DancingLinksColumnNode rootNode, List<DancingLinksColumnNode> columnNodes)
         {
-            for (int column = 0; column < _coverMatrixColCount; column++)
+            for (int column = 0; column < _chainedListColCount; column++)
             {
                 DancingLinksColumnNode columnNode = new DancingLinksColumnNode(column + "");
                 columnNodes.Add(columnNode);
                 rootNode = (DancingLinksColumnNode)rootNode.LinkRight(columnNode);
             }
         }
-        // Create the nodes in the rows according to the columns index in the cover array
+
+        /// <summary>
+        /// Create the chained list from the cover array, iterate on every row in the cover array and create a node for each column in the row
+        /// </summary>
+        /// <param name="columnNodes">list of the header nodes in the chained list</param>
         private void CreateRowNodes(List<DancingLinksColumnNode> columnNodes)
         {
-            int numOfRows = _coverArray.Length/ _constraintCount;
+            int numOfRows = _coverArray.Length / ConstraintCount; // number of rows in the chained list
             for (int row = 0; row < numOfRows; row++)
             {
-                DancingLinksNode previousNode = null;
-                for (int constraint = 0; constraint < 4; constraint++)
+                DancingLinksNode previousNode = null; //for checking if the node is the first node in the row
+                // iterate on every column in the row, in every row there are 4 columns (one for each constraint)
+                for (int constraint = 0; constraint < ConstraintCount; constraint++)
                 {
-                    int column = _coverArray[row * 4 + constraint];
+                    int column =
+                        _coverArray[row * ConstraintCount + constraint]; // get the column index from the cover array
                     DancingLinksNode node = new DancingLinksNode(columnNodes[column]);
+                    // if the node is the first node in the row, than the previous node is the first node in the row
                     if (previousNode == null)
                     {
                         previousNode = node;
                     }
+
                     columnNodes[column].Up.LinkDown(node);
                     previousNode = previousNode.LinkRight(node);
+                    // increase the size of the column
                     columnNodes[column].Size++;
-                    
                 }
             }
         }
 
 
-        // Build the DLX list from the cover matrix
+        /// <summary>
+        /// Build the chained list from the cover array
+        /// </summary>
+        /// <returns></returns>
         private DancingLinksColumnNode BuildDlxList()
         {
             DancingLinksColumnNode rootNode = new DancingLinksColumnNode("root");
             List<DancingLinksColumnNode> columnNodes = new List<DancingLinksColumnNode>();
-
+            // Create the header nodes for each column in the chained list
             CreateColumnNode(rootNode, columnNodes);
             // Create the row nodes and add them to the column nodes
             CreateRowNodes(columnNodes);
-            rootNode.Size = _coverMatrixColCount;
+            rootNode.Size = _chainedListColCount;
             return rootNode;
         }
 
+        /// <summary>
+        /// The algorithm for solving the exact cover problem using the dancing links algorithm
+        /// and adding every node that represent the solution to the solution stack
+        /// </summary>
+        /// <returns>return true if we found a solution and false if not</returns>
         private bool Search()
         {
+            // if the root is the only node in the chained list, than we found a solution
             if (_root.Right == _root)
                 return true;
+            // select the column with the smallest size and cover it
             DancingLinksColumnNode bestColumn = SelectBestColumn();
             bestColumn.Cover();
+            // iterate on every node in the column 
             for (DancingLinksNode row = bestColumn.Down; row != bestColumn; row = row.Down)
             {
                 _solution.Push(row);
+                // iterate on every node in the row and cover the column that the node is in
                 for (DancingLinksNode column = row.Right; column != row; column = column.Right)
                 {
                     column.Column.Cover();
                 }
 
+                // if we found a solution, return true
                 if (Search())
                 {
                     return true;
@@ -88,25 +116,32 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                 // If we not found a solution, then backtrack and try the next row
                 row = _solution.Pop();
                 bestColumn = row.Column;
+                // uncover the column to try the next row
                 for (DancingLinksNode column = row.Left; column != row; column = column.Left)
                 {
                     column.Column.Uncover();
                 }
             }
 
+            // if we not found a solution, uncover the best column and return false
             bestColumn.Uncover();
             return false;
         }
 
-        // Select the column node with the smallest size
+        /// <summary>
+        /// Find the column with the smallest size and return it
+        /// </summary>
+        /// <returns>return the column with the least nodes in it</returns>
         private DancingLinksColumnNode SelectBestColumn()
         {
             int minSize = int.MaxValue;
-            DancingLinksColumnNode bestColumn = null;
+            DancingLinksColumnNode bestColumn = null; // the column with the smallest size that we will return
+            // iterate on every column in the chained list
             for (DancingLinksColumnNode column = (DancingLinksColumnNode)_root.Right;
                  column != _root;
                  column = (DancingLinksColumnNode)column.Right)
             {
+                // Update the best column if we found a column with a smaller size(smaller number of nodes in it)
                 if (column.Size < minSize)
                 {
                     minSize = column.Size;
@@ -119,6 +154,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
 
         public Stack<DancingLinksNode> GetSolution()
         {
+            // if we not found a solution clear solution stack
             if (!Search())
                 _solution.Clear();
             return _solution;

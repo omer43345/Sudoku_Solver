@@ -21,25 +21,25 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         }
 
 
-        // get the index of a column for a Cell constraint in the cover matrix for a given row, column, value
+        // get the index of a column for a node in the chained list for a given row and column, in the Cell Constraint
         private int GetCellColumnIndex(int row, int column)
         {
             return row * _sudokuBoardSize + column;
         }
 
-        // get the index of a column for a Row constraint in the cover matrix for a given row, value
+        // get the index of a column for a node in the chained list for a given row, column and value, in the Row Constraint
         private int GetRowColumnIndex(int row, int value)
         {
             return _sizeSquared + row * _sudokuBoardSize + value;
         }
 
-        // get the index of a column for a Column constraint in the cover matrix for a given column, value
+        // get the index of a column for a node in the chained list for a given column, row and value, in the Column Constraint
         private int GetColumnColumnIndex(int column, int value)
         {
             return _sizeSquared * 2 + column * _sudokuBoardSize + value;
         }
 
-        // get the index of a column for a Box constraint in the cover matrix for a given box, value    
+        // get the index of a column for a node in the chained list for a given box, row and value, in the Box Constraint
         private int GetBoxColumnIndex(int row, int column, int value)
         {
             return _sizeSquared * 3 +
@@ -47,11 +47,16 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         }
 
 
-        // build the cover array that contains the columns index in the chained list for every allowed value in the sudoku board
+        /// <summary>
+        /// Create an Array that contains all the nodes in the chained list. this Array represents the cover problem to solve.
+        /// </summary>
+        /// <returns> returns cover array that contain all the nodes in the chained list</returns>
         public int[] BuildCoverArray()
         {
-            int[] coverArray = new int[_sizeSquared * _sudokuBoardSize * _constraintCount];
-            int coverArrayIndex=0;
+            int[] coverArray =
+                new int[_sizeSquared * _sudokuBoardSize *
+                        _constraintCount]; // initialize cover array by the size rows of the chained list * number of constraints
+            int coverArrayIndex = 0;
             for (int row = 0; row < _sudokuBoardSize; row++)
             {
                 for (int column = 0; column < _sudokuBoardSize; column++)
@@ -60,42 +65,55 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                     {
                         if (_sudokuBoard[row, column] == 0 || _sudokuBoard[row, column] == value + 1)
                         {
-                            coverArray[coverArrayIndex]= GetCellColumnIndex(row, column);
+                            // add the index of the column in the chained list for the Cell Constraint to the cover array
+                            coverArray[coverArrayIndex] = GetCellColumnIndex(row, column);
                             coverArrayIndex++;
+                            // add the index of the column in the chained list for the Row Constraint to the cover array
                             coverArray[coverArrayIndex] = GetRowColumnIndex(row, value);
                             coverArrayIndex++;
+                            // add the index of the column in the chained list for the Column Constraint to the cover array
                             coverArray[coverArrayIndex] = GetColumnColumnIndex(column, value);
                             coverArrayIndex++;
+                            // add the index of the column in the chained list for the Box Constraint to the cover array
                             coverArray[coverArrayIndex] = GetBoxColumnIndex(row, column, value);
                             coverArrayIndex++;
                         }
                     }
                 }
             }
+
             return coverArray;
         }
-        // Convert the the exact cover solution to the solved sudoku
+
+        /// <summary>
+        /// Convert the dlx cover problem result to a solved sudoku board
+        /// </summary>
+        /// <param name="answer">contains the nodes that represent the solution for the cover problem</param>
+        /// <returns> Solved sudoku board as byte[,] matrix</returns>
         public byte[,] ConvertDlxResultToSudoku(Stack<DancingLinksNode> answer)
         {
-            byte[,] solvedSudoku = new byte[_sudokuBoardSize, _sudokuBoardSize];
-            while (answer.Count > 0)
+            byte[,] solvedSudoku = new byte[_sudokuBoardSize, _sudokuBoardSize]; // the solved sudoku
+            while (answer.Count > 0) // while there are nodes in the answer stack
             {
-                DancingLinksNode cellIndexNode = answer.Pop();
+                DancingLinksNode cellIndexNode = answer.Pop(); // get the node from the answer stack
                 int min = int.Parse(cellIndexNode.Column.ColumnName);
-
-                for (DancingLinksNode tempNode = cellIndexNode.Right; tempNode != cellIndexNode; tempNode = tempNode.Right)
+                // iterate over the nodes in the row of the node and get the minimum value of the column name
+                for (DancingLinksNode tempNode = cellIndexNode.Right;
+                     tempNode != cellIndexNode;
+                     tempNode = tempNode.Right)
                 {
                     int val = int.Parse(tempNode.Column.ColumnName);
-                    if (val < min)
+                    if (val < min) // updating the minimum column name
                     {
                         min = val;
                         cellIndexNode = tempNode;
                     }
                 }
 
-                int cellIndex = int.Parse(cellIndexNode.Column.ColumnName);
+                int cellIndex = int.Parse(cellIndexNode.Column.ColumnName); // the minimum column name is the cell index
                 int row = cellIndex / _sudokuBoardSize;
                 int col = cellIndex % _sudokuBoardSize;
+                // calculate the value of the cell by the column name of the node next to the node with the minimum column name
                 int value = int.Parse(cellIndexNode.Right.Column.ColumnName) % _sudokuBoardSize + 1;
                 solvedSudoku[row, col] = (byte)value;
             }

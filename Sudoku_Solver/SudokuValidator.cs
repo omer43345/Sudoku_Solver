@@ -12,6 +12,7 @@ namespace Sudoku_Solver
         private static byte[,] _sudokuBoard; // the Sudoku board to validate
         private static int _boardSize; // size of the board
         private static SudokuBitWiseFunctions _bitWiseFunctions; // bit-wise functions used to validate the board
+
         public static void Validate(byte[,] sudokuBoard)
         {
             _sudokuBoard = sudokuBoard;
@@ -26,21 +27,22 @@ namespace Sudoku_Solver
         /// </summary>
         private static void ValidateDuplicateValues()
         {
-            for (int i = 0; i < _boardSize; i++)
+            for (int row = 0; row < _boardSize; row++)
             {
-                for (int j = 0; j < _boardSize; j++)
+                for (int column = 0; column < _boardSize; column++)
                 {
-                    byte value = _sudokuBoard[i, j];
+                    byte value = _sudokuBoard[row, column];
                     if (value != 0)
                     {
-                        long candidate = _bitWiseFunctions.GetCandidates(i, j);
+                        long candidate = _bitWiseFunctions.GetCandidates(row, column);
                         if (!_bitWiseFunctions.CanPlace(candidate, value))
-                            CheckWhereDuplicateValueIsFound(i, j, value);
-                        _bitWiseFunctions.SetCandidate(i, j, value);
+                            CheckWhereDuplicateValueIsFound(row, column, value);
+                        _bitWiseFunctions.SetCandidate(row, column, value);
                     }
                 }
             }
         }
+
         /// <summary>
         /// This method is used to check where the duplicate value is found.
         /// This method is called when a duplicate value is found.
@@ -60,15 +62,16 @@ namespace Sudoku_Solver
             {
                 throw new DuplicateValueInRowException(row + 1, (char)(value + '0'));
             }
+
             if (!_bitWiseFunctions.CanPlace(colCandidate, value))
             {
                 throw new DuplicateValueInColumnException(col + 1, (char)(value + '0'));
             }
+
             if (!_bitWiseFunctions.CanPlace(boxCandidate, value))
             {
                 throw new DuplicateValueInGridException(_bitWiseFunctions.GetBox(row, col) + 1, (char)(value + '0'));
             }
         }
-
     }
 }

@@ -24,6 +24,7 @@ namespace Sudoku_Solver
             InitializeCandidates();
             CreateBitMaskArray();
         }
+
         /// <summary>
         ///  Create the bit mask array 
         /// </summary>
@@ -34,6 +35,7 @@ namespace Sudoku_Solver
                 _bitMask[value - 1] = (long)1 << (value - 1);
             }
         }
+
         /// <summary>
         /// Initialize the candidates for each row, column and box in 0
         /// </summary>
@@ -44,6 +46,7 @@ namespace Sudoku_Solver
                 _bitMask[i] = _rowsCandidates[i] = _colsCandidates[i] = _boxesCandidates[i] = 0;
             }
         }
+
         public int GetBox(int row, int col)
         {
             return (row / _boxSize) * _boxSize + (col / _boxSize);
@@ -60,6 +63,7 @@ namespace Sudoku_Solver
         {
             return (candidates & _bitMask[value - 1]) == 0;
         }
+
         /// <summary>
         /// Set the value in the candidates arrays for the row, column and box
         /// </summary>
@@ -72,6 +76,7 @@ namespace Sudoku_Solver
             _colsCandidates[col] |= _bitMask[value - 1];
             _boxesCandidates[GetBox(row, col)] |= _bitMask[value - 1];
         }
+
         /// <summary>
         /// get the candidates for a cell
         /// </summary>
@@ -83,19 +88,23 @@ namespace Sudoku_Solver
             var box = GetBox(row, col);
             return _rowsCandidates[row] | _colsCandidates[col] | _boxesCandidates[box];
         }
+
+        // get the candidates for a given row
         public long GetRowCandidates(int row)
         {
             return _rowsCandidates[row];
         }
+
+        // get the candidates for a given column
         public long GetColumnCandidates(int column)
         {
             return _colsCandidates[column];
         }
+
+        // get the candidates for a given box by giving the row and column of the cell
         public long GetBoxCandidates(int row, int col)
         {
             return _boxesCandidates[GetBox(row, col)];
         }
-
-
     }
 }

@@ -10,7 +10,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
     public class DancingLinksColumnNode : DancingLinksNode
     {
         public int Size; // number of nodes in this column
-        public readonly String ColumnName; // name of the column
+        public readonly String ColumnName; // name of the column that this node represents
 
         public DancingLinksColumnNode(String columnName) : base()
         {
@@ -19,32 +19,43 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             Column = this;
         }
 
-        // cover this column and all rows that contain a 1 in this column, and remove all columns that contain a 1 in these rows
+        /// <summary>
+        /// Cover this column from the matrix by removing the links to him from all the nodes that connect to him.
+        /// </summary>
         public void Cover()
         {
-            UnlinkLeftRight();
-            for (DancingLinksNode i = Down; i != this; i = i.Down)
+            UnlinkLeftRight(); // unlink the connections to the left and right to this column
+            // iterate through all the nodes in this column
+            for (DancingLinksNode row = Down; row != this; row = row.Down)
             {
-                for (DancingLinksNode j = i.Right; j != i; j = j.Right)
+                // iterate through all the nodes in the row of this node
+                for (DancingLinksNode column = row.Right; column != row; column = column.Right)
                 {
-                    j.UnlinkUpDown();
-                    j.Column.Size--;
+                    // unlink the connections to the up and down to this node and decrease the size of the column
+                    column.UnlinkUpDown();
+                    column.Column.Size--;
                 }
             }
         }
 
-        // uncover this column and all rows that contain a 1 in this column, and restore all columns that contain a 1 in these rows
+        /// <summary>
+        /// Uncover this column from the matrix by relinking the links to him from all the nodes that connect to him.
+        /// </summary>
         public void Uncover()
         {
-            for (DancingLinksNode i = Up; i != this; i = i.Up)
+            // iterate through all the nodes in this column
+            for (DancingLinksNode row = Up; row != this; row = row.Up)
             {
-                for (DancingLinksNode j = i.Left; j != i; j = j.Left)
+                // iterate through all the nodes in the row of this node
+                for (DancingLinksNode column = row.Left; column != row; column = column.Left)
                 {
-                    j.Column.Size++;
-                    j.RelinkUpDown();
+                    // relink the connections to the up and down to this node and increase the size of the column
+                    column.Column.Size++;
+                    column.RelinkUpDown();
                 }
             }
 
+            // relink the connections to the left and right to this column
             RelinkLeftRight();
         }
     }

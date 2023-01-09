@@ -8,8 +8,9 @@ namespace Sudoku_Solver.Solvers
         public static byte[,] Solve(byte[,] sudoku)
         {
             DancingLinksUtils dancingLinksUtils = new DancingLinksUtils(sudoku);
-            byte[,] coverMatrix = dancingLinksUtils.BuildCoverMatrix();
-            DLX dlx = new DLX(coverMatrix);
+            int[] coverArray = dancingLinksUtils.BuildCoverArray();
+            /*byte[,] coverMatrix = dancingLinksUtils.BuildCoverMatrix();*/
+            DLX dlx = new DLX(coverArray, sudoku.GetLength(0));
             Stack<DancingLinksNode> solution = dlx.GetSolution();
             if (solution.Count == 0)
                 return null;

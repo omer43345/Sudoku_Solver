@@ -84,6 +84,41 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
 
             return coverMatrix;
         }
+
+        public int[] BuildCoverArray()
+        {
+            int[] coverArray = new int[_sizeSquared * _sudokuBoardSize * _constraintCount];
+            int coverArrayIndex=0;
+            for (int row = 0; row < _sudokuBoardSize; row++)
+            {
+                for (int column = 0; column < _sudokuBoardSize; column++)
+                {
+                    for (int value = 0; value < _sudokuBoardSize; value++)
+                    {
+                        if (_sudokuBoard[row, column] == 0 || _sudokuBoard[row, column] == value + 1)
+                        {
+                            coverArray[coverArrayIndex]= GetCellColumnIndex(row, column);
+                            coverArrayIndex++;
+                            coverArray[coverArrayIndex] = GetRowColumnIndex(row, value);
+                            coverArrayIndex++;
+                            coverArray[coverArrayIndex] = GetColumnColumnIndex(column, value);
+                            coverArrayIndex++;
+                            coverArray[coverArrayIndex] = GetBoxColumnIndex(row, column, value);
+                            coverArrayIndex++;
+                        }
+                    }
+                }
+            }
+            return coverArray;
+        }
+
+        private void PrintCoverArray(int[] coverArray)
+        {
+            foreach (int col in coverArray)
+            {
+                Console.WriteLine(col);
+            }
+        }
         
         public byte[,] ConvertDlxResultToSudoku(Stack<DancingLinksNode> answer)
         {

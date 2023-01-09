@@ -8,14 +8,14 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         private readonly DancingLinksColumnNode _root;
         private readonly Stack<DancingLinksNode> _solution;
         private readonly int _coverMatrixColCount;
-        private readonly int _coverMatrixRowCount;
+        private readonly int[] _coverArray;
 
-        public DLX(byte[,] coverMatrix)
+        public DLX( int[] coverArray,int sudokuBoardSize)
         {
-            _coverMatrixColCount = coverMatrix.GetLength(1);
-            _coverMatrixRowCount = coverMatrix.GetLength(0);
             _solution = new Stack<DancingLinksNode>();
-            _root = BuildDlxList(coverMatrix);
+            _coverArray = coverArray;
+            _coverMatrixColCount = sudokuBoardSize * sudokuBoardSize * 4;
+            _root = BuildDlxList();
         }
 
         // Create the column nodes and add them to the root node
@@ -29,40 +29,38 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             }
         }
 
-        // Create the row nodes and add them to the column nodes
-        private void CreateRowNodes(List<DancingLinksColumnNode> columnNodes, byte[,] coverMatrix)
+        private void CreateRowNodes2(List<DancingLinksColumnNode> columnNodes)
         {
-            for (int row = 0; row < _coverMatrixRowCount; row++)
+            int numOfRows = _coverArray.Length/4;
+            for (int row = 0; row < numOfRows; row++)
             {
                 DancingLinksNode previousNode = null;
-                for (int column = 0; column < _coverMatrixColCount; column++)
+                for (int constraint = 0; constraint < 4; constraint++)
                 {
-                    if (coverMatrix[row, column] == 1)
+                    int column = _coverArray[row * 4 + constraint];
+                    DancingLinksNode node = new DancingLinksNode(columnNodes[column]);
+                    if (previousNode == null)
                     {
-                        // If in the cover matrix, there is a 1 in this position then add a node to the column
-                        DancingLinksNode node = new DancingLinksNode(columnNodes[column]);
-                        if (previousNode == null)
-                        {
-                            previousNode = node;
-                        }
-
-                        columnNodes[column].Up.LinkDown(node);
-                        previousNode = previousNode.LinkRight(node);
-                        columnNodes[column].Size++;
+                        previousNode = node;
                     }
+                    columnNodes[column].Up.LinkDown(node);
+                    previousNode = previousNode.LinkRight(node);
+                    columnNodes[column].Size++;
+                    
                 }
             }
         }
 
+
         // Build the DLX list from the cover matrix
-        private DancingLinksColumnNode BuildDlxList(byte[,] coverMatrix)
+        private DancingLinksColumnNode BuildDlxList()
         {
             DancingLinksColumnNode rootNode = new DancingLinksColumnNode("root");
             List<DancingLinksColumnNode> columnNodes = new List<DancingLinksColumnNode>();
 
             CreateColumnNode(rootNode, columnNodes);
             // Create the row nodes and add them to the column nodes
-            CreateRowNodes(columnNodes, coverMatrix);
+            CreateRowNodes2(columnNodes);
             rootNode.Size = _coverMatrixColCount;
             return rootNode;
         }

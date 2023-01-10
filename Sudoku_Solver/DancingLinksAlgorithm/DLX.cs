@@ -81,7 +81,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             CreateColumnNode(rootNode, columnNodes);
             // Create the row nodes and add them to the column nodes
             CreateRowNodes(columnNodes);
-            rootNode.Size = _chainedListColCount;
+            rootNode.Size = _coverArray.Length / ConstraintCount;
             return rootNode;
         }
 
@@ -97,6 +97,9 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                 return true;
             // select the column with the smallest size and cover it
             DancingLinksColumnNode bestColumn = SelectBestColumn();
+            // if the column size is 0, than we didn't find a solution
+            if (bestColumn.Size == 0)
+                return false;
             bestColumn.Cover();
             // iterate on every node in the column 
             for (DancingLinksNode row = bestColumn.Down; row != bestColumn; row = row.Down)
@@ -134,7 +137,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         /// <returns>return the column with the least nodes in it</returns>
         private DancingLinksColumnNode SelectBestColumn()
         {
-            bool doneSearching = false; // flag that turn when the size of the column is 1
+            bool doneSearching = false; // flag that turn when we done searching for the best column
             int minSize = int.MaxValue;
             DancingLinksColumnNode bestColumn = null; // the column with the smallest size that we will return
             DancingLinksColumnNode column = (DancingLinksColumnNode)_root.Right;
@@ -149,10 +152,12 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                 }
 
                 // if the size of the column is 1 than this is the minimum column and we finished to search
-                if (minSize == 1)
+                //and if the size is zero the solution is not valid so we finished search
+                if (minSize <= 1)
                 {
                     doneSearching = true;
                 }
+
                 column = (DancingLinksColumnNode)column.Right;
             }
 

@@ -16,8 +16,8 @@ namespace Sudoku_Solver
         /// <exception cref="InvalidSudokuBoardSizeException">raise this exception if the sudoku string size is not valid</exception>
         private static void ValidateSize()
         {
-            int rowAndColumnCount = (int)Math.Sqrt(_sudokuBoardString.Length);
-            int boxSize = (int)Math.Sqrt(rowAndColumnCount);
+            double rowAndColumnCount = Math.Sqrt(_sudokuBoardString.Length);
+            double boxSize = Math.Sqrt(rowAndColumnCount);
             // check if the sudoku string size is valid
             if (boxSize % 1 != 0 || rowAndColumnCount % 1 != 0 || _sudokuBoardString.Length == 0)
             {

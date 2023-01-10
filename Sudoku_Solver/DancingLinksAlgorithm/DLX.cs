@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 
 namespace Sudoku_Solver.DancingLinksAlgorithm
 {
@@ -115,7 +116,6 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
 
                 // If we not found a solution, then backtrack and try the next row
                 row = _solution.Pop();
-                bestColumn = row.Column;
                 // uncover the column to try the next row
                 for (DancingLinksNode column = row.Left; column != row; column = column.Left)
                 {
@@ -134,12 +134,12 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         /// <returns>return the column with the least nodes in it</returns>
         private DancingLinksColumnNode SelectBestColumn()
         {
+            bool doneSearching = false; // flag that turn when the size of the column is 1
             int minSize = int.MaxValue;
             DancingLinksColumnNode bestColumn = null; // the column with the smallest size that we will return
+            DancingLinksColumnNode column = (DancingLinksColumnNode)_root.Right;
             // iterate on every column in the chained list
-            for (DancingLinksColumnNode column = (DancingLinksColumnNode)_root.Right;
-                 column != _root;
-                 column = (DancingLinksColumnNode)column.Right)
+            while (column != _root && !doneSearching)
             {
                 // Update the best column if we found a column with a smaller size(smaller number of nodes in it)
                 if (column.Size < minSize)
@@ -147,6 +147,13 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                     minSize = column.Size;
                     bestColumn = column;
                 }
+
+                // if the size of the column is 1 than this is the minimum column and we finished to search
+                if (minSize == 1)
+                {
+                    doneSearching = true;
+                }
+                column = (DancingLinksColumnNode)column.Right;
             }
 
             return bestColumn;

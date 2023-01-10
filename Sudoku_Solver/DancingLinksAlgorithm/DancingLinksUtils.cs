@@ -7,7 +7,6 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
     {
         private readonly byte _sudokuBoardSize; // sudoku board size
         private readonly byte _sudokuBoxSize; // sudoku box size
-        private readonly byte _constraintCount; // number of constraints, 4 for sudoku (row, column, box, value)
         private readonly int _sizeSquared; // sudoku board size squared
         private readonly byte[,] _sudokuBoard; // sudoku board
 
@@ -17,7 +16,6 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
             _sudokuBoardSize = (byte)sudokuBoard.GetLength(0);
             _sudokuBoxSize = (byte)Math.Sqrt(_sudokuBoardSize);
             _sizeSquared = _sudokuBoardSize * _sudokuBoardSize;
-            _constraintCount = 4;
         }
 
 
@@ -53,10 +51,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         /// <returns> returns cover array that contain all the nodes in the chained list</returns>
         public int[] BuildCoverArray()
         {
-            int[] coverArray =
-                new int[_sizeSquared * _sudokuBoardSize *
-                        _constraintCount]; // initialize cover array by the size rows of the chained list * number of constraints
-            int coverArrayIndex = 0;
+            List<int> coverArrayList = new List<int>();
             for (int row = 0; row < _sudokuBoardSize; row++)
             {
                 for (int column = 0; column < _sudokuBoardSize; column++)
@@ -66,23 +61,19 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                         if (_sudokuBoard[row, column] == 0 || _sudokuBoard[row, column] == value + 1)
                         {
                             // add the index of the column in the chained list for the Cell Constraint to the cover array
-                            coverArray[coverArrayIndex] = GetCellColumnIndex(row, column);
-                            coverArrayIndex++;
+                            coverArrayList.Add(GetCellColumnIndex(row, column));
                             // add the index of the column in the chained list for the Row Constraint to the cover array
-                            coverArray[coverArrayIndex] = GetRowColumnIndex(row, value);
-                            coverArrayIndex++;
+                            coverArrayList.Add(GetRowColumnIndex(row, value));
                             // add the index of the column in the chained list for the Column Constraint to the cover array
-                            coverArray[coverArrayIndex] = GetColumnColumnIndex(column, value);
-                            coverArrayIndex++;
+                            coverArrayList.Add(GetColumnColumnIndex(column, value));
                             // add the index of the column in the chained list for the Box Constraint to the cover array
-                            coverArray[coverArrayIndex] = GetBoxColumnIndex(row, column, value);
-                            coverArrayIndex++;
+                            coverArrayList.Add(GetBoxColumnIndex(row, column, value));
                         }
                     }
                 }
             }
 
-            return coverArray;
+            return coverArrayList.ToArray();
         }
 
         /// <summary>

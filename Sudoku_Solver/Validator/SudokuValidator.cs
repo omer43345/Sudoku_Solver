@@ -53,7 +53,7 @@ namespace Sudoku_Solver.Validator
         /// <param name="value">the duplicate value</param>
         /// <exception cref="DuplicateValueInRowException"></exception>
         /// <exception cref="DuplicateValueInColumnException"></exception>
-        /// <exception cref="DuplicateValueInGridException"></exception>
+        /// <exception cref="DuplicateValueInBoxException"></exception>
         private static void CheckWhereDuplicateValueIsFound(int row, int col, byte value)
         {
             long rowCandidate = _bitWiseFunctions.GetRowCandidates(row);
@@ -71,7 +71,7 @@ namespace Sudoku_Solver.Validator
 
             if (!_bitWiseFunctions.CanPlace(boxCandidate, value))
             {
-                throw new DuplicateValueInGridException(_bitWiseFunctions.GetBox(row, col) + 1, (char)(value + '0'));
+                throw new DuplicateValueInBoxException(_bitWiseFunctions.GetBox(row, col) + 1, (char)(value + '0'));
             }
         }
     }

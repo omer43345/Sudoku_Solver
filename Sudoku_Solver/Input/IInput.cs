@@ -1,10 +1,11 @@
 ﻿namespace Sudoku_Solver.Input
 {
+    // Interface for input classes
     public interface IInput
     {
-        void ReadFromFile();
-        void ReadFromConsole();
+        void ReadFromFile(); // Read from file
+        void ReadFromConsole();// Read from console
 
-        string GetInput();
+        string GetInput();// Return the input
     }
 }

@@ -1,5 +1,8 @@
 ﻿using System;
 using Sudoku_Solver.Input;
+using Sudoku_Solver.Menu;
+using Sudoku_Solver.SudokuBoardConvertors;
+using Sudoku_Solver.Validator;
 
 namespace Sudoku_Solver
 {
@@ -10,9 +13,9 @@ namespace Sudoku_Solver
             StartProgram();
         }
 
+        // The method that starts the program 
         public static void StartProgram()
         {
-            
             byte[,] board = null;
 
             try
@@ -30,20 +33,20 @@ namespace Sudoku_Solver
             }
 
             DateTime start = DateTime.Now;
-            byte[,] solvedBoard = Solver.Solve(board);
+            string solvedBoard = Solver.Solve(board);
             TimeSpan time = DateTime.Now - start;
-            if (solvedBoard == null)
+            MenuHandler.PrintSudokuBoard(solvedBoard);
+            if (solvedBoard.Contains("0"))
             {
-                MenuHandler.PrintSudokuBoard(board);
                 Console.WriteLine("No solution found in " + time.TotalMilliseconds + " ms");
             }
             else
             {
-                MenuHandler.PrintSudokuBoard(solvedBoard);
                 Console.WriteLine("\nSolved in " + time.TotalMilliseconds + "ms\n");
-                SudokuValidator.Validate(solvedBoard);
             }
 
+            SudokuValidator.Validate(SudokuBoardBuilder.BoardBuilder(solvedBoard));
+            Console.WriteLine("\n");
             StartProgram();
         }
     }

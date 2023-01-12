@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
+﻿using System.Collections.Generic;
 
 namespace Sudoku_Solver.DancingLinksAlgorithm
 {
+    /*
+     * This class used to build the DLX chained list and to solve the exact cover problem using the search function
+     */
     public class DLX
     {
         private readonly DancingLinksColumnNode _root; // root of the chained list
@@ -17,7 +18,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
 
         public DLX(int[] coverArray, int sudokuBoardSize)
         {
-            _solution = new Stack<DancingLinksNode>();
+            _solution = new Stack<DancingLinksNode>(sudokuBoardSize * sudokuBoardSize);
             _coverArray = coverArray;
             _chainedListColCount = sudokuBoardSize * sudokuBoardSize * ConstraintCount;
             _root = BuildDlxList();
@@ -97,10 +98,8 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                 return true;
             // select the column with the smallest size and cover it
             DancingLinksColumnNode bestColumn = SelectBestColumn();
-            // if the column size is 0, than we didn't find a solution
-            if (bestColumn.Size == 0)
-                return false;
             bestColumn.Cover();
+
             // iterate on every node in the column 
             for (DancingLinksNode row = bestColumn.Down; row != bestColumn; row = row.Down)
             {
@@ -110,6 +109,7 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
                 {
                     column.Column.Cover();
                 }
+
 
                 // if we found a solution, return true
                 if (Search())
@@ -137,25 +137,24 @@ namespace Sudoku_Solver.DancingLinksAlgorithm
         /// <returns>return the column with the least nodes in it</returns>
         private DancingLinksColumnNode SelectBestColumn()
         {
-            bool doneSearching = false; // flag that turn when we done searching for the best column
             int minSize = int.MaxValue;
             DancingLinksColumnNode bestColumn = null; // the column with the smallest size that we will return
             DancingLinksColumnNode column = (DancingLinksColumnNode)_root.Right;
             // iterate on every column in the chained list
-            while (column != _root && !doneSearching)
+            while (column != _root)
             {
+                // if the size of the column is 1 than this is the minimum column and we finished to search
+                //and if the size is zero the solution is not valid so we finished search
+                if (column.Size <= 1)
+                {
+                    return column;
+                }
+
                 // Update the best column if we found a column with a smaller size(smaller number of nodes in it)
                 if (column.Size < minSize)
                 {
                     minSize = column.Size;
                     bestColumn = column;
-                }
-
-                // if the size of the column is 1 than this is the minimum column and we finished to search
-                //and if the size is zero the solution is not valid so we finished search
-                if (minSize <= 1)
-                {
-                    doneSearching = true;
                 }
 
                 column = (DancingLinksColumnNode)column.Right;

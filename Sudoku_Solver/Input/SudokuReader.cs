@@ -44,7 +44,7 @@ namespace Sudoku_Solver.Input
             }
             catch (SystemException e)
             {
-                throw new SystemException(MenuItems.FILE_ERROR);
+                throw new SystemException(e.Message);
             }
         }
 

@@ -2,7 +2,7 @@
 using System;
 
 
-namespace Sudoku_Solver
+namespace Sudoku_Solver.SudokuBoardConvertors
 {
     // This class creates a Sudoku board from a string of characters representing the board.
     public static class SudokuBoardBuilder

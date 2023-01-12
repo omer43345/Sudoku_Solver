@@ -63,6 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\InvalidChoiceException.cs" />
+    <Compile Include="SudokuBoardConvertors\ConvertBoardToString.cs" />
     <Compile Include="DancingLinksAlgorithm\DancingLinksColumnNode.cs" />
     <Compile Include="DancingLinksAlgorithm\DancingLinksNode.cs" />
     <Compile Include="DancingLinksAlgorithm\DancingLinksUtils.cs" />
@@ -74,8 +76,8 @@
     <Compile Include="Exceptions\InvalidSudokuBoardSizeException.cs" />
     <Compile Include="Input\IInput.cs" />
     <Compile Include="Input\SudokuReader.cs" />
-    <Compile Include="MenuHandler.cs" />
-    <Compile Include="MenuItems.cs" />
+    <Compile Include="Menu\MenuHandler.cs" />
+    <Compile Include="Menu\MenuItems.cs" />
     <Compile Include="Output\BoardWriter.cs" />
     <Compile Include="Output\IOutput.cs" />
     <Compile Include="Output\SudokuBoardPrinter.cs" />
@@ -83,12 +85,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Solver.cs" />
     <Compile Include="Solvers\DancingLinksSolver.cs" />
-    <Compile Include="SudokuBitWiseFunctions.cs" />
-    <Compile Include="SudokuBoardBuilder.cs" />
-    <Compile Include="SudokuValidator.cs" />
+    <Compile Include="SudokuFunctions\SudokuBitWiseFunctions.cs" />
+    <Compile Include="SudokuBoardConvertors\SudokuBoardBuilder.cs" />
+    <Compile Include="Validator\SudokuValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

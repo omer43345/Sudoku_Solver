@@ -1,6 +1,7 @@
 ﻿using Sudoku_Solver.Exceptions;
+using Sudoku_Solver.SudokuFunctions;
 
-namespace Sudoku_Solver
+namespace Sudoku_Solver.Validator
 {
     /*
     * This class is used to validate a Sudoku board.

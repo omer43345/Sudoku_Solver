@@ -4,10 +4,9 @@ namespace Sudoku_Solver
 {
     public static class Solver
     {
-        public static byte[,] Solve(byte[,] sudoku)
+        // The method that solves the sudoku puzzle
+        public static string Solve(byte[,] sudoku)
         {
-            /*var solver = new BitWiseSudokuSolver(sudoku);
-            solver.BitWiseSolver();*/
             return DancingLinksSolver.Solve(sudoku);
         }
     }

@@ -1,10 +1,9 @@
-﻿using System;
-
-namespace Sudoku_Solver.Output
+﻿namespace Sudoku_Solver.Output
 {
+    // Interface for output classes
     public interface IOutput
     {
-        void WriteToConsole(Object obj);
-        void WriteToFile(Object obj, string path);
+        void WriteToConsole(); // Write to console
+        void WriteToFile(); // Write to file
     }
 }

@@ -2,32 +2,42 @@
 
 namespace Sudoku_Solver.Output
 {
+    /*
+     * This class contains ways to print the sudoku
+     */
     public static class SudokuBoardPrinter
     {
-        // Print the board to the console window in a nice format
-        public static void PrintBoard(byte[,] board)
+        // Print the board in a nice format
+        public static void PrintBoard(string board)
         {
-            var size = board.GetLength(0);
+            var size = (int)Math.Sqrt(board.Length);
             var sqrt = (int)Math.Sqrt(size);
-            for (int i = 0; i < size; i++)
+
+            for (int row = 0; row < size; row++)
             {
-                if (i % sqrt == 0 && i != 0)
+                if (row % sqrt == 0 && row != 0)
                 {
                     Console.WriteLine(new string('-', size * 3 + sqrt + 1));
                 }
 
-                for (var j = 0; j < size; j++)
+                for (int column = 0; column < size; column++)
                 {
-                    if (j % sqrt == 0)
+                    if (column % sqrt == 0)
                     {
                         Console.Write("|");
                     }
 
-                    Console.Write(" " + (Char)(board[i, j] + '0') + " ");
+                    Console.Write(" " + (board[row * size + column]) + " ");
                 }
 
                 Console.WriteLine("|");
             }
+        }
+
+        // Print the board as a string
+        public static void PrintBoardString(string board)
+        {
+            Console.WriteLine(board);
         }
     }
 }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Sudoku_Solver.DancingLinksAlgorithm
 {
+    /*
+     * This class is used to build the cover array for the dancing links algorithm and also to convert the exact cover result to a sudoku grid
+     */
     public class DancingLinksUtils
     {
         private readonly byte _sudokuBoardSize; // sudoku board size

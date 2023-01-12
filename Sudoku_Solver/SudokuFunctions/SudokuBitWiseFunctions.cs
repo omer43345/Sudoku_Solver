@@ -1,7 +1,10 @@
 ﻿using System;
 
-namespace Sudoku_Solver
+namespace Sudoku_Solver.SudokuFunctions
 {
+    /*
+     * This class contain bitwise functions to do on the sudoku
+     */
     public class SudokuBitWiseFunctions
     {
         private readonly long[] _rowsCandidates; // rows candidates

@@ -9,8 +9,8 @@ namespace Sudoku_Solver.Input
      */
     public class SudokuReader : IInput
     {
-        private static SudokuReader _instance = null;
-        private string _boardString;
+        private static SudokuReader _instance = null; // insance of the class 
+        private string _boardString; // string of the board
 
         public SudokuReader()
         {

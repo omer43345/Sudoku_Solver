@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sudoku_Solver", "Sudoku_Sol
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4F8E80EB-AD50-4A61-BA28-35EF95EFBBD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuTests", "SudokuTests\SudokuTests.csproj", "{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,14 @@ Global
 		{1907C071-94D5-4FFE-BF36-78AC93B8F373}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1907C071-94D5-4FFE-BF36-78AC93B8F373}.Release|x64.ActiveCfg = Release|x64
 		{1907C071-94D5-4FFE-BF36-78AC93B8F373}.Release|x64.Build.0 = Release|x64
+		{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}.Debug|x64.Build.0 = Debug|Any CPU
+		{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}.Release|x64.ActiveCfg = Release|Any CPU
+		{9796FCEE-2A38-4B49-92CA-89D2068E6B6D}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

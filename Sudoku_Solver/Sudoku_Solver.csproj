@@ -71,7 +71,7 @@
     <Compile Include="DancingLinksAlgorithm\DLX.cs" />
     <Compile Include="Exceptions\AllowedValuesException.cs" />
     <Compile Include="Exceptions\DuplicateValueInColumnException.cs" />
-    <Compile Include="Exceptions\DuplicateValueInGridException.cs" />
+    <Compile Include="Exceptions\DuplicateValueInBoxException.cs" />
     <Compile Include="Exceptions\DuplicateValueInRowException.cs" />
     <Compile Include="Exceptions\InvalidSudokuBoardSizeException.cs" />
     <Compile Include="Input\IInput.cs" />
@@ -92,6 +92,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Solutions\Sudoku_Solutions.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

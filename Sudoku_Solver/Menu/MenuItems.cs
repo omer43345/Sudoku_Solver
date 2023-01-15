@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Sudoku_Solver.Input;
 using Sudoku_Solver.Output;
 
@@ -17,7 +18,10 @@ namespace Sudoku_Solver.Menu
 
         private const string Exit = "Exiting the program..."; // the exit message
 
-        public const string SolutionPath = "Suodku_Solution.txt"; // the path to the solution file
+
+        private static string currentPath = AppDomain.CurrentDomain.BaseDirectory;
+        private static string newFilePath = Path.Combine(Path.GetDirectoryName(currentPath), "..","..","Solutions", "Sudoku_Solutions.txt");
+        public static string SolutionPath = newFilePath; // the path to the solution file
 
         // This dictionary contains the output messages for each choice
         public static readonly Dictionary<int, string> Output = new Dictionary<int, string>

@@ -17,13 +17,17 @@ namespace Sudoku_Solver.Menu
             Console.Write(MenuItems.Menu);
             try
             {
-                _choice = Convert.ToInt32(Console.ReadLine());
+                _choice = int.Parse(Console.ReadLine() ?? string.Empty);
             }
-            catch
+            catch(FormatException) // catch if we entered not a number
             {
                 throw new InvalidChoiceException();
             }
-            if (!(_choice < MenuItems.Output.Count && _choice > 0))
+            catch (OverflowException) // catch if the number too big for int32
+            {
+                throw new InvalidChoiceException();
+            }
+            if (!(_choice <= MenuItems.Output.Count && _choice > 0))
             {
                 throw new InvalidChoiceException();
             }

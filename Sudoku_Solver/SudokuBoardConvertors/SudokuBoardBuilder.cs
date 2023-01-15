@@ -9,6 +9,7 @@ namespace Sudoku_Solver.SudokuBoardConvertors
     {
         private static string _sudokuBoardString;
         private static byte[,] _sudokuBoard;
+        private const int MaxBoardSize = 64;
 
         /// <summary>
         /// This method validate the sudoku string size
@@ -19,10 +20,11 @@ namespace Sudoku_Solver.SudokuBoardConvertors
             double rowAndColumnCount = Math.Sqrt(_sudokuBoardString.Length);
             double boxSize = Math.Sqrt(rowAndColumnCount);
             // check if the sudoku string size is valid
-            if (boxSize % 1 != 0 || rowAndColumnCount % 1 != 0 || _sudokuBoardString.Length == 0)
+            if (boxSize % 1 != 0 || rowAndColumnCount % 1 != 0 || _sudokuBoardString.Length == 0 || rowAndColumnCount > MaxBoardSize)
             {
                 throw new InvalidSudokuBoardSizeException(_sudokuBoardString.Length);
             }
+
         }
 
         /// <summary>

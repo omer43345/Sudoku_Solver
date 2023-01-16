@@ -8,8 +8,9 @@ namespace Sudoku_Solver.Menu
 {
     public static class MenuItems
     {
-        public const string Menu = "Welcome to Sudoku Solver by Omer Hadad\n" +
-                                   "How do you want to write a sudoku, in the console you want to use a file?\n" +
+        public const string WelcomeMessage = "Welcome to my Sudoku Solver!!";
+
+        public const string Menu = "How do you want to write a sudoku, in the console you want to use a file?\n" +
                                    "1. Console\n" + "2. File\n" + "3. Exit\n" + "Your choice: "; // The menu
 
         private const string Console = "Write the sudoku in the console. Use 0 for empty fields."; // console message
@@ -19,9 +20,9 @@ namespace Sudoku_Solver.Menu
         private const string Exit = "Exiting the program..."; // the exit message
 
 
-        private static string currentPath = AppDomain.CurrentDomain.BaseDirectory;
-        private static string newFilePath = Path.Combine(Path.GetDirectoryName(currentPath), "..","..","Solutions", "Sudoku_Solutions.txt");
-        public static string SolutionPath = newFilePath; // the path to the solution file
+        private static readonly string CurrentPath = AppDomain.CurrentDomain.BaseDirectory;
+        private static readonly string NewFilePath = Path.Combine(Path.GetDirectoryName(CurrentPath), "..","..","Solutions", "Sudoku_Solutions.txt");
+        public static string SolutionPath = NewFilePath; // the path to the solution file
 
         // This dictionary contains the output messages for each choice
         public static readonly Dictionary<int, string> Output = new Dictionary<int, string>

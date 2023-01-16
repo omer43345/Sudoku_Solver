@@ -12,6 +12,7 @@ namespace Sudoku_Solver
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(MenuItems.WelcomeMessage);
             StartProgram();
         }
 
@@ -39,6 +40,7 @@ namespace Sudoku_Solver
             Console.WriteLine("\n");
             StartProgram();
         }
+
         /// <summary>
         /// Validating the board string from the user and build the board
         /// </summary>
@@ -57,7 +59,7 @@ namespace Sudoku_Solver
             }
             catch (SystemException e)
             {
-                errorMessage= e.Message;
+                errorMessage = e.Message;
             }
             catch (InvalidChoiceException e)
             {
@@ -83,11 +85,13 @@ namespace Sudoku_Solver
             {
                 errorMessage = e.Message;
             }
+
             if (errorMessage != "")
             {
-                Console.WriteLine("\n"+errorMessage+"\n");
+                Console.WriteLine("\n" + errorMessage + "\n");
                 StartProgram();
             }
+
             return board;
         }
     }
